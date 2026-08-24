@@ -1,0 +1,15 @@
+__pycache__/
+*.pyc
+.venv/
+venv/
+.env
+
+# Large simulation files
+*.npz
+
+# Temporary files
+*.tmp
+*.log
+
+# IDE files
+.vscode/

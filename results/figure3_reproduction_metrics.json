@@ -1,0 +1,22 @@
+{
+  "network_size": 5229,
+  "locomotor_frequency_hz": 5.128205128205129,
+  "cycle_period_ms": 195.0,
+  "traveling_wave_velocity_mm_s": -0.00420519463050272,
+  "traveling_wave_r_squared": 0.014167619668499108,
+  "pca_variance_explained_top3": 0.04673477798635874,
+  "pca_variance_pc1": 0.01741337216109833,
+  "pca_variance_pc2": 0.014999255785400524,
+  "pca_variance_pc3": 0.014322150039859894,
+  "population_phases_deg": {
+    "V1": 358.44827586206895,
+    "V2a-1": 0.0,
+    "V2a-2": 0.0,
+    "V2b": 346.8103448275862,
+    "V0d": 340.60344827586204,
+    "V0v": 20.948275862068964,
+    "dI6": 17.068965517241377,
+    "V3": 7.758620689655173,
+    "MN": 164.48275862068962
+  }
+}

@@ -1,0 +1,22 @@
+[project]
+name = "ibrain-spinal-projectome"
+version = "0.1.0"
+description = "Reproduction of Komi et al. Nature Communications 2026 Spinal Projectome model"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "numpy>=1.24.0",
+    "scipy>=1.10.0",
+    "pandas>=2.0.0",
+    "matplotlib>=3.7.0",
+    "scikit-learn>=1.2.0",
+    "openpyxl>=3.1.0",
+    "h5py>=3.8.0",
+]
+
+[tool.pytest.ini_options]
+pythonpath = ["src", "."]
+testpaths = ["tests"]
+
+[tool.pyright]
+extraPaths = ["src", "."]

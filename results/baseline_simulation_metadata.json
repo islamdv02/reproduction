@@ -1,0 +1,22 @@
+{
+  "n_neurons": 5229,
+  "config": {
+    "t_steps": 10000,
+    "dt_ms": 1.0,
+    "tau_V_ms": 50.0,
+    "I_e": 30.0,
+    "noise_ampl": 0.5,
+    "V_init_mean": -70.0,
+    "V_init_std": 3.0,
+    "seed": 5,
+    "adaptation": false,
+    "Ca": 1.25,
+    "tau_a_adapting_ms": 3000.0,
+    "tau_a_nonadapting_ms": 10000.0
+  },
+  "dominant_frequency_hz": 0.9765625,
+  "peak_power": 7.978643366717198e-07,
+  "amplitude_hz": 0.009713935445788024,
+  "mean_rate_hz": 28.69597736595707,
+  "std_rate_hz": 0.001417296646232561
+}

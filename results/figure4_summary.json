@@ -1,0 +1,44 @@
+{
+  "n_neurons": 5229,
+  "gaits": {
+    "walk": {
+      "requested_gait": "walk",
+      "detected_gait": "Transition",
+      "I_e_pA": 20.0,
+      "serotonin_multiplier": 1.0,
+      "frequency_hz": 0.9765625,
+      "rms_amplitude_hz": 0.04664822737453901,
+      "lr_phase_deg": 115.29411764705881,
+      "fe_phase_deg": 303.5294117647059
+    },
+    "trot": {
+      "requested_gait": "trot",
+      "detected_gait": "Transition",
+      "I_e_pA": 30.0,
+      "serotonin_multiplier": 1.0,
+      "frequency_hz": 0.9765625,
+      "rms_amplitude_hz": 0.03933948800539046,
+      "lr_phase_deg": 112.94117647058823,
+      "fe_phase_deg": 232.94117647058823
+    },
+    "bound": {
+      "requested_gait": "bound",
+      "detected_gait": "Walk",
+      "I_e_pA": 45.0,
+      "serotonin_multiplier": 1.75,
+      "frequency_hz": 1.46484375,
+      "rms_amplitude_hz": 0.016799389916125573,
+      "lr_phase_deg": 216.47058823529412,
+      "fe_phase_deg": 183.52941176470588
+    }
+  },
+  "generated_figures": {
+    "panel_4a": "C:\\Users\\LAB\\Documents\\GitHub\\ibrain\\plots\\06_fig4a_tanh_gain_curves.png",
+    "panel_4b": "C:\\Users\\LAB\\Documents\\GitHub\\ibrain\\plots\\07_fig4b_descending_tract_maps.png",
+    "panel_4c": "C:\\Users\\LAB\\Documents\\GitHub\\ibrain\\plots\\08_fig4c_descending_drive_ramp.png",
+    "panel_4d": "C:\\Users\\LAB\\Documents\\GitHub\\ibrain\\plots\\09_fig4d_gait_patterns_emg.png",
+    "panel_4e": "C:\\Users\\LAB\\Documents\\GitHub\\ibrain\\plots\\10_fig4e_polar_phase_transitions.png",
+    "panel_4fg": "C:\\Users\\LAB\\Documents\\GitHub\\ibrain\\plots\\11_fig4fg_frequency_amplitude_quantification.png",
+    "figure4_complete": "C:\\Users\\LAB\\Documents\\GitHub\\ibrain\\plots\\12_figure4_complete.png"
+  }
+}
