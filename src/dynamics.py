@@ -32,34 +32,9 @@ def tanh_activation(
     fm_arr = np.asarray(f_max, dtype=np.float64)
 
     delta_v = v_arr - th_arr
-    f = np.zeros_like(v_arr, dtype=np.float64)
-
-    # Negative regime: delta_v <= 0
-    neg_mask = (delta_v <= 0.0)
-    if np.any(neg_mask):
-        th_neg = th_arr if th_arr.ndim == 0 else th_arr[neg_mask]
-        g_neg = g_arr if g_arr.ndim == 0 else g_arr[neg_mask]
-        dv_neg = delta_v if delta_v.ndim == 0 else delta_v[neg_mask]
-        f_neg = th_neg * np.tanh(g_neg * dv_neg / np.maximum(th_neg, 1e-12))
-        if f.ndim == 0:
-            f = f_neg
-        else:
-            f[neg_mask] = f_neg
-
-    # Positive regime: delta_v > 0
-    pos_mask = (delta_v > 0.0)
-    if np.any(pos_mask):
-        fm_pos = fm_arr if fm_arr.ndim == 0 else fm_arr[pos_mask]
-        g_pos = g_arr if g_arr.ndim == 0 else g_arr[pos_mask]
-        dv_pos = delta_v if delta_v.ndim == 0 else delta_v[pos_mask]
-        f_pos = fm_pos * np.tanh(g_pos * dv_pos / np.maximum(fm_pos, 1e-12))
-        if f.ndim == 0:
-            f = f_pos
-        else:
-            f[pos_mask] = f_pos
-
-    rates = f + th_arr
-    out = np.maximum(rates, 0.0)
+    scale = np.where(delta_v <= 0.0, th_arr, fm_arr)
+    f = scale * np.tanh(g_arr * delta_v / np.maximum(scale, 1e-12))
+    out = np.maximum(0.0, f + th_arr)
     return float(out) if is_scalar else out
 
 

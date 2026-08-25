@@ -221,3 +221,165 @@ def run_figure5_perturbation_suite(
         suite_results[cond] = (res, metrics, net_active)
 
     return suite_results
+
+
+def create_transverse_lesion(
+    network: Network,
+    z_pos_um: float = 4000.0,
+    filter_type: Optional[str] = None,
+    filter_latera: Optional[int] = None
+) -> Network:
+    """
+    Creates a structurally lesioned copy of the network by severing connections
+    crossing a transverse plane at z_pos_um, matching BergLab's @Network/MakeLesion.m.
+    
+    A pair (i, j) is severed if one neuron is rostral to z_pos_um and the other is caudal:
+      crossing = (z_i < z_pos and z_j > z_pos) or (z_i > z_pos and z_j < z_pos)
+      W[crossing] = 0
+    """
+    lesioned_net = copy.deepcopy(network)
+    N = lesioned_net.n_neurons
+    pos_z = lesioned_net.pos_z
+
+    filter_mask = np.ones(N, dtype=bool)
+    if filter_type is not None:
+        filter_mask &= (lesioned_net.types == filter_type)
+    if filter_latera is not None:
+        filter_mask &= (lesioned_net.latera == filter_latera)
+
+    source = (pos_z < z_pos_um) & filter_mask
+    target = (pos_z > z_pos_um) & filter_mask
+
+    # Outer product boolean crossing mask: presynaptic i, postsynaptic j
+    crossing = (source[:, None] & target[None, :]) | (target[:, None] & source[None, :])
+    lesion_mask = crossing & (lesioned_net.conn_mat != 0.0)
+
+    lesioned_net.conn_mat[lesion_mask] = 0.0
+    lesioned_net.sparsity = float(np.count_nonzero(lesioned_net.conn_mat == 0) / lesioned_net.conn_mat.size)
+    setattr(lesioned_net, 'lesion_mask', lesion_mask)
+    setattr(lesioned_net, 'z_lesion_um', z_pos_um)
+    setattr(lesioned_net, 'n_lesioned_synapses', int(np.count_nonzero(lesion_mask)))
+
+    return lesioned_net
+
+
+def regrow_population_connections(
+    lesioned_network: Network,
+    target_population: str,
+    latera: Optional[int] = None,
+    rebalance: bool = False
+) -> Network:
+    """
+    Selectively restores synaptic connections for a specified neuronal population
+    across the lesion gap, matching BergLab's @Network/RegrowPop.m.
+    
+    Restored synaptic weights are set to the mean nonzero absolute weight of the target population:
+      W[restore] = mean(|nonzeros(W[:, target])|) * sign(transmitter)
+    """
+    regrown_net = copy.deepcopy(lesioned_network)
+    if not hasattr(regrown_net, 'lesion_mask'):
+        raise ValueError("Network does not have a lesion_mask. Call create_transverse_lesion first.")
+
+    lesion_mask = regrown_net.lesion_mask
+    pop_mask = (regrown_net.types == target_population)
+    
+    # Identify connections in lesion mask originating from target_population
+    # Note: In connectivity matrix W, W[post, pre] or W[target, source]
+    # In BergLab MATLAB: restore = obj.Lesion & (Latera') & (obj.Types == pop)'
+    # where presynaptic columns match pop
+    restore = lesion_mask & pop_mask[None, :]
+    if latera is not None:
+        lat_mask = (regrown_net.latera == latera)
+        restore = restore & lat_mask[None, :]
+
+    # Calculate mean nonzero weight for the target population
+    pop_weights = regrown_net.conn_mat[:, pop_mask]
+    nonzero_w = pop_weights[pop_weights != 0.0]
+    if len(nonzero_w) > 0:
+        mean_weight = float(np.mean(np.abs(nonzero_w)))
+    else:
+        mean_weight = 0.5 * getattr(regrown_net.parameters, 'gc', 0.5)
+
+    excitatory_pops = {'V2a-2', 'V2a-1', 'V0v', 'V3', 'MN'}
+    trans_val = 1.0 if target_population in excitatory_pops else -1.0
+    regrown_net.conn_mat[restore] = mean_weight * trans_val
+    regrown_net.lesion_mask[restore] = False
+
+    if rebalance:
+        from connectivity import balance_connectivity
+        regrown_net.conn_mat = balance_connectivity(regrown_net.conn_mat, regrown_net.latera)
+
+    regrown_net.sparsity = float(np.count_nonzero(regrown_net.conn_mat == 0) / regrown_net.conn_mat.size)
+    setattr(regrown_net, 'regrown_population', target_population)
+    setattr(regrown_net, 'n_restored_synapses', int(np.count_nonzero(restore)))
+
+    return regrown_net
+
+
+def simulate_lesion_and_regrowth_suite(
+    network: Network,
+    z_pos_um: float = 4000.0,
+    regrowth_populations: Optional[List[str]] = None,
+    t_steps: int = 10000,
+    I_e: float = 30.0,
+    seed: int = 42
+) -> Dict[str, Tuple[SimulationResult, Dict[str, Any], Network]]:
+    """
+    Executes simulations for Control, Transverse Lesion, and Targeted Regrowth conditions.
+    """
+    if regrowth_populations is None:
+        regrowth_populations = ['V2a-2', 'V1', 'V0v', 'V3']
+
+    results = {}
+
+    # 1. Control baseline
+    cfg = SimulationConfig(t_steps=t_steps, I_e=I_e, noise_ampl=0.5, seed=seed)
+    sim = Simulator(cfg)
+    ctrl_res = sim.run(network, verbose=False)
+    ctrl_spec = compute_spectral_analysis(ctrl_res.rates, dt=0.001, t_start_ms=2000)
+    ctrl_phases = compute_coordination_phases(network, ctrl_res.rates, dt_ms=1.0, t_start_ms=2000)
+    results['control'] = (ctrl_res, {
+        'condition': 'control',
+        'frequency_hz': float(ctrl_spec['dominant_frequency_hz']),
+        'rms_amplitude_hz': float(np.mean(np.sqrt(np.mean((ctrl_res.rates[2000:] - np.mean(ctrl_res.rates[2000:], axis=0))**2, axis=0)))),
+        'lr_phase_deg': float(ctrl_phases.get('lr_phase_deg', 180.0)),
+        'fe_phase_deg': float(ctrl_phases.get('fe_phase_deg', 180.0)),
+        'sparsity': network.sparsity
+    }, network)
+
+    # 2. Transverse Lesion
+    lesioned_net = create_transverse_lesion(network, z_pos_um=z_pos_um)
+    lesion_res = sim.run(lesioned_net, verbose=False)
+    lesion_spec = compute_spectral_analysis(lesion_res.rates, dt=0.001, t_start_ms=2000)
+    lesion_phases = compute_coordination_phases(lesioned_net, lesion_res.rates, dt_ms=1.0, t_start_ms=2000)
+    results['lesion'] = (lesion_res, {
+        'condition': 'lesion',
+        'z_lesion_um': z_pos_um,
+        'n_lesioned': lesioned_net.n_lesioned_synapses,
+        'frequency_hz': float(lesion_spec['dominant_frequency_hz']),
+        'rms_amplitude_hz': float(np.mean(np.sqrt(np.mean((lesion_res.rates[2000:] - np.mean(lesion_res.rates[2000:], axis=0))**2, axis=0)))),
+        'lr_phase_deg': float(lesion_phases.get('lr_phase_deg', 0.0)),
+        'fe_phase_deg': float(lesion_phases.get('fe_phase_deg', 0.0)),
+        'sparsity': lesioned_net.sparsity
+    }, lesioned_net)
+
+    # 3. Regrowth conditions
+    for pop in regrowth_populations:
+        regrown_net = regrow_population_connections(lesioned_net, target_population=pop)
+        regrowth_res = sim.run(regrown_net, verbose=False)
+        regrowth_spec = compute_spectral_analysis(regrowth_res.rates, dt=0.001, t_start_ms=2000)
+        regrowth_phases = compute_coordination_phases(regrown_net, regrowth_res.rates, dt_ms=1.0, t_start_ms=2000)
+        cond_name = f"regrowth_{pop}"
+        results[cond_name] = (regrowth_res, {
+            'condition': cond_name,
+            'target_population': pop,
+            'n_restored': regrown_net.n_restored_synapses,
+            'frequency_hz': float(regrowth_spec['dominant_frequency_hz']),
+            'rms_amplitude_hz': float(np.mean(np.sqrt(np.mean((regrowth_res.rates[2000:] - np.mean(regrowth_res.rates[2000:], axis=0))**2, axis=0)))),
+            'lr_phase_deg': float(regrowth_phases.get('lr_phase_deg', 180.0)),
+            'fe_phase_deg': float(regrowth_phases.get('fe_phase_deg', 180.0)),
+            'sparsity': regrown_net.sparsity
+        }, regrown_net)
+
+    return results
+
