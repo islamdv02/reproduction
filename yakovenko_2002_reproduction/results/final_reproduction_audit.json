@@ -1,0 +1,85 @@
+{
+  "paper": {
+    "authors": "Yakovenko, S., Mushahwar, V., VanderHorst, V., Holstege, G., Prochazka, A.",
+    "journal": "Journal of Neurophysiology",
+    "year": 2002,
+    "volume": "87",
+    "pages": "1542-1553",
+    "doi": "10.1152/jn.00479.2001",
+    "title": "Spatiotemporal Activation of Lumbosacral Motoneurons in the Locomotor Step Cycle"
+  },
+  "audit_summary": {
+    "date": "2026-08-26",
+    "total_figures": 5,
+    "total_tests": 30,
+    "tests_passed": 30,
+    "tests_failed": 0,
+    "pass_rate_percent": 100.0,
+    "final_verdict": "A. Faithful reproduction"
+  },
+  "table1_verification": {
+    "extensor_motoneurons": {
+      "rostral_count": 549,
+      "rostral_pct": 23.2,
+      "caudal_count": 1817,
+      "caudal_pct": 76.8,
+      "total_count": 2366,
+      "match_status": "Exact 100%"
+    },
+    "retractor_motoneurons": {
+      "rostral_count": 155,
+      "rostral_pct": 17.1,
+      "caudal_count": 752,
+      "caudal_pct": 82.9,
+      "total_count": 907,
+      "match_status": "Exact 100%"
+    },
+    "flexor_motoneurons": {
+      "rostral_count": 620,
+      "rostral_pct": 81.5,
+      "caudal_count": 141,
+      "caudal_pct": 18.5,
+      "total_count": 761,
+      "match_status": "Exact 100%"
+    },
+    "all_motoneurons": {
+      "rostral_count": 1324,
+      "rostral_pct": 32.8,
+      "caudal_count": 2710,
+      "caudal_pct": 67.2,
+      "total_count": 4034,
+      "match_status": "Exact 100%"
+    }
+  },
+  "figure_audits": {
+    "figure_1": {
+      "title": "Anatomical Models of Cat Lumbosacral Motoneuron Pools (Hip, Knee, Ankle)",
+      "classification": "Directly Reproduced (VanderHorst & Holstege 1997)",
+      "output_artifact": "plots/figure1_mn_pool_anatomy.png",
+      "summary_data": "results/figure1_pool_centers_of_mass.csv"
+    },
+    "figure_2": {
+      "title": "MN Distribution Along Rostrocaudal Axis and Table 1 Validation",
+      "classification": "Directly Reproduced (Table 1 exact match of 4,034 MNs)",
+      "output_artifact": "plots/figure2_mn_distributions.png",
+      "summary_data": "results/table1_rostral_caudal_counts.csv"
+    },
+    "figure_3": {
+      "title": "Normalized EMG Patterns of 27 Hindlimb Muscles in Step Cycle",
+      "classification": "Directly Reproduced (26 Literature EMG studies)",
+      "output_artifact": "plots/figure3_emg_profiles.png"
+    },
+    "figure_4": {
+      "title": "3D Spatiotemporal Landscape of Spinal Motoneuron Activity",
+      "classification": "Model-Derived (Emergent from Anatomy x EMG)",
+      "output_artifact": "plots/figure4_spatiotemporal_activity.png",
+      "summary_data": "results/figure4_spatiotemporal_grid.npz"
+    },
+    "figure_5": {
+      "title": "Parametric Sensitivity of Motoneuron Activation Patterns & Center of Mass Trajectories",
+      "classification": "Model-Derived (Plan Views 5A-5D & r_cm(t) Trajectories)",
+      "output_artifact": "plots/figure5_parametric_sensitivity.png",
+      "summary_data": "results/figure5_center_of_mass_trajectories.csv"
+    }
+  }
+}

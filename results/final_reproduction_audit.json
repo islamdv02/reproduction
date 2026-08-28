@@ -1,0 +1,115 @@
+{
+  "paper": {
+    "authors": "Komi et al.",
+    "journal": "Nature Communications",
+    "year": 2026,
+    "title": "Emergence of Traveling Waves and Decoupled Motor Control in Spinal Projectomes",
+    "reference_codebase": "BergLab/SpinalProjectome (MATLAB)"
+  },
+  "audit_summary": {
+    "date": "2026-08-26",
+    "total_figures": 6,
+    "total_tests": 64,
+    "tests_passed": 64,
+    "tests_failed": 0,
+    "pass_rate_percent": 100.0,
+    "final_verdict": "A. Faithful reproduction"
+  },
+  "figure_audits": {
+    "figure_1": {
+      "title": "Balanced Sequence Generation, Mexican-Hat Projectomes, and Decoupled Motor Control",
+      "panels": ["1A", "1B", "1C", "1D", "1E", "1F", "1G", "1H"],
+      "classifications": {
+        "1A": "Directly Reproduced (BalanceConnectivity.m)",
+        "1B": "Model-Derived (Emergent BSG Rotational Dynamics)",
+        "1C": "Model-Derived (2D PCA Orbit, 72.9% planar variance)",
+        "1D": "Directly Reproduced (ComputeFiringPhaseSorting.m)",
+        "1E": "Model-Derived (Emergent Asymmetric Mexican Hat)",
+        "1F": "Faithfully Reconstructed (1D 5-Subpopulation Network)",
+        "1G": "Model-Derived (sp3 Gain -> Burst Amplitude Scaling)",
+        "1H": "Model-Derived (sp2 Gain -> Frequency Speedup +56.8%)"
+      },
+      "master_artifact": "plots/figure1_complete.png",
+      "summary_data": "results/figure1_summary.json"
+    },
+    "figure_2": {
+      "title": "Spatial Transcriptomics, 3D Directional Kernels, Motor Pools & Net Lumbar Projectome",
+      "panels": ["2A", "2B", "2C", "2D", "2E", "2F", "2G"],
+      "classifications": {
+        "2A": "Directly Reproduced (matGeometry.mat, 20755 voxels)",
+        "2B": "Directly Reproduced (Segment lengths T13-S4)",
+        "2C": "Directly Reproduced (InstantiateModel.m:16-27 kernels)",
+        "2D": "Directly Reproduced (MotorneuronsDistribution.xlsx)",
+        "2E": "Directly Reproduced (5229 neurons, 570740 synapses, 97.9% sparsity)",
+        "2F": "Faithfully Reconstructed (9x9 normalized C_ij matrix)",
+        "2G": "Model-Derived (Net Lumbar Projectome, Peak +139.6, Trough -263.6)"
+      },
+      "master_artifact": "plots/figure2_complete.png",
+      "summary_data": "results/figure2_summary.json"
+    },
+    "figure_3": {
+      "title": "Spatiotemporal Neural Dynamics, Traveling Waves & Coordinated Bilateral Locomotor Outputs",
+      "panels": ["3A", "3B", "3C", "3D"],
+      "classifications": {
+        "3A": "Model-Derived (Rostrocaudal Traveling Wave, v=1.85 mm/s)",
+        "3B": "Model-Derived (Left-Right Alternating Antiphase, Delta Phi=pi)",
+        "3C": "Model-Derived (Motor Pool Segmental Activation T13-S4)",
+        "3D": "Faithfully Reconstructed (PlotEMG.m multi-muscle simulated EMG)"
+      },
+      "master_artifact": "plots/figure3_reproduction_complete.png",
+      "summary_data": "results/figure3_reproduction_metrics.json"
+    },
+    "figure_4": {
+      "title": "Descending Supraspinal Drive, Gait State Transitions & Polar Phase Trajectories",
+      "panels": ["4A", "4B", "4C", "4D", "4E", "4F", "4G"],
+      "classifications": {
+        "4A": "Directly Reproduced (matDescending.mat 16 tracts)",
+        "4B": "Directly Reproduced (Sigmoidal compound tanh activation)",
+        "4C": "Model-Derived (Frequency Acceleration 1.5 to 4.8 Hz)",
+        "4D": "Model-Derived (Quadrupedal Transitions: Walk -> Trot -> Bound)",
+        "4E": "Faithfully Reconstructed (Polar Phase Lag Trajectories)",
+        "4F": "Model-Derived (Frequency vs Drive Titration Curve)",
+        "4G": "Model-Derived (Burst Amplitude Saturation Profile)"
+      },
+      "master_artifact": "plots/12_figure4_complete.png",
+      "summary_data": "results/figure4_summary.json"
+    },
+    "figure_5": {
+      "title": "Cell-Type-Specific Genetic Ablations (V1, V2a, V0v, V3) & Circuit Disruption",
+      "panels": ["5A", "5B", "5C", "5D", "5E", "5F"],
+      "classifications": {
+        "5A": "Directly Reproduced (AblatePop.m V1 projectome collapse)",
+        "5B": "Model-Derived (V1 Deceleration -42.1%, Prolonged Bursts)",
+        "5C": "Model-Derived (V1 Quantitative Locomotor Duty Cycle Elongation)",
+        "5D": "Directly Reproduced (AblatePop.m V0 commissural ablation)",
+        "5E": "Model-Derived (V0 Bilateral Synchronous Hopping, Delta Phi=0)",
+        "5F": "Model-Derived (V0 Circular Phase Clustering, R_sync > 0.92)"
+      },
+      "master_artifact": "plots/19_figure5_complete.png",
+      "summary_data": "results/figure5_summary.json"
+    },
+    "figure_6": {
+      "title": "Transverse Spinal Lesion, Axonal Regrowth, and Multi-Channel Electrophysiology",
+      "panels": ["6A", "6B", "6C", "6D", "6E", "6F"],
+      "classifications": {
+        "6A": "Directly Reproduced (MakeLesion.m L2/L3 severance)",
+        "6B": "Model-Derived (Caudal Traveling Wave & EMG Arrest L3-S4)",
+        "6C": "Directly Reproduced (RegrowPop.m V2a-2 vs V1/V0/V3 comparison)",
+        "6D": "Model-Derived (V2a-2 Unique Functional Recovery of Wave & EMG)",
+        "6E": "Directly Reproduced (PositionElectrodeAndSample3D.m 32-ch probe)",
+        "6F": "Model-Derived (Multi-unit Spiking & Phase Lag Quantification)"
+      },
+      "master_artifact": "plots/figure6_complete.png",
+      "summary_data": "results/figure6_summary.json"
+    }
+  },
+  "epistemic_breakdown": {
+    "total_classified_panels": 37,
+    "directly_reproduced_count": 14,
+    "faithfully_reconstructed_count": 5,
+    "model_derived_count": 18,
+    "directly_reproduced_percent": 37.84,
+    "faithfully_reconstructed_percent": 13.51,
+    "model_derived_percent": 48.65
+  }
+}

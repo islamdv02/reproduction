@@ -1,0 +1,352 @@
+{
+  "panel": "6E",
+  "scientific_question": "How does a physical 32-channel linear silicon probe inserted through the 3D lumbar cord sample single units across lamina depths?",
+  "probe_configuration": {
+    "n_channels": 32,
+    "pitch_um": 50.0,
+    "shank_length_um": 1550.0,
+    "detection_radius_um": 50.0,
+    "tip_position_um": [
+      -400.0,
+      300.0,
+      4000.0
+    ],
+    "insertion_angle_deg": 0.0
+  },
+  "total_detected_units": 1,
+  "detected_neuron_indices": [
+    3968
+  ],
+  "cell_type_breakdown": {
+    "dI6": 1
+  },
+  "channel_unit_counts": {
+    "0": 0,
+    "1": 0,
+    "2": 0,
+    "3": 0,
+    "4": 0,
+    "5": 0,
+    "6": 0,
+    "7": 1,
+    "8": 0,
+    "9": 0,
+    "10": 0,
+    "11": 0,
+    "12": 0,
+    "13": 0,
+    "14": 0,
+    "15": 0,
+    "16": 0,
+    "17": 0,
+    "18": 0,
+    "19": 0,
+    "20": 0,
+    "21": 0,
+    "22": 0,
+    "23": 0,
+    "24": 0,
+    "25": 0,
+    "26": 0,
+    "27": 0,
+    "28": 0,
+    "29": 0,
+    "30": 0,
+    "31": 0
+  },
+  "channel_positions_and_sampling": [
+    {
+      "channel_idx": 0,
+      "pos_x_um": -400.0,
+      "pos_y_um": 300.0,
+      "pos_z_um": 4000.0,
+      "n_sampled_units": 0,
+      "sampled_neuron_indices": [],
+      "sampled_cell_types": []
+    },
+    {
+      "channel_idx": 1,
+      "pos_x_um": -400.0,
+      "pos_y_um": 350.0,
+      "pos_z_um": 4000.0,
+      "n_sampled_units": 0,
+      "sampled_neuron_indices": [],
+      "sampled_cell_types": []
+    },
+    {
+      "channel_idx": 2,
+      "pos_x_um": -400.0,
+      "pos_y_um": 400.0,
+      "pos_z_um": 4000.0,
+      "n_sampled_units": 0,
+      "sampled_neuron_indices": [],
+      "sampled_cell_types": []
+    },
+    {
+      "channel_idx": 3,
+      "pos_x_um": -400.0,
+      "pos_y_um": 450.0,
+      "pos_z_um": 4000.0,
+      "n_sampled_units": 0,
+      "sampled_neuron_indices": [],
+      "sampled_cell_types": []
+    },
+    {
+      "channel_idx": 4,
+      "pos_x_um": -400.0,
+      "pos_y_um": 500.0,
+      "pos_z_um": 4000.0,
+      "n_sampled_units": 0,
+      "sampled_neuron_indices": [],
+      "sampled_cell_types": []
+    },
+    {
+      "channel_idx": 5,
+      "pos_x_um": -400.0,
+      "pos_y_um": 550.0,
+      "pos_z_um": 4000.0,
+      "n_sampled_units": 0,
+      "sampled_neuron_indices": [],
+      "sampled_cell_types": []
+    },
+    {
+      "channel_idx": 6,
+      "pos_x_um": -400.0,
+      "pos_y_um": 600.0,
+      "pos_z_um": 4000.0,
+      "n_sampled_units": 0,
+      "sampled_neuron_indices": [],
+      "sampled_cell_types": []
+    },
+    {
+      "channel_idx": 7,
+      "pos_x_um": -400.0,
+      "pos_y_um": 650.0,
+      "pos_z_um": 4000.0,
+      "n_sampled_units": 1,
+      "sampled_neuron_indices": [
+        3968
+      ],
+      "sampled_cell_types": [
+        "dI6"
+      ]
+    },
+    {
+      "channel_idx": 8,
+      "pos_x_um": -400.0,
+      "pos_y_um": 700.0,
+      "pos_z_um": 4000.0,
+      "n_sampled_units": 0,
+      "sampled_neuron_indices": [],
+      "sampled_cell_types": []
+    },
+    {
+      "channel_idx": 9,
+      "pos_x_um": -400.0,
+      "pos_y_um": 750.0,
+      "pos_z_um": 4000.0,
+      "n_sampled_units": 0,
+      "sampled_neuron_indices": [],
+      "sampled_cell_types": []
+    },
+    {
+      "channel_idx": 10,
+      "pos_x_um": -400.0,
+      "pos_y_um": 800.0,
+      "pos_z_um": 4000.0,
+      "n_sampled_units": 0,
+      "sampled_neuron_indices": [],
+      "sampled_cell_types": []
+    },
+    {
+      "channel_idx": 11,
+      "pos_x_um": -400.0,
+      "pos_y_um": 850.0,
+      "pos_z_um": 4000.0,
+      "n_sampled_units": 0,
+      "sampled_neuron_indices": [],
+      "sampled_cell_types": []
+    },
+    {
+      "channel_idx": 12,
+      "pos_x_um": -400.0,
+      "pos_y_um": 900.0,
+      "pos_z_um": 4000.0,
+      "n_sampled_units": 0,
+      "sampled_neuron_indices": [],
+      "sampled_cell_types": []
+    },
+    {
+      "channel_idx": 13,
+      "pos_x_um": -400.0,
+      "pos_y_um": 950.0,
+      "pos_z_um": 4000.0,
+      "n_sampled_units": 0,
+      "sampled_neuron_indices": [],
+      "sampled_cell_types": []
+    },
+    {
+      "channel_idx": 14,
+      "pos_x_um": -400.0,
+      "pos_y_um": 1000.0,
+      "pos_z_um": 4000.0,
+      "n_sampled_units": 0,
+      "sampled_neuron_indices": [],
+      "sampled_cell_types": []
+    },
+    {
+      "channel_idx": 15,
+      "pos_x_um": -400.0,
+      "pos_y_um": 1050.0,
+      "pos_z_um": 4000.0,
+      "n_sampled_units": 0,
+      "sampled_neuron_indices": [],
+      "sampled_cell_types": []
+    },
+    {
+      "channel_idx": 16,
+      "pos_x_um": -400.0,
+      "pos_y_um": 1100.0,
+      "pos_z_um": 4000.0,
+      "n_sampled_units": 0,
+      "sampled_neuron_indices": [],
+      "sampled_cell_types": []
+    },
+    {
+      "channel_idx": 17,
+      "pos_x_um": -400.0,
+      "pos_y_um": 1150.0,
+      "pos_z_um": 4000.0,
+      "n_sampled_units": 0,
+      "sampled_neuron_indices": [],
+      "sampled_cell_types": []
+    },
+    {
+      "channel_idx": 18,
+      "pos_x_um": -400.0,
+      "pos_y_um": 1200.0,
+      "pos_z_um": 4000.0,
+      "n_sampled_units": 0,
+      "sampled_neuron_indices": [],
+      "sampled_cell_types": []
+    },
+    {
+      "channel_idx": 19,
+      "pos_x_um": -400.0,
+      "pos_y_um": 1250.0,
+      "pos_z_um": 4000.0,
+      "n_sampled_units": 0,
+      "sampled_neuron_indices": [],
+      "sampled_cell_types": []
+    },
+    {
+      "channel_idx": 20,
+      "pos_x_um": -400.0,
+      "pos_y_um": 1300.0,
+      "pos_z_um": 4000.0,
+      "n_sampled_units": 0,
+      "sampled_neuron_indices": [],
+      "sampled_cell_types": []
+    },
+    {
+      "channel_idx": 21,
+      "pos_x_um": -400.0,
+      "pos_y_um": 1350.0,
+      "pos_z_um": 4000.0,
+      "n_sampled_units": 0,
+      "sampled_neuron_indices": [],
+      "sampled_cell_types": []
+    },
+    {
+      "channel_idx": 22,
+      "pos_x_um": -400.0,
+      "pos_y_um": 1400.0,
+      "pos_z_um": 4000.0,
+      "n_sampled_units": 0,
+      "sampled_neuron_indices": [],
+      "sampled_cell_types": []
+    },
+    {
+      "channel_idx": 23,
+      "pos_x_um": -400.0,
+      "pos_y_um": 1450.0,
+      "pos_z_um": 4000.0,
+      "n_sampled_units": 0,
+      "sampled_neuron_indices": [],
+      "sampled_cell_types": []
+    },
+    {
+      "channel_idx": 24,
+      "pos_x_um": -400.0,
+      "pos_y_um": 1500.0,
+      "pos_z_um": 4000.0,
+      "n_sampled_units": 0,
+      "sampled_neuron_indices": [],
+      "sampled_cell_types": []
+    },
+    {
+      "channel_idx": 25,
+      "pos_x_um": -400.0,
+      "pos_y_um": 1550.0,
+      "pos_z_um": 4000.0,
+      "n_sampled_units": 0,
+      "sampled_neuron_indices": [],
+      "sampled_cell_types": []
+    },
+    {
+      "channel_idx": 26,
+      "pos_x_um": -400.0,
+      "pos_y_um": 1600.0,
+      "pos_z_um": 4000.0,
+      "n_sampled_units": 0,
+      "sampled_neuron_indices": [],
+      "sampled_cell_types": []
+    },
+    {
+      "channel_idx": 27,
+      "pos_x_um": -400.0,
+      "pos_y_um": 1650.0,
+      "pos_z_um": 4000.0,
+      "n_sampled_units": 0,
+      "sampled_neuron_indices": [],
+      "sampled_cell_types": []
+    },
+    {
+      "channel_idx": 28,
+      "pos_x_um": -400.0,
+      "pos_y_um": 1700.0,
+      "pos_z_um": 4000.0,
+      "n_sampled_units": 0,
+      "sampled_neuron_indices": [],
+      "sampled_cell_types": []
+    },
+    {
+      "channel_idx": 29,
+      "pos_x_um": -400.0,
+      "pos_y_um": 1750.0,
+      "pos_z_um": 4000.0,
+      "n_sampled_units": 0,
+      "sampled_neuron_indices": [],
+      "sampled_cell_types": []
+    },
+    {
+      "channel_idx": 30,
+      "pos_x_um": -400.0,
+      "pos_y_um": 1800.0,
+      "pos_z_um": 4000.0,
+      "n_sampled_units": 0,
+      "sampled_neuron_indices": [],
+      "sampled_cell_types": []
+    },
+    {
+      "channel_idx": 31,
+      "pos_x_um": -400.0,
+      "pos_y_um": 1850.0,
+      "pos_z_um": 4000.0,
+      "n_sampled_units": 0,
+      "sampled_neuron_indices": [],
+      "sampled_cell_types": []
+    }
+  ],
+  "figure_saved": "plots/24_fig6e_virtual_probe.png"
+}

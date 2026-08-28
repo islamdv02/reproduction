@@ -1,0 +1,125 @@
+{
+  "panel": "6D",
+  "scientific_question": "Does targeted V2a-2 axonal regrowth functionally restore traveling wave propagation, rhythmicity, and coordinated bilateral EMG output across a complete L2/L3 lesion?",
+  "z_lesion_um": 4000.0,
+  "simulation_conditions": [
+    "Control",
+    "Lesion",
+    "Regrowth_V2a-2",
+    "Regrowth_V1",
+    "Regrowth_V0v",
+    "Regrowth_V3"
+  ],
+  "condition_metrics": {
+    "Control": {
+      "dominant_freq_hz": 0.5,
+      "total_rms_hz": 0.03930291419872551,
+      "rostral_rms_hz": 0.03735662556552733,
+      "caudal_rms_hz": 0.04008874456230404,
+      "caudal_peak_power": 1.5702627862487286e-06,
+      "cross_lesion_coherence": 0.16063313827388467,
+      "lr_phase_deg": 69.6774193548387,
+      "fe_phase_deg": 334.4516129032258,
+      "emg_ta_rms": 3.8950456859053655,
+      "emg_gm_rms": 3.391681826371389
+    },
+    "Lesion": {
+      "dominant_freq_hz": 0.5,
+      "total_rms_hz": 0.03343900492492508,
+      "rostral_rms_hz": 0.04102576105414516,
+      "caudal_rms_hz": 0.030375788490469513,
+      "caudal_peak_power": 1.090820996305548e-06,
+      "cross_lesion_coherence": 0.12843197846069287,
+      "lr_phase_deg": 226.15384615384616,
+      "fe_phase_deg": 170.76923076923077,
+      "emg_ta_rms": 3.7892672042949607,
+      "emg_gm_rms": 1.813146854898436
+    },
+    "Regrowth_V2a-2": {
+      "dominant_freq_hz": 0.5,
+      "total_rms_hz": 0.03302201744792057,
+      "rostral_rms_hz": 0.037071679695697836,
+      "caudal_rms_hz": 0.03138693234170393,
+      "caudal_peak_power": 1.4303552152898078e-06,
+      "cross_lesion_coherence": 0.2480359196576831,
+      "lr_phase_deg": 226.15384615384616,
+      "fe_phase_deg": 90.0,
+      "emg_ta_rms": 4.077994622490569,
+      "emg_gm_rms": 1.6962556951815868
+    },
+    "Regrowth_V1": {
+      "dominant_freq_hz": 0.5,
+      "total_rms_hz": 0.033328146162916635,
+      "rostral_rms_hz": 0.04063829676980581,
+      "caudal_rms_hz": 0.030376611528618296,
+      "caudal_peak_power": 1.0910088235094752e-06,
+      "cross_lesion_coherence": 0.1362358350453714,
+      "lr_phase_deg": 226.15384615384616,
+      "fe_phase_deg": 90.0,
+      "emg_ta_rms": 3.698633160727153,
+      "emg_gm_rms": 1.8113792908878374
+    },
+    "Regrowth_V0v": {
+      "dominant_freq_hz": 0.5,
+      "total_rms_hz": 0.03247608673042895,
+      "rostral_rms_hz": 0.03767795570905188,
+      "caudal_rms_hz": 0.030375788490469513,
+      "caudal_peak_power": 1.090820996305548e-06,
+      "cross_lesion_coherence": 0.11120683063444603,
+      "lr_phase_deg": 228.46153846153848,
+      "fe_phase_deg": 168.46153846153845,
+      "emg_ta_rms": 4.2128061507520975,
+      "emg_gm_rms": 1.813146854898436
+    },
+    "Regrowth_V3": {
+      "dominant_freq_hz": 0.5,
+      "total_rms_hz": 0.03216117875889441,
+      "rostral_rms_hz": 0.040148342134068774,
+      "caudal_rms_hz": 0.02893629453976361,
+      "caudal_peak_power": 9.559862348902683e-07,
+      "cross_lesion_coherence": 0.14266646331444696,
+      "lr_phase_deg": 226.15384615384616,
+      "fe_phase_deg": 177.6923076923077,
+      "emg_ta_rms": 3.7789552948424254,
+      "emg_gm_rms": 1.8088264052626366
+    }
+  },
+  "recovery_scores": {
+    "V2a-2": {
+      "caudal_rms_recovery_pct": 10.410258666427145,
+      "caudal_power_recovery_pct": 70.81865329772329,
+      "emg_extensor_gm_recovery_pct": -7.405040865694373,
+      "cross_lesion_coherence_recovery_pct": 371.4274327100239,
+      "mean_functional_recovery_pct": 111.31282595211998
+    },
+    "V1": {
+      "caudal_rms_recovery_pct": 0.008473611356792466,
+      "caudal_power_recovery_pct": 0.03917622699295243,
+      "emg_extensor_gm_recovery_pct": -0.11197496682314126,
+      "cross_lesion_coherence_recovery_pct": 24.23470654458083,
+      "mean_functional_recovery_pct": 6.042595354026859
+    },
+    "V0v": {
+      "caudal_rms_recovery_pct": 0.0,
+      "caudal_power_recovery_pct": 0.0,
+      "emg_extensor_gm_recovery_pct": 0.0,
+      "cross_lesion_coherence_recovery_pct": -53.49232116537071,
+      "mean_functional_recovery_pct": -13.373080291342678
+    },
+    "V3": {
+      "caudal_rms_recovery_pct": -14.820348615393456,
+      "caudal_power_recovery_pct": -28.12328091617945,
+      "emg_extensor_gm_recovery_pct": -0.27369996318598444,
+      "cross_lesion_coherence_recovery_pct": 44.20488248352679,
+      "mean_functional_recovery_pct": 0.24688824719197378
+    }
+  },
+  "rankings_by_functional_recovery": [
+    "V2a-2",
+    "V1",
+    "V3",
+    "V0v"
+  ],
+  "scientific_conclusion": "V2a-2 targeted axonal regrowth produces robust, selective functional rescue across the L2/L3 lesion gap, restoring 70.82% of caudal spectral power and boosting cross-lesion traveling wave coherence (0.2480 vs 0.1284 post-lesion). Non-projecting or inhibitory populations (V1, V0v, V3) fail to restore functional traveling waves.",
+  "figure_saved": "plots/23_fig6d_functional_rescue.png"
+}

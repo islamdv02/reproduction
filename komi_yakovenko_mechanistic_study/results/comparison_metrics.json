@@ -1,0 +1,149 @@
+{
+  "study_title": "Mechanistic Comparison: Komi et al. (2026) vs Yakovenko et al. (2002)",
+  "wave_decomposition": {
+    "Wave_A_Activity_Migration": {
+      "displacement_mm": 11.368293687251857,
+      "peak_velocity_mm_s": 414.47431607851036,
+      "mean_velocity_mm_s": 31.023542270135277
+    },
+    "Wave_B_Stance_Swing_Shift": {
+      "caudal_stance_time_fraction": 0.76,
+      "jump_magnitude_levels": 36.68759516116344
+    },
+    "Wave_C_Emergent_Traveling_Wave": {
+      "propagation_velocity_mm_s": 228.00000000000003,
+      "bilateral_phase_diff_deg": 36.20111731843591,
+      "frequency_hz": 0.8130081300813008,
+      "mexican_hat_index": 1.0
+    }
+  },
+  "controls_benchmarks": {
+    "Baseline_Model_KY": {
+      "planar_var_pct": 10.858843777146568,
+      "orbit_radius": 0.6781839648832758,
+      "mexican_hat_index": 1.0,
+      "wave_velocity_mm_s": 37.685950413223146,
+      "bilateral_alternation": 0.7447721827437809
+    },
+    "Ctrl_1_No_Spatial_Structure": {
+      "planar_var_pct": 9.588982290163763,
+      "orbit_radius": 0.556344582151286,
+      "mexican_hat_index": 1.0,
+      "wave_velocity_mm_s": 80.352422907489,
+      "bilateral_alternation": 0.9374196611341208
+    },
+    "Ctrl_2_Shuffled_Coordinates": {
+      "planar_var_pct": 26.421810660043903,
+      "orbit_radius": 0.9637720270138334,
+      "mexican_hat_index": 1.0,
+      "wave_velocity_mm_s": 243.20000000000002,
+      "bilateral_alternation": -1.0
+    },
+    "Ctrl_3_Random_Wiring": {
+      "planar_var_pct": 45.039890424978566,
+      "orbit_radius": 0.9394127670165742,
+      "mexican_hat_index": 1.0,
+      "wave_velocity_mm_s": 150.0,
+      "bilateral_alternation": -1.0
+    },
+    "Ctrl_4_Zero_Directional_Bias": {
+      "planar_var_pct": 6.579171204112579,
+      "orbit_radius": 0.45370346232120057,
+      "mexican_hat_index": 1.0,
+      "wave_velocity_mm_s": 80.00000000000001,
+      "bilateral_alternation": -0.48598341324260647
+    },
+    "Ctrl_5_Unbalanced_EI": {
+      "planar_var_pct": 10.970628855337326,
+      "orbit_radius": 0.4125895445764521,
+      "mexican_hat_index": 1.0,
+      "wave_velocity_mm_s": 37.685950413223146,
+      "bilateral_alternation": 0.0825793454723335
+    },
+    "Ctrl_6_Isotropic_Kernels": {
+      "planar_var_pct": 10.858843777146568,
+      "orbit_radius": 0.6781839648832758,
+      "mexican_hat_index": 1.0,
+      "wave_velocity_mm_s": 37.685950413223146,
+      "bilateral_alternation": 0.7447721827437809
+    },
+    "Ctrl_7_No_Commissural": {
+      "planar_var_pct": 11.62371715684124,
+      "orbit_radius": 0.6685118196368475,
+      "mexican_hat_index": 1.0,
+      "wave_velocity_mm_s": 37.685950413223146,
+      "bilateral_alternation": 0.7447721827437809
+    },
+    "Ctrl_8_Feedforward_Model_Y": {
+      "planar_var_pct": 100.0,
+      "orbit_radius": 31.023542270135277,
+      "mexican_hat_index": 0.0,
+      "wave_velocity_mm_s": 414.47431607851036,
+      "bilateral_alternation": 1.0
+    }
+  },
+  "multi_seed_monte_carlo_stats": {
+    "correlation_r": {
+      "mean": 0.6637425891620488,
+      "std": 0.1826190773557343,
+      "min": 0.4061579007662187,
+      "max": 0.8362505268009763
+    },
+    "rmse_levels": {
+      "mean": 14.62044988241789,
+      "std": 0.20160793094947782,
+      "min": 14.330540220210636,
+      "max": 14.802622939213766
+    },
+    "nrmse": {
+      "mean": 0.37038887998276493,
+      "std": 0.0051074581384680726,
+      "min": 0.36304441959032124,
+      "max": 0.3750039824599332
+    },
+    "phase_lag_pct": {
+      "mean": 18.6,
+      "std": 17.06751299984857,
+      "min": 4.0,
+      "max": 43.0
+    },
+    "wave_velocity_mm_s": {
+      "mean": 130.2040527901019,
+      "std": 100.14900421350693,
+      "min": 41.45454545454546,
+      "max": 249.86301369863017
+    },
+    "mexican_hat_index": {
+      "mean": 1.0,
+      "std": 0.0,
+      "min": 1.0,
+      "max": 1.0
+    },
+    "projectome_asymmetry": {
+      "mean": 0.9999999698220275,
+      "std": 3.880349451783862e-09,
+      "min": 0.9999999662605887,
+      "max": 0.999999976142618
+    },
+    "planar_variance_pct": {
+      "mean": 68.04714204884372,
+      "std": 22.115658353951222,
+      "min": 34.603730767444866,
+      "max": 96.42284084006599
+    },
+    "dominant_freq_hz": {
+      "mean": 1.3586643736236796,
+      "std": 0.7499580096923867,
+      "min": 0.6887052341597796,
+      "max": 2.5839793281653747
+    },
+    "bilateral_phase_deg": {
+      "mean": 134.69868071255536,
+      "std": 55.66702551993999,
+      "min": 36.20111731843591,
+      "max": 168.44036697247722
+    }
+  },
+  "final_classification": "B. Partial Compatibility / Complementary Mechanistic Levels",
+  "scientific_resolution": "Komi's continuous interneuronal traveling wave acts as the generative engine that drives Yakovenko's discrete, somatotopically segregated motoneuron pool jumps."
+}

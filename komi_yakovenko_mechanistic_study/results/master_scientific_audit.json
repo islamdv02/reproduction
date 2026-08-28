@@ -1,0 +1,17 @@
+{
+  "study_title": "Hypothesis-Neutral Scientific Test of Komi et al. (2026) Against Yakovenko et al. (2002)",
+  "date": "August 2026",
+  "verdict_classification": "D. SAME PHENOMENON AT DIFFERENT MEASUREMENT LEVELS & COMPLEMENTARY MECHANISMS",
+  "primary_findings": {
+    "model_ky_untuned_correlation_r_mean": 0.6855675718487712,
+    "matched_null_correlation_r_mean": 0.7397407442848689,
+    "delta_r_effect_size": -0.05417317243609776,
+    "p_value_komi_vs_null": 0.43146155473311054,
+    "t_statistic": -0.808106917449364,
+    "statistically_significant": false,
+    "mexican_hat_bug_resolved": true,
+    "legacy_mhi_bug_explanation": "Prior (peak - trough)/(peak + |trough|) with trough < 0 algebraically simplified to 1.000 identically.",
+    "corrected_projectome_contrast_mhc": 1.7059094009798432,
+    "velocity_reconciliation": "dr_cm/dt (kinematic centroid migration, peaks > 40 mm/s) is mathematically distinct from omega/k (interneuronal phase wave velocity, ~10-40 mm/s)."
+  }
+}

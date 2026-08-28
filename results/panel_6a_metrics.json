@@ -1,0 +1,14 @@
+{
+  "panel": "6A",
+  "n_neurons": 5229,
+  "z_lesion_um": 4000.0,
+  "total_synapses_intact": 570740,
+  "severed_synapses": 116011,
+  "severed_synapses_pct": 20.326418334092583,
+  "intact_sparsity": 0.9791262235877185,
+  "post_lesion_sparsity": 0.9833691147034019,
+  "long_range_tail_integral_control": 3507.6189602149275,
+  "long_range_tail_integral_lesion": 2255.7898162281253,
+  "long_range_tail_reduction_pct": 35.68885783164135,
+  "plot_saved": "plots/20_fig6a_lesion_projectome.png"
+}

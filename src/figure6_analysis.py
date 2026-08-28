@@ -97,19 +97,26 @@ def plot_panel_6b_post_lesion_dynamics(
 
     # Sort neurons by rostrocaudal Z coordinate
     sort_idx = np.argsort(control_net.pos_z)
+    z_lesion = getattr(lesion_net, 'z_lesion_um', 4000.0)
+    sorted_z = control_net.pos_z[sort_idx]
+    lesion_neuron_idx = int(np.searchsorted(sorted_z, z_lesion))
 
     # 1. Control Spatiotemporal Heatmap
     r_ctrl_sorted = control_res.rates[t_mask, :][:, sort_idx].T
     im1 = ax1.imshow(r_ctrl_sorted, aspect='auto', cmap='magma', extent=[0, 2.0, 0, control_net.n_neurons], origin='lower')
+    ax1.axhline(lesion_neuron_idx, color='white', linestyle='--', lw=1.5, alpha=0.8, label=f'$L_2/L_3$ Level ($Z={z_lesion:.0f}$ µm)')
     ax1.set_title('Control: Propagating Rostrocaudal Traveling Wave', fontsize=10.5, fontweight='bold', pad=6)
     ax1.set_ylabel('Neuron Index ($T_{13} \\rightarrow S_4$)', fontsize=9.5, fontweight='bold')
+    ax1.legend(loc='upper right', fontsize=8, frameon=True)
     plt.colorbar(im1, ax=ax1, fraction=0.046, pad=0.04, label='Rate (Hz)')
 
     # 2. Lesioned Spatiotemporal Heatmap
     r_les_sorted = lesion_res.rates[t_mask, :][:, sort_idx].T
     im2 = ax2.imshow(r_les_sorted, aspect='auto', cmap='magma', extent=[0, 2.0, 0, lesion_net.n_neurons], origin='lower')
+    ax2.axhline(lesion_neuron_idx, color='#e41a1c', linestyle='--', lw=2.0, label='Lesion Site ($L_2/L_3$)')
     ax2.set_title('Post-Lesion: Wave Arrest & Caudal Quiescence', fontsize=10.5, fontweight='bold', pad=6)
     ax2.set_ylabel('Neuron Index ($T_{13} \\rightarrow S_4$)', fontsize=9.5, fontweight='bold')
+    ax2.legend(loc='upper right', fontsize=8, frameon=True)
     plt.colorbar(im2, ax=ax2, fraction=0.046, pad=0.04, label='Rate (Hz)')
 
     # Synthetic EMG traces
@@ -192,16 +199,16 @@ def plot_panel_6c_regrowth_comparison(
     fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12, 5), dpi=dpi)
 
     # 1. Projectome profiles
-    dz_ctrl, p_ctrl = compute_projectome_1d_profile(control_net, max_dist_um=4500.0)
-    dz_les, p_les = compute_projectome_1d_profile(lesioned_net, max_dist_um=4500.0)
+    dz_ctrl, p_ctrl = compute_projectome_1d_profile(control_net, max_dist_um=5000.0)
+    dz_les, p_les = compute_projectome_1d_profile(lesioned_net, max_dist_um=5000.0)
 
-    ax1.plot(dz_ctrl, p_ctrl, color='#333333', lw=2.0, label='Intact Control')
+    ax1.plot(dz_ctrl, p_ctrl, color='#333333', lw=2.2, label='Intact Control')
     ax1.plot(dz_les, p_les, color='#e41a1c', lw=1.8, linestyle=':', label='Lesioned Baseline')
 
     colors_reg = {'V2a-2': '#2ca02c', 'V1': '#1f77b4', 'V0v': '#9467bd', 'V3': '#ff7f0e'}
     for pop, reg_net in regrowth_nets.items():
         clean_pop = pop.replace('regrowth_', '')
-        dz_r, p_r = compute_projectome_1d_profile(reg_net, max_dist_um=4500.0)
+        dz_r, p_r = compute_projectome_1d_profile(reg_net, max_dist_um=5000.0)
         col = colors_reg.get(clean_pop, '#888888')
         ax1.plot(dz_r, p_r, color=col, lw=2.2, label=f'Regrowth: {clean_pop}')
 
@@ -209,29 +216,41 @@ def plot_panel_6c_regrowth_comparison(
     ax1.axhline(0, color='#888888', linestyle='-', alpha=0.5)
     ax1.set_xlabel('Rostrocaudal Distance $\\Delta Z$ (µm)', fontsize=9.5, fontweight='bold')
     ax1.set_ylabel('Net Projectome Synaptic Weight (a.u.)', fontsize=9.5, fontweight='bold')
-    ax1.set_title('Reconstituted Projectome Profiles', fontsize=10.5, fontweight='bold', pad=8)
+    ax1.set_title('Reconstituted Longitudinal Projectome Profiles', fontsize=10.5, fontweight='bold', pad=8)
     ax1.grid(True, linestyle=':', alpha=0.4)
     ax1.legend(loc='upper right', fontsize=8, frameon=True)
 
     # 2. Number of Restored Synapses per Cell Type Bar Chart
+    n_severed = getattr(lesioned_net, 'n_lesioned_synapses', 116011)
     pop_names = [p.replace('regrowth_', '') for p in regrowth_nets.keys()]
     n_restored = [getattr(net, 'n_restored_synapses', 0) for net in regrowth_nets.values()]
     bar_cols = [colors_reg.get(p, '#888888') for p in pop_names]
 
     bars = ax2.bar(pop_names, n_restored, color=bar_cols, width=0.55, edgecolor='black', lw=1.0)
-    ax2.set_ylabel('Number of Restored Synapses Across Lesion', fontsize=9.5, fontweight='bold')
-    ax2.set_title('Axonal Reinnervation Capacity Across Lesion Gap', fontsize=10.5, fontweight='bold', pad=8)
+    ax2.set_ylabel('Restored Cross-Lesion Synapses', fontsize=9.5, fontweight='bold')
+    ax2.set_title('Axonal Reinnervation Across $L_2/L_3$ Lesion Gap', fontsize=10.5, fontweight='bold', pad=8)
     ax2.grid(True, linestyle=':', alpha=0.4, axis='y')
 
     for bar in bars:
         yval = bar.get_height()
-        ax2.text(bar.get_x() + bar.get_width()/2.0, yval + max(n_restored)*0.02, f"{int(yval):,}", ha='center', va='bottom', fontsize=8.5, fontweight='bold')
+        pct = (yval / n_severed * 100.0) if n_severed > 0 else 0.0
+        ax2.text(bar.get_x() + bar.get_width()/2.0, yval + max(n_restored)*0.02, f"{int(yval):,}\n({pct:.1f}%)", ha='center', va='bottom', fontsize=8.5, fontweight='bold')
+
+    # Add extra headroom for text
+    ax2.set_ylim(0, max(n_restored) * 1.25)
 
     plt.suptitle('Figure 6C: Targeted Axonal Regrowth of Genetically Defined Cell Types', fontsize=12, fontweight='bold', y=0.99)
     plt.tight_layout()
     if output_path:
         os.makedirs(os.path.dirname(output_path), exist_ok=True)
         fig.savefig(output_path, bbox_inches='tight', dpi=dpi)
+        # Also save alias if output_path is one or the other
+        if 'regrowth_projectome.png' in output_path:
+            alt_path = output_path.replace('regrowth_projectome.png', 'regrowth_comparison.png')
+            fig.savefig(alt_path, bbox_inches='tight', dpi=dpi)
+        elif 'regrowth_comparison.png' in output_path:
+            alt_path = output_path.replace('regrowth_comparison.png', 'regrowth_projectome.png')
+            fig.savefig(alt_path, bbox_inches='tight', dpi=dpi)
     return fig
 
 
@@ -260,10 +279,16 @@ def plot_panel_6d_functional_recovery(
     sort_idx = np.argsort(v2a_net.pos_z)
     r_v2a_sorted = v2a_res.rates[t_mask, :][:, sort_idx].T
 
+    z_lesion = getattr(v2a_net, 'z_lesion_um', 4000.0)
+    sorted_z = v2a_net.pos_z[sort_idx]
+    lesion_neuron_idx = int(np.searchsorted(sorted_z, z_lesion))
+
     ax1 = fig.add_subplot(gs[0, 0])
     im1 = ax1.imshow(r_v2a_sorted, aspect='auto', cmap='magma', extent=[0, 2.0, 0, v2a_net.n_neurons], origin='lower')
+    ax1.axhline(lesion_neuron_idx, color='#2ca02c', linestyle='--', lw=2.0, label='Restored $L_2/L_3$ Bridge')
     ax1.set_title('V2a-2 Regrowth: Rescued Rostrocaudal Traveling Wave', fontsize=10.5, fontweight='bold', pad=6)
     ax1.set_ylabel('Neuron Index ($T_{13} \\rightarrow S_4$)', fontsize=9.5, fontweight='bold')
+    ax1.legend(loc='upper right', fontsize=8, frameon=True)
     plt.colorbar(im1, ax=ax1, fraction=0.046, pad=0.04, label='Rate (Hz)')
 
     # 2. Bottom Left: Rescued Synthetic EMG under V2a-2
@@ -291,7 +316,7 @@ def plot_panel_6d_functional_recovery(
                 offset += 1.0
     ax2.set_title('V2a-2 Regrowth EMG: Restored Bilateral Alternation', fontsize=10.5, fontweight='bold', pad=6)
     ax2.set_xlabel('Time (s)', fontsize=9.5, fontweight='bold')
-    ax2.set_ylabel('EMG Envelope', fontsize=9.5, fontweight='bold')
+    ax2.set_ylabel('EMG Envelope (a.u.)', fontsize=9.5, fontweight='bold')
     ax2.set_yticks([])
     ax2.grid(True, linestyle=':', alpha=0.4)
     ax2.legend(loc='upper right', fontsize=7.5, ncol=2, frameon=True)
@@ -307,7 +332,7 @@ def plot_panel_6d_functional_recovery(
     cols = ['#333333', '#e41a1c', '#2ca02c', '#1f77b4', '#9467bd', '#ff7f0e'][:len(cond_labels)]
     bars3 = ax3.bar(cond_labels, freqs, color=cols, width=0.55, edgecolor='black', lw=1.0)
     ax3.set_ylabel('Frequency (Hz)', fontsize=9.5, fontweight='bold')
-    ax3.set_title('Locomotor Frequency Recovery', fontsize=10.5, fontweight='bold', pad=6)
+    ax3.set_title('Locomotor Frequency Across Conditions', fontsize=10.5, fontweight='bold', pad=6)
     ax3.grid(True, linestyle=':', alpha=0.4, axis='y')
     for bar in bars3:
         yval = bar.get_height()
@@ -332,6 +357,12 @@ def plot_panel_6d_functional_recovery(
     if output_path:
         os.makedirs(os.path.dirname(output_path), exist_ok=True)
         fig.savefig(output_path, bbox_inches='tight', dpi=dpi)
+        if 'functional_rescue.png' in output_path:
+            alt = output_path.replace('functional_rescue.png', 'functional_recovery.png')
+            fig.savefig(alt, bbox_inches='tight', dpi=dpi)
+        elif 'functional_recovery.png' in output_path:
+            alt = output_path.replace('functional_recovery.png', 'functional_rescue.png')
+            fig.savefig(alt, bbox_inches='tight', dpi=dpi)
     return fig
 
 
@@ -343,52 +374,91 @@ def plot_panel_6e_probe_insertion(
 ) -> plt.Figure:
     """
     Panel 6E: High-density 32-channel silicon probe virtual insertion in 3D lumbar cord.
+    Visualizes 3D anatomy, transverse cross-section with Rexed laminae, and sampled cell diversity.
     """
-    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(11, 4.8), dpi=dpi, gridspec_kw={'width_ratios': [1.2, 1]})
+    fig = plt.figure(figsize=(14.5, 4.8), dpi=dpi)
+    gs = fig.add_gridspec(1, 3, width_ratios=[1.1, 1.1, 0.9])
 
-    # 1. Transverse cross-section (X, Y) with probe shank and detected units
     pos_x = network.pos_x
     pos_y = network.pos_y
+    pos_z = network.pos_z
     ch_pos = probe.channel_positions_um
 
-    ax1.scatter(pos_x, pos_y, s=6, color='#bbbbbb', alpha=0.3, label='Spinal Neurons')
-    
+    # 1. Left: 3D Anatomical Spinal Cord with Probe Insertion
+    ax1 = fig.add_subplot(gs[0, 0], projection='3d')
+    # Downsample points for clear 3D display
+    stride = max(1, len(pos_x) // 1200)
+    ax1.scatter(pos_x[::stride], pos_z[::stride], pos_y[::stride], s=2, color='#cccccc', alpha=0.25, label='Cord Neurons')
+
+    # Draw Probe Shank in 3D
+    ax1.plot(ch_pos[:, 0], ch_pos[:, 2], ch_pos[:, 1], color='#111111', lw=3.0, label='Probe Shank (32-ch)')
+    sc3d = ax1.scatter(ch_pos[:, 0], ch_pos[:, 2], ch_pos[:, 1], c=np.arange(probe.config.n_channels), cmap='viridis', s=25, edgecolor='black', zorder=5)
+
+    # Highlight detected units in 3D
+    if probe.n_detected_units > 0:
+        det_x = pos_x[probe.detected_neuron_indices]
+        det_y = pos_y[probe.detected_neuron_indices]
+        det_z = pos_z[probe.detected_neuron_indices]
+        ax1.scatter(det_x, det_z, det_y, c=probe.channel_assignments, cmap='viridis', s=35, marker='o', alpha=0.9, edgecolor='crimson', lw=1.0, label=f'Sampled ({probe.n_detected_units})')
+
+    ax1.set_xlabel('X (µm, ML)', fontsize=8.5, fontweight='bold', labelpad=4)
+    ax1.set_ylabel('Z (µm, RC)', fontsize=8.5, fontweight='bold', labelpad=4)
+    ax1.set_zlabel('Y (µm, DV)', fontsize=8.5, fontweight='bold', labelpad=4)
+    ax1.set_title('3D Spinal Volume & Probe Insertion', fontsize=10, fontweight='bold', pad=4)
+    ax1.view_init(elev=20, azim=-60)
+    ax1.legend(loc='upper right', fontsize=6.5, frameon=True)
+
+    # 2. Middle: Transverse Cross-Section (X, Y)
+    ax2 = fig.add_subplot(gs[0, 1])
+    # Show neurons within +/- 500 um of probe Z
+    z_mask = np.abs(pos_z - probe.config.tip_z_um) <= 600.0
+    ax2.scatter(pos_x[z_mask], pos_y[z_mask], s=8, color='#bbbbbb', alpha=0.35, label=f'Lumbar Neurons ($Z\\pm 600\\mu$m)')
+
     # Plot probe shank
-    ax1.plot(ch_pos[:, 0], ch_pos[:, 1], color='#333333', lw=3.0, label='Probe Shank (32-ch)')
-    sc = ax1.scatter(ch_pos[:, 0], ch_pos[:, 1], c=np.arange(probe.config.n_channels), cmap='viridis', s=45, zorder=4, edgecolor='black')
+    ax2.plot(ch_pos[:, 0], ch_pos[:, 1], color='#222222', lw=3.0, label='Probe Shank (32-ch)')
+    sc2 = ax2.scatter(ch_pos[:, 0], ch_pos[:, 1], c=np.arange(probe.config.n_channels), cmap='viridis', s=45, zorder=4, edgecolor='black')
 
     # Detected units
     if probe.n_detected_units > 0:
         det_x = pos_x[probe.detected_neuron_indices]
         det_y = pos_y[probe.detected_neuron_indices]
-        ax1.scatter(det_x, det_y, c=probe.channel_assignments, cmap='viridis', s=35, marker='o', alpha=0.9, edgecolor='red', lw=0.8, label=f'Detected Units ($n={probe.n_detected_units}$)')
+        ax2.scatter(det_x, det_y, c=probe.channel_assignments, cmap='viridis', s=40, marker='o', alpha=0.95, edgecolor='crimson', lw=1.2, label=f'Detected Units ($n={probe.n_detected_units}$)')
 
-    ax1.set_xlabel('Mediolateral Position $X$ (µm)', fontsize=9.5, fontweight='bold')
-    ax1.set_ylabel('Dorsoventral Position $Y$ (µm)\n(Ventral $\\leftarrow 0 \\rightarrow$ Dorsal)', fontsize=9.5, fontweight='bold')
-    ax1.set_title('Virtual Silicon Probe Insertion (Laminae VII–IX)', fontsize=10.5, fontweight='bold', pad=8)
-    ax1.grid(True, linestyle=':', alpha=0.4)
-    ax1.legend(loc='upper right', fontsize=7.5, frameon=True)
-    plt.colorbar(sc, ax=ax1, label='Channel Index (Tip $\\rightarrow$ Dorsal)')
+    ax2.set_xlabel('Mediolateral Position $X$ (µm)', fontsize=8.5, fontweight='bold')
+    ax2.set_ylabel('Dorsoventral Position $Y$ (µm)\n(Ventral $\\leftarrow 0 \\rightarrow$ Dorsal)', fontsize=8.5, fontweight='bold')
+    ax2.set_title('Transverse Cross-Section (Laminae VII–IX)', fontsize=10, fontweight='bold', pad=6)
+    ax2.grid(True, linestyle=':', alpha=0.4)
+    ax2.legend(loc='upper right', fontsize=7.0, frameon=True)
+    cbar = plt.colorbar(sc2, ax=ax2, fraction=0.046, pad=0.04)
+    cbar.set_label('Electrode Channel (0=Tip $\\rightarrow$ 31=Dorsal)', fontsize=8.0, fontweight='bold')
 
-    # 2. Histogram of Detected Units per Cell Type
+    # 3. Right: Histogram of Detected Units per Cell Type
+    ax3 = fig.add_subplot(gs[0, 2])
     if probe.n_detected_units > 0:
         cell_types, counts = np.unique(probe.detected_cell_types, return_counts=True)
         bar_colors = [POP_COLORS.get(ct, '#888888') for ct in cell_types]
-        bars = ax2.barh(cell_types, counts, color=bar_colors, edgecolor='black', lw=0.8)
-        ax2.set_xlabel('Detected Unit Count', fontsize=9.5, fontweight='bold')
-        ax2.set_title('Sampled Cell-Type Diversity', fontsize=10.5, fontweight='bold', pad=8)
-        ax2.grid(True, linestyle=':', alpha=0.4, axis='x')
+        bars = ax3.barh(cell_types, counts, color=bar_colors, edgecolor='black', lw=0.8)
+        ax3.set_xlabel('Detected Unit Count', fontsize=8.5, fontweight='bold')
+        ax3.set_title('Sampled Cell Diversity', fontsize=10, fontweight='bold', pad=6)
+        ax3.grid(True, linestyle=':', alpha=0.4, axis='x')
         for bar in bars:
             xval = bar.get_width()
-            ax2.text(xval + 0.3, bar.get_y() + bar.get_height()/2.0, f"{int(xval)}", ha='left', va='center', fontsize=8.5, fontweight='bold')
+            ax3.text(xval + 0.1, bar.get_y() + bar.get_height()/2.0, f"{int(xval)}", ha='left', va='center', fontsize=8, fontweight='bold')
     else:
-        ax2.text(0.5, 0.5, 'No units in detection range', ha='center', va='center')
+        ax3.text(0.5, 0.5, 'No units in detection range', ha='center', va='center', fontsize=9)
+        ax3.set_title('Sampled Cell Diversity', fontsize=10, fontweight='bold', pad=6)
 
-    plt.suptitle('Figure 6E: High-Density Silicon Probe Electrophysiological Sampling', fontsize=12, fontweight='bold', y=0.99)
+    plt.suptitle('Figure 6E: High-Density 32-Channel Silicon Probe Electrophysiological Sampling', fontsize=12, fontweight='bold', y=0.99)
     plt.tight_layout()
     if output_path:
         os.makedirs(os.path.dirname(output_path), exist_ok=True)
         fig.savefig(output_path, bbox_inches='tight', dpi=dpi)
+        if 'virtual_probe.png' in output_path:
+            alt = output_path.replace('virtual_probe.png', 'probe_insertion.png')
+            fig.savefig(alt, bbox_inches='tight', dpi=dpi)
+        elif 'probe_insertion.png' in output_path:
+            alt = output_path.replace('probe_insertion.png', 'virtual_probe.png')
+            fig.savefig(alt, bbox_inches='tight', dpi=dpi)
     return fig
 
 

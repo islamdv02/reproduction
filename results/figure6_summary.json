@@ -1,0 +1,53 @@
+{
+  "reproduction": "Figure 6 - Komi et al. 2026",
+  "n_neurons": 5229,
+  "z_lesion_um": 4000.0,
+  "n_lesioned_synapses": 116011,
+  "control_metrics": {
+    "frequency_hz": 0.5,
+    "rms_amplitude_hz": 0.03930291419872551,
+    "lr_phase_deg": 69.6774193548387
+  },
+  "lesion_metrics": {
+    "frequency_hz": 0.5,
+    "rms_amplitude_hz": 0.03343900492492508,
+    "wave_arrest": false
+  },
+  "regrowth_results": {
+    "regrowth_V2a-2": {
+      "pop": "V2a-2",
+      "n_restored": 37261,
+      "frequency_hz": 0.5,
+      "rms_amplitude_hz": 0.03302201744792057,
+      "status": "Failed"
+    },
+    "regrowth_V1": {
+      "pop": "V1",
+      "n_restored": 14411,
+      "frequency_hz": 0.5,
+      "rms_amplitude_hz": 0.033328146162916635,
+      "status": "Failed"
+    },
+    "regrowth_V0v": {
+      "pop": "V0v",
+      "n_restored": 7851,
+      "frequency_hz": 0.5,
+      "rms_amplitude_hz": 0.03247608673042895,
+      "status": "Failed"
+    },
+    "regrowth_V3": {
+      "pop": "V3",
+      "n_restored": 12910,
+      "frequency_hz": 0.5,
+      "rms_amplitude_hz": 0.03216117875889441,
+      "status": "Failed"
+    }
+  },
+  "electrophysiology": {
+    "n_channels": 32,
+    "n_detected_units": 1,
+    "active_channels": 1,
+    "cycle_period_ms": 211.67567567567568
+  },
+  "runtime_seconds": 525.983588218689
+}

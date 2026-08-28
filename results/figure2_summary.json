@@ -1,0 +1,79 @@
+{
+  "figure": 2,
+  "title": "Spatial Transcriptomics, 3D Directional Kernels, Motor Pools & Net Lumbar Projectome",
+  "anatomical_space": {
+    "x_range_um": [
+      -1750.0,
+      1750.0
+    ],
+    "y_range_um": [
+      0.0,
+      1613.3
+    ],
+    "z_range_um": [
+      0.0,
+      11000.0
+    ],
+    "segments": [
+      "T13",
+      "L1",
+      "L2",
+      "L3",
+      "L4",
+      "L5",
+      "L6",
+      "S1",
+      "S2",
+      "S3",
+      "S4"
+    ]
+  },
+  "network_architecture": {
+    "total_neurons": 5229,
+    "total_synapses": 570740,
+    "sparsity": 0.9791262235877185,
+    "ipsilateral_synapses": 291715,
+    "contralateral_synapses": 279025,
+    "ipsi_percentage": 51.111714616112415,
+    "contra_percentage": 48.888285383887585
+  },
+  "cell_type_abundances": {
+    "V2a-2": 375,
+    "V2a-1": 625,
+    "V1": 1511,
+    "V2b": 432,
+    "V0v": 497,
+    "V0d": 246,
+    "V3": 915,
+    "dI6": 487,
+    "MN": 141
+  },
+  "projectome_features": {
+    "ipsilateral_profile": {
+      "peak_excitation_weight": 139.61896612327286,
+      "peak_inhibition_weight": -263.61593847430737,
+      "excitation_radius_um": 500.0,
+      "inhibition_span_um": [
+        1000.0,
+        4000.0
+      ],
+      "profile_type": "Asymmetric Mexican Hat"
+    },
+    "contralateral_profile": {
+      "peak_excitation_weight": 210.13882697115085,
+      "peak_inhibition_weight": -79.16845807631034,
+      "profile_type": "Bilateral Commissural"
+    }
+  },
+  "artifacts": {
+    "panel_2a": "plots\\06_fig2a_spatial_transcriptomics.png",
+    "panel_2b": "plots\\07_fig2b_segmental_abundance.png",
+    "panel_2c": "plots\\08_fig2c_directional_kernels.png",
+    "panel_2d": "plots\\09_fig2d_motoneuron_topography.png",
+    "panel_2e": "plots\\10_fig2e_pairwise_connectivity.png",
+    "panel_2f": "plots\\11_fig2f_cell_type_matrix.png",
+    "panel_2g": "plots\\12_fig2g_net_projectome.png",
+    "figure2_complete": "plots\\figure2_complete.png",
+    "csv_c_matrix": "results\\cell_type_connectivity_matrix.csv"
+  }
+}

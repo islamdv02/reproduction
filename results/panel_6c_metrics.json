@@ -1,0 +1,64 @@
+{
+  "panel": "6C",
+  "scientific_question": "Which cell-type-specific axonal regeneration is sufficient to restore longitudinal connectivity across the L2/L3 lesion?",
+  "z_lesion_um": 4000.0,
+  "total_neurons": 5229,
+  "total_intact_synapses": 570740,
+  "total_severed_synapses": 116011,
+  "intact_projectome_tail_integral": 3507.6189602149275,
+  "lesion_projectome_tail_integral": 2255.7898162281253,
+  "candidate_populations": {
+    "V2a-2": {
+      "n_neurons": 375,
+      "transmitter": "Glutamatergic (Excitatory)",
+      "length_scale_um": 7000.0,
+      "n_restored_synapses": 37261,
+      "pct_of_severed_synapses_restored": 32.118506003741025,
+      "mean_restored_synaptic_weight": 0.01892999695867253,
+      "total_restored_synaptic_weight": 705.3506166770972,
+      "long_range_tail_integral": 2253.1206866569523,
+      "long_range_tail_recovery_pct": -0.2132183600289431
+    },
+    "V1": {
+      "n_neurons": 1511,
+      "transmitter": "GABA/Glycinergic (Inhibitory)",
+      "length_scale_um": 2000.0,
+      "n_restored_synapses": 14411,
+      "pct_of_severed_synapses_restored": 12.422097904509055,
+      "mean_restored_synaptic_weight": -0.007285985487807178,
+      "total_restored_synaptic_weight": -104.99833686478925,
+      "long_range_tail_integral": 2229.3363346069896,
+      "long_range_tail_recovery_pct": -2.1131862721207484
+    },
+    "V0v": {
+      "n_neurons": 497,
+      "transmitter": "Glutamatergic (Excitatory)",
+      "length_scale_um": 3400.0,
+      "n_restored_synapses": 7851,
+      "pct_of_severed_synapses_restored": 6.767461706217514,
+      "mean_restored_synaptic_weight": 0.022007783397367274,
+      "total_restored_synaptic_weight": 172.78310745273046,
+      "long_range_tail_integral": 2406.782033869785,
+      "long_range_tail_recovery_pct": 12.06172730256005
+    },
+    "V3": {
+      "n_neurons": 915,
+      "transmitter": "Glutamatergic (Excitatory)",
+      "length_scale_um": 500.0,
+      "n_restored_synapses": 12910,
+      "pct_of_severed_synapses_restored": 11.128255079259725,
+      "mean_restored_synaptic_weight": 0.019291397213347376,
+      "total_restored_synaptic_weight": 249.0519380243146,
+      "long_range_tail_integral": 2247.108687482119,
+      "long_range_tail_recovery_pct": -0.6934755264092097
+    }
+  },
+  "rankings_by_restored_synapses": [
+    "V2a-2",
+    "V1",
+    "V3",
+    "V0v"
+  ],
+  "conclusion": "V2a-2 excitatory interneurons restore by far the greatest number (37,261 synapses, 32.12% of total severed) and net positive longitudinal excitatory connectivity due to their 7,000 um projection length constant.",
+  "figure_saved": "plots/22_fig6c_regrowth_projectome.png"
+}

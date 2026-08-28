@@ -11,28 +11,16 @@ import numpy as np
 
 # Add src to path
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "src"))
-try:
-    from network import Network
-    from simulation import SimulationConfig, Simulator
-    from locomotion import (
-        generate_synthetic_emg,
-        compute_traveling_wave,
-        compute_pca_dynamics,
-        compute_population_phases,
-        generate_poisson_spikes_and_rates,
-        MUSCLE_FLEX_EXT
-    )
-except ImportError:
-    from src.network import Network
-    from src.simulation import SimulationConfig, Simulator
-    from src.locomotion import (
-        generate_synthetic_emg,
-        compute_traveling_wave,
-        compute_pca_dynamics,
-        compute_population_phases,
-        generate_poisson_spikes_and_rates,
-        MUSCLE_FLEX_EXT
-    )
+from network import Network
+from simulation import SimulationConfig, Simulator
+from locomotion import (
+    generate_synthetic_emg,
+    compute_traveling_wave,
+    compute_pca_dynamics,
+    compute_population_phases,
+    generate_poisson_spikes_and_rates,
+    MUSCLE_FLEX_EXT
+)
 
 
 @pytest.fixture(scope="module")
@@ -87,10 +75,12 @@ def test_traveling_wave_computation(baseline_simulation):
     )
     assert 'wave_velocity_mm_s' in wave
     assert 'spatial_phases_rad' in wave
-    assert len(wave['spatial_phases_rad']) == 10
-    assert wave['cycle_period_ms'] > 0.0
-    assert wave['loco_frequency_hz'] > 0.0
-    assert np.all(np.isfinite(wave['spatial_lags_ms']))
+    spatial_phases = np.asarray(wave['spatial_phases_rad'])
+    assert len(spatial_phases) == 10
+    assert float(wave['cycle_period_ms']) > 0.0
+    assert float(wave['loco_frequency_hz']) > 0.0
+    spatial_lags = np.asarray(wave['spatial_lags_ms'])
+    assert np.all(np.isfinite(spatial_lags))
 
 
 def test_pca_dynamics_computation(baseline_simulation):
@@ -100,11 +90,14 @@ def test_pca_dynamics_computation(baseline_simulation):
         n_components=3,
         t_start_ms=100
     )
-    assert pca['pcs'].shape == (400, 3)
-    assert len(pca['explained_variance_ratio']) == 3
-    assert np.all(pca['explained_variance_ratio'] >= 0.0)
-    assert np.isclose(np.sum(pca['explained_variance_ratio']), pca['cumulative_variance'][-1])
-    assert pca['cumulative_variance'][-1] > 0.0
+    pcs = np.asarray(pca['pcs'])
+    evr = np.asarray(pca['explained_variance_ratio'])
+    cum_var = np.asarray(pca['cumulative_variance'])
+    assert pcs.shape == (400, 3)
+    assert len(evr) == 3
+    assert np.all(evr >= 0.0)
+    assert np.isclose(np.sum(evr), cum_var[-1])
+    assert float(cum_var[-1]) > 0.0
 
 
 def test_population_phase_relationships(baseline_simulation):
@@ -117,9 +110,10 @@ def test_population_phase_relationships(baseline_simulation):
     )
     assert 'phases_rad' in phase_data
     assert 'cycle_period_ms' in phase_data
-    assert phase_data['cycle_period_ms'] > 0.0
-    for pop_name, phase_rad in phase_data['phases_rad'].items():
-        assert 0.0 <= phase_rad <= 2.0 * np.pi + 1e-6
+    assert float(phase_data['cycle_period_ms']) > 0.0
+    phases_rad = dict(phase_data['phases_rad'])
+    for pop_name, phase_rad in phases_rad.items():
+        assert 0.0 <= float(phase_rad) <= 2.0 * np.pi + 1e-6
 
 
 def test_poisson_spikes_and_gaussian_rates(baseline_simulation):

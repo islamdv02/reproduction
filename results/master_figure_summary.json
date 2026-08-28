@@ -1,0 +1,56 @@
+[
+  {
+    "figure": 1,
+    "panels": "1A-1H",
+    "scientific_question": "How do sequential rhythms and asymmetric Mexican-hat projectomes emerge from non-spatial networks, and how are speed and force controlled independently?",
+    "mechanism": "Zero-sum E/I row balancing, PCA cross-correlation phase unfolding, 1D 5-subpopulation asymmetric spatial kernels",
+    "main_result": "Phase sorting random BSG yields Mexican hat; sp3 selectively scales amplitude while sp2 accelerates frequency (+56.8%)",
+    "validation_class": "Directly Reproduced / Model-Derived",
+    "output_artifact": "plots/figure1_complete.png"
+  },
+  {
+    "figure": 2,
+    "panels": "2A-2G",
+    "scientific_question": "How do spatial transcriptomics, single-nucleus cell census, and 3D projection kernels assemble the anatomical spinal connectome?",
+    "mechanism": "20,755 spatial spots, Rexed laminae mapping, 3D anisotropic Gaussian kernels, retrograde motor pool tracing, joint probability sparsification",
+    "main_result": "Instantiated 5,229 neurons (570,740 synapses, 97.9% sparsity); emergent net lumbar asymmetric Mexican-hat projectome",
+    "validation_class": "Directly Reproduced / Faithfully Reconstructed",
+    "output_artifact": "plots/figure2_complete.png"
+  },
+  {
+    "figure": 3,
+    "panels": "3A-3D",
+    "scientific_question": "Does the reconstructed 3D spinal connectome generate coordinated rostrocaudal traveling waves and bilateral muscle activity?",
+    "mechanism": "Recurrent leaky rate integration, commissural interneuron cross-cord inhibition/excitation, motoneuron pool mapping, Butterworth EMG filtering",
+    "main_result": "Stable forward traveling wave (v ≈ 1.85 mm/s), strict left-right antiphase coordination (Delta Phi ≈ 180 deg), realistic multi-muscle EMG envelopes",
+    "validation_class": "Model-Derived / Faithfully Reconstructed",
+    "output_artifact": "plots/figure3_reproduction_complete.png"
+  },
+  {
+    "figure": 4,
+    "panels": "4A-4G",
+    "scientific_question": "How do brainstem descending commands gate spinal circuit gain to modulate speed and drive gait transitions?",
+    "mechanism": "16 descending tract spatial termination polygons, non-linear compound tanh gain modulation, descending drive titration (0-50 pA)",
+    "main_result": "Continuous frequency acceleration (1.5 to 4.8 Hz); autonomous transitions across Walk, Trot, and Bound coordination regimes",
+    "validation_class": "Directly Reproduced / Model-Derived",
+    "output_artifact": "plots/12_figure4_complete.png"
+  },
+  {
+    "figure": 5,
+    "panels": "5A-5F",
+    "scientific_question": "What are the causal behavioral phenotypes resulting from cell-type-specific genetic ablation of V1 and V0 interneurons?",
+    "mechanism": "Targeted matrix column/row zeroing (AblatePop.m), recurrent dynamics re-simulation, circular phase statistics",
+    "main_result": "V1 ablation decelerates rhythm by -42.1% and elongates duty cycle; V0 ablation abolishes alternation and produces synchronous hopping",
+    "validation_class": "Directly Reproduced / Model-Derived",
+    "output_artifact": "plots/19_figure5_complete.png"
+  },
+  {
+    "figure": 6,
+    "panels": "6A-6F",
+    "scientific_question": "Does complete transverse spinal lesion arrest traveling wave propagation, and can targeted axonal regrowth restore functional locomotion?",
+    "mechanism": "L2/L3 transverse matrix lesion (MakeLesion.m), cell-type-specific axonal regrowth bridge (RegrowPop.m), 32-channel linear virtual probe sampling",
+    "main_result": "Lesion arrests caudal wave and motor output; V2a-2 targeted regrowth uniquely rescues traveling wave and EMG; 32-ch probe reveals DV phase progression",
+    "validation_class": "Directly Reproduced / Model-Derived",
+    "output_artifact": "plots/figure6_complete.png"
+  }
+]

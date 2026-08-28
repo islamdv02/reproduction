@@ -1,0 +1,39 @@
+{
+  "panel": "6B",
+  "scientific_question": "What happens to spatiotemporal activity propagation and motor output after a transverse L2/L3 lesion?",
+  "z_lesion_um": 4000.0,
+  "n_neurons_total": 5229,
+  "n_neurons_rostral": 1504,
+  "n_neurons_caudal": 3725,
+  "control": {
+    "mean_rate_rostral_hz": 30.13171624368648,
+    "mean_rate_caudal_hz": 28.11658990647505,
+    "rms_amplitude_rostral_hz": 0.03735662556552733,
+    "rms_amplitude_caudal_hz": 0.04008874456230404,
+    "dominant_frequency_rostral_hz": 0.5,
+    "dominant_frequency_caudal_hz": 0.5,
+    "peak_power_rostral": 1.2681686275118893e-06,
+    "peak_power_caudal": 1.5702627862487286e-06,
+    "cross_lesion_coherence": 0.16063313827388467,
+    "emg_ta_rms": 3.8950456859053655,
+    "emg_gm_rms": 3.391681826371389
+  },
+  "lesion": {
+    "mean_rate_rostral_hz": 26.161534826335558,
+    "mean_rate_caudal_hz": 25.58672022497894,
+    "rms_amplitude_rostral_hz": 0.04102576105414516,
+    "rms_amplitude_caudal_hz": 0.030375788490469513,
+    "dominant_frequency_rostral_hz": 0.5,
+    "dominant_frequency_caudal_hz": 0.5,
+    "peak_power_rostral": 1.5186596299992492e-06,
+    "peak_power_caudal": 1.090820996305548e-06,
+    "cross_lesion_coherence": 0.12843197846069287,
+    "emg_ta_rms": 3.7892672042949607,
+    "emg_gm_rms": 1.813146854898436
+  },
+  "caudal_rms_suppression_pct": 24.2286361867459,
+  "caudal_peak_power_suppression_pct": 30.53258309002792,
+  "emg_gm_suppression_pct": 46.54136361492841,
+  "cross_lesion_decorrelation": 0.0322011598131918,
+  "figure_saved": "plots/21_fig6b_post_lesion_dynamics.png"
+}

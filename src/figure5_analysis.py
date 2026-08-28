@@ -27,7 +27,8 @@ def compute_projectome_1d_profile(
     target_pop: Optional[str] = None,
     bin_size_um: float = 200.0,
     max_dist_um: float = 4000.0,
-    contralateral_only: bool = False
+    contralateral_only: bool = False,
+    ipsilateral_only: bool = False
 ) -> Tuple[np.ndarray, np.ndarray]:
     """
     Computes the 1D spatial projectome weight distribution as a function of
@@ -47,6 +48,10 @@ def compute_projectome_1d_profile(
         # Cross-cord connections
         lat_diff = (latera[:, None] != latera[None, :])
         active_W = W * lat_diff
+    elif ipsilateral_only:
+        # Same-cord connections
+        lat_same = (latera[:, None] == latera[None, :])
+        active_W = W * lat_same
     else:
         active_W = W
 

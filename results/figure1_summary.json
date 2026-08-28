@@ -1,0 +1,39 @@
+{
+  "figure": 1,
+  "title": "Balanced Sequence Generation, Mexican-Hat Projectomes, and Decoupled Motor Control",
+  "bsg_model": {
+    "n_neurons": 500,
+    "p_conn": 0.1,
+    "cycle_period_ms": 400.0,
+    "pc1_explained_var": 0.4701336780393535,
+    "pc2_explained_var": 0.25894770746050383
+  },
+  "sp3_amplitude_control": {
+    "target_population": "sp3 (Excitatory)",
+    "gain_min": 0.6,
+    "gain_max": 1.8,
+    "amplitude_min": 12.870439112220497,
+    "amplitude_max": 13.025810270567506,
+    "amplitude_scaling_factor": 1.0120719391927726,
+    "frequency_delta_percent": 13.342409802586804
+  },
+  "sp2_frequency_control": {
+    "target_population": "sp2 (Inhibitory)",
+    "gain_min": 0.6,
+    "gain_max": 1.8,
+    "frequency_min": 0.6798096532970768,
+    "frequency_max": 1.0660980810234542,
+    "frequency_scaling_factor": 1.5682302771855012,
+    "amplitude_delta_percent": 124.10950835050514
+  },
+  "artifacts": {
+    "panel_1abc": "plots\\01_fig1abc_bsg_dynamics.png",
+    "panel_1de": "plots\\02_fig1de_unfolded_projectome.png",
+    "panel_1f": "plots\\03_fig1f_5pop_network.png",
+    "panel_1g": "plots\\04_fig1g_amplitude_control.png",
+    "panel_1h": "plots\\05_fig1h_frequency_control.png",
+    "figure1_complete": "plots\\figure1_complete.png",
+    "csv_sp3": "results\\figure1_sp3_amplitude_sweep.csv",
+    "csv_sp2": "results\\figure1_sp2_frequency_sweep.csv"
+  }
+}

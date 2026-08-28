@@ -1,0 +1,7 @@
+Mechanism,Mathematical_Form,Prediction_in_Yakovenko_System,Direction_of_Expected_Effect,Pre_Registered
+Rostrocaudal Asymmetric Connectivity (mu_z > 0),"P(z_post, z_pre) propto exp(-(Delta z - mu_z)^2 / (2 sigma_z^2))",Progressive descending phase organization along L4 -> S1,Monotonic negative phase gradient dphi/dz < 0 (Rostral leads caudal),Yes
+Mexican-Hat Spatial Kernel,Local Excitation (Delta z <= 2.5 mm) + Long-range Inhibition (Delta z > 2.5 mm),Spatial localization of active wavefront; suppression of surround slices,Positive peak at Delta z ~ 0 flanked by negative trough,Yes
+Recurrent Balanced Rate Dynamics,tau dR/dt = -R + f(W @ R + I_tonic),Spontaneous autonomous rhythm generation without periodic input,Single dominant frequency peak in 0.5-3.0 Hz range,Yes
+Commissural Reciprocal Coupling,Contralateral projections with balanced inhibitory bias,Left-right antiphase bilateral alternation,Bilateral phase difference Delta phi_LR ~ 180 degrees,Yes
+Motor Pool Somatotopic Filtering,"A_m(t) = sum_s N_{m,s} * R_slice(s, t)","Continuous interneuronal wave produces discrete, segregated motor output bursts",Bimodal r_cm(t) trajectory dwelling in L7 during stance and jumping to L4-L5 in swing,Yes
+Centroid Migration vs Neural Wave,v_cm(t) = |dr_cm/dt| vs v_wave = omega / k,Kinematic centroid velocity exhibits high transition spikes (>30 mm/s) despite slow underlying wave,v_cm(t) peaks at stance-swing transitions; v_wave remains steady,Yes
