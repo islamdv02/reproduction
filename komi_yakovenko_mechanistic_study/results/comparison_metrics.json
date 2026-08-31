@@ -11,68 +11,68 @@
       "jump_magnitude_levels": 36.68759516116344
     },
     "Wave_C_Emergent_Traveling_Wave": {
-      "propagation_velocity_mm_s": 228.00000000000003,
-      "bilateral_phase_diff_deg": 36.20111731843591,
-      "frequency_hz": 0.8130081300813008,
+      "propagation_velocity_mm_s": 272.23880597014926,
+      "bilateral_phase_diff_deg": 23.358778625954198,
+      "frequency_hz": 3.816793893129771,
       "mexican_hat_index": 1.0
     }
   },
   "controls_benchmarks": {
     "Baseline_Model_KY": {
-      "planar_var_pct": 10.858843777146568,
-      "orbit_radius": 0.6781839648832758,
+      "planar_var_pct": 96.46381624398158,
+      "orbit_radius": 661.6952035174784,
       "mexican_hat_index": 1.0,
-      "wave_velocity_mm_s": 37.685950413223146,
-      "bilateral_alternation": 0.7447721827437809
+      "wave_velocity_mm_s": 299.016393442623,
+      "bilateral_alternation": 0.02431333655127602
     },
     "Ctrl_1_No_Spatial_Structure": {
-      "planar_var_pct": 9.588982290163763,
-      "orbit_radius": 0.556344582151286,
+      "planar_var_pct": 8.843270883567838,
+      "orbit_radius": 0.4788891478589665,
       "mexican_hat_index": 1.0,
-      "wave_velocity_mm_s": 80.352422907489,
-      "bilateral_alternation": 0.9374196611341208
+      "wave_velocity_mm_s": 127.55244755244757,
+      "bilateral_alternation": -0.8896570909947474
     },
     "Ctrl_2_Shuffled_Coordinates": {
-      "planar_var_pct": 26.421810660043903,
-      "orbit_radius": 0.9637720270138334,
+      "planar_var_pct": 97.09599748925805,
+      "orbit_radius": 653.504176108825,
       "mexican_hat_index": 1.0,
-      "wave_velocity_mm_s": 243.20000000000002,
-      "bilateral_alternation": -1.0
+      "wave_velocity_mm_s": 240.00000000000003,
+      "bilateral_alternation": -0.9927645704190688
     },
     "Ctrl_3_Random_Wiring": {
-      "planar_var_pct": 45.039890424978566,
-      "orbit_radius": 0.9394127670165742,
+      "planar_var_pct": 38.710151242626864,
+      "orbit_radius": 0.6798464090252938,
       "mexican_hat_index": 1.0,
       "wave_velocity_mm_s": 150.0,
       "bilateral_alternation": -1.0
     },
     "Ctrl_4_Zero_Directional_Bias": {
-      "planar_var_pct": 6.579171204112579,
-      "orbit_radius": 0.45370346232120057,
+      "planar_var_pct": 6.6477811963487845,
+      "orbit_radius": 0.4259746242079895,
       "mexican_hat_index": 1.0,
-      "wave_velocity_mm_s": 80.00000000000001,
-      "bilateral_alternation": -0.48598341324260647
+      "wave_velocity_mm_s": 80.352422907489,
+      "bilateral_alternation": -0.5680647467311564
     },
     "Ctrl_5_Unbalanced_EI": {
-      "planar_var_pct": 10.970628855337326,
-      "orbit_radius": 0.4125895445764521,
+      "planar_var_pct": 30.907394167734488,
+      "orbit_radius": 0.42163430460244006,
       "mexican_hat_index": 1.0,
-      "wave_velocity_mm_s": 37.685950413223146,
-      "bilateral_alternation": 0.0825793454723335
+      "wave_velocity_mm_s": 150.0,
+      "bilateral_alternation": -1.0
     },
     "Ctrl_6_Isotropic_Kernels": {
-      "planar_var_pct": 10.858843777146568,
-      "orbit_radius": 0.6781839648832758,
+      "planar_var_pct": 96.46381624398158,
+      "orbit_radius": 661.6952035174784,
       "mexican_hat_index": 1.0,
-      "wave_velocity_mm_s": 37.685950413223146,
-      "bilateral_alternation": 0.7447721827437809
+      "wave_velocity_mm_s": 299.016393442623,
+      "bilateral_alternation": 0.02431333655127602
     },
     "Ctrl_7_No_Commissural": {
-      "planar_var_pct": 11.62371715684124,
-      "orbit_radius": 0.6685118196368475,
+      "planar_var_pct": 96.19101710592103,
+      "orbit_radius": 33.52232075000981,
       "mexican_hat_index": 1.0,
-      "wave_velocity_mm_s": 37.685950413223146,
-      "bilateral_alternation": 0.7447721827437809
+      "wave_velocity_mm_s": 134.11764705882354,
+      "bilateral_alternation": -0.004774438781063182
     },
     "Ctrl_8_Feedforward_Model_Y": {
       "planar_var_pct": 100.0,
@@ -84,34 +84,52 @@
   },
   "multi_seed_monte_carlo_stats": {
     "correlation_r": {
-      "mean": 0.6637425891620488,
-      "std": 0.1826190773557343,
-      "min": 0.4061579007662187,
-      "max": 0.8362505268009763
+      "mean": 0.7324700932130319,
+      "std": 0.0355400367368184,
+      "min": 0.678039731333672,
+      "max": 0.7701776777465039
+    },
+    "null_median_r": {
+      "mean": 0.6578399837709561,
+      "std": 0.0,
+      "min": 0.6578399837709561,
+      "max": 0.6578399837709561
+    },
+    "null_95th_pct_r": {
+      "mean": 0.8514991770976886,
+      "std": 0.0,
+      "min": 0.8514991770976886,
+      "max": 0.8514991770976886
+    },
+    "p_value_vs_null": {
+      "mean": 0.3085,
+      "std": 0.08818659195138455,
+      "min": 0.2175,
+      "max": 0.445
     },
     "rmse_levels": {
-      "mean": 14.62044988241789,
-      "std": 0.20160793094947782,
-      "min": 14.330540220210636,
-      "max": 14.802622939213766
+      "mean": 12.91924284989275,
+      "std": 0.6346709195980864,
+      "min": 12.046504294798789,
+      "max": 13.729883562883892
     },
     "nrmse": {
-      "mean": 0.37038887998276493,
-      "std": 0.0051074581384680726,
-      "min": 0.36304441959032124,
-      "max": 0.3750039824599332
+      "mean": 0.3272911523161534,
+      "std": 0.016078510097713272,
+      "min": 0.30518152788334,
+      "max": 0.3478276137908644
     },
     "phase_lag_pct": {
-      "mean": 18.6,
-      "std": 17.06751299984857,
-      "min": 4.0,
-      "max": 43.0
+      "mean": 56.2,
+      "std": 22.75302177733762,
+      "min": 19.0,
+      "max": 77.0
     },
     "wave_velocity_mm_s": {
-      "mean": 130.2040527901019,
-      "std": 100.14900421350693,
-      "min": 41.45454545454546,
-      "max": 249.86301369863017
+      "mean": 307.60217747476355,
+      "std": 147.06388662583373,
+      "min": 153.27731092436977,
+      "max": 536.4705882352941
     },
     "mexican_hat_index": {
       "mean": 1.0,
@@ -120,28 +138,28 @@
       "max": 1.0
     },
     "projectome_asymmetry": {
-      "mean": 0.9999999698220275,
-      "std": 3.880349451783862e-09,
-      "min": 0.9999999662605887,
-      "max": 0.999999976142618
+      "mean": -0.8860458904473753,
+      "std": 0.12592293323829626,
+      "min": -0.9999999879650716,
+      "max": -0.681402459943253
     },
     "planar_variance_pct": {
-      "mean": 68.04714204884372,
-      "std": 22.115658353951222,
-      "min": 34.603730767444866,
-      "max": 96.42284084006599
+      "mean": 96.31502638383098,
+      "std": 0.8787258795905261,
+      "min": 95.32735632004072,
+      "max": 97.39170307989326
     },
     "dominant_freq_hz": {
-      "mean": 1.3586643736236796,
-      "std": 0.7499580096923867,
-      "min": 0.6887052341597796,
-      "max": 2.5839793281653747
+      "mean": 3.518949909798768,
+      "std": 0.6811813301541154,
+      "min": 2.717391304347826,
+      "max": 4.219409282700422
     },
     "bilateral_phase_deg": {
-      "mean": 134.69868071255536,
-      "std": 55.66702551993999,
-      "min": 36.20111731843591,
-      "max": 168.44036697247722
+      "mean": 78.14220255844548,
+      "std": 58.23969461804918,
+      "min": 21.702127659574465,
+      "max": 143.402489626556
     }
   },
   "final_classification": "B. Partial Compatibility / Complementary Mechanistic Levels",

@@ -5,41 +5,41 @@
   "n_lesioned_synapses": 116011,
   "control_metrics": {
     "frequency_hz": 0.5,
-    "rms_amplitude_hz": 0.03930291419872551,
-    "lr_phase_deg": 69.6774193548387
+    "rms_amplitude_hz": 14.642988468666433,
+    "lr_phase_deg": 343.62213851057663
   },
   "lesion_metrics": {
     "frequency_hz": 0.5,
-    "rms_amplitude_hz": 0.03343900492492508,
-    "wave_arrest": false
+    "rms_amplitude_hz": 0.01618601395090115,
+    "wave_arrest": true
   },
   "regrowth_results": {
     "regrowth_V2a-2": {
       "pop": "V2a-2",
       "n_restored": 37261,
       "frequency_hz": 0.5,
-      "rms_amplitude_hz": 0.03302201744792057,
+      "rms_amplitude_hz": 0.016290017997461756,
       "status": "Failed"
     },
     "regrowth_V1": {
       "pop": "V1",
       "n_restored": 14411,
       "frequency_hz": 0.5,
-      "rms_amplitude_hz": 0.033328146162916635,
+      "rms_amplitude_hz": 0.016986671835994064,
       "status": "Failed"
     },
     "regrowth_V0v": {
       "pop": "V0v",
       "n_restored": 7851,
       "frequency_hz": 0.5,
-      "rms_amplitude_hz": 0.03247608673042895,
+      "rms_amplitude_hz": 0.0153207063814827,
       "status": "Failed"
     },
     "regrowth_V3": {
       "pop": "V3",
       "n_restored": 12910,
       "frequency_hz": 0.5,
-      "rms_amplitude_hz": 0.03216117875889441,
+      "rms_amplitude_hz": 0.016117770231061052,
       "status": "Failed"
     }
   },
@@ -47,7 +47,7 @@
     "n_channels": 32,
     "n_detected_units": 1,
     "active_channels": 1,
-    "cycle_period_ms": 211.67567567567568
+    "cycle_period_ms": 3283.0
   },
-  "runtime_seconds": 525.983588218689
+  "runtime_seconds": 797.211923122406
 }

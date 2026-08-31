@@ -6,6 +6,7 @@ Implements Komi et al. (2026) recurrent rate integration on Yakovenko cat spinal
 from typing import Tuple, Optional
 import numpy as np
 from connectivity import CatSynapticConnectome
+from oscillation_gate import assert_oscillatory
 
 
 def compound_tanh(I: np.ndarray, f_max: float = 100.0, threshold: float = 0.0) -> np.ndarray:
@@ -30,7 +31,7 @@ class RecurrentRateDynamics:
         dt_ms: float = 1.0,
         f_max: float = 100.0,
         threshold: float = 0.0,
-        tonic_drive_pA: float = 15.0,
+        tonic_drive_pA: float = 30.0,
         noise_std: float = 0.5,
         rng_seed: int = 42
     ):
@@ -43,13 +44,15 @@ class RecurrentRateDynamics:
         self.threshold = float(threshold)
         self.tonic_drive_pA = float(tonic_drive_pA)
         self.noise_std = float(noise_std)
+        self.rng_seed = int(rng_seed)
         self.rng = np.random.default_rng(rng_seed)
 
     def simulate(
         self,
         duration_ms: float = 2500.0,
         warmup_ms: float = 500.0,
-        external_drive: Optional[np.ndarray] = None
+        external_drive: Optional[np.ndarray] = None,
+        assert_gate: bool = True
     ) -> Tuple[np.ndarray, np.ndarray, np.ndarray]:
         """
         Runs Forward Euler integration.
@@ -81,7 +84,10 @@ class RecurrentRateDynamics:
                 ext_val = 0.0
 
             # Noise
-            noise = self.rng.normal(0.0, self.noise_std, self.N)
+            if self.noise_std > 0.0:
+                noise = self.rng.normal(0.0, self.noise_std, self.N)
+            else:
+                noise = 0.0
 
             # Total somatic current
             I_tot = syn_input + self.tonic_drive_pA + ext_val + noise
@@ -98,4 +104,12 @@ class RecurrentRateDynamics:
 
         # Discard warmup
         valid_idx = slice(n_warmup_steps, n_total_steps)
-        return times_ms[valid_idx] - warmup_ms, rates_history[:, valid_idx], currents_history[:, valid_idx]
+        valid_times = times_ms[valid_idx] - warmup_ms
+        valid_rates = rates_history[:, valid_idx]
+        valid_currents = currents_history[:, valid_idx]
+
+        # Verify noiseless oscillation gate if requested and connectome is balanced
+        if assert_gate and self.connectome.balance_ei and (self.noise_std == 0.0):
+            assert_oscillatory(self.W, valid_rates, name=f"CatNetwork(N={self.N}, seed={self.rng_seed})")
+
+        return valid_times, valid_rates, valid_currents

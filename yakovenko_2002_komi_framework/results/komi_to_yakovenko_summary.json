@@ -6,52 +6,52 @@
     "height_mm": 5.5
   },
   "connectome_metrics": {
-    "mean_row_sum": 0.008697289450442862,
-    "max_abs_row_sum": 0.42378711972603667,
-    "density": 0.009216,
+    "mean_row_sum": 2.914335439641036e-18,
+    "max_abs_row_sum": 1.1102230246251565e-15,
+    "density": 0.011402,
     "mexican_hat_index": 1.0,
-    "asymmetry_skew": 0.9999999697844941
+    "asymmetry_skew": -0.9783414872075482
   },
   "dynamical_metrics": {
-    "frequency_hz": 0.8410428931875525,
-    "planar_variance": 0.920873773520958,
-    "orbit_radius": 112.96142442485194,
-    "wave_velocity_mm_s": 36.480000000000004,
-    "bilateral_phase_diff_deg": 11.445086705202312,
-    "alternation_index": -0.9801153323060666
+    "frequency_hz": 3.717472118959108,
+    "planar_variance": 0.9733321543357445,
+    "orbit_radius": 927.1007455636861,
+    "wave_velocity_mm_s": 280.61538461538464,
+    "bilateral_phase_diff_deg": 5.333333333333333,
+    "alternation_index": -0.9956707906498043
   },
   "motor_mapping_metrics": {
-    "mean_correlation_with_empirical_emg": 0.03013109699931207,
-    "mean_nrmse": 0.46112087490543846
+    "mean_correlation_with_empirical_emg": 0.041545496862637914,
+    "mean_nrmse": 0.5264045105951071
   },
   "controls_benchmarks": {
     "Control_A_Main": {
-      "planar_variance": 0.7347688257197075,
-      "orbit_radius": 4.054462548824601,
+      "planar_variance": 0.9739212120439116,
+      "orbit_radius": 542.1752356826347,
       "mexican_hat_index": 1.0,
-      "wave_velocity_mm_s": 212.09302325581396,
-      "bilateral_alternation": -1.0
+      "wave_velocity_mm_s": 350.76923076923083,
+      "bilateral_alternation": -0.8892017445499812
     },
     "Control_B_Shuffled": {
-      "planar_variance": 0.9437802772203439,
-      "orbit_radius": 108.5357422949118,
+      "planar_variance": 0.9668650645897713,
+      "orbit_radius": 605.1550238350271,
       "mexican_hat_index": 1.0,
-      "wave_velocity_mm_s": 39.91247264770241,
-      "bilateral_alternation": 0.6999510506937467
+      "wave_velocity_mm_s": 357.64705882352945,
+      "bilateral_alternation": 0.8043165652707648
     },
     "Control_C_Unstructured": {
-      "planar_variance": 0.627055741737744,
-      "orbit_radius": 139.9627297616365,
+      "planar_variance": 0.42525018925649916,
+      "orbit_radius": 120.69086090965942,
       "mexican_hat_index": 1.0,
-      "wave_velocity_mm_s": 150.0,
-      "bilateral_alternation": -1.0
+      "wave_velocity_mm_s": 829.0909090909092,
+      "bilateral_alternation": -0.9997500236016231
     },
     "Control_D_Unbalanced": {
-      "planar_variance": 0.09870314636636532,
-      "orbit_radius": 0.4172051455652867,
-      "mexican_hat_index": 0.0,
-      "wave_velocity_mm_s": 101.89944134078213,
-      "bilateral_alternation": 0.595460324452688
+      "planar_variance": 0.18400294995233535,
+      "orbit_radius": 0.3557762311315166,
+      "mexican_hat_index": 1.0,
+      "wave_velocity_mm_s": 41.643835616438366,
+      "bilateral_alternation": -0.9961946980917455
     }
   }
 }

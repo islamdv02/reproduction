@@ -3,7 +3,8 @@
     "authors": "Komi et al.",
     "journal": "Nature Communications",
     "year": 2026,
-    "title": "Emergence of Traveling Waves and Decoupled Motor Control in Spinal Projectomes",
+    "title": "Spatial and network principles behind neural generation of locomotion",
+    "citation": "Nature Communications 17:7525",
     "reference_codebase": "BergLab/SpinalProjectome (MATLAB)"
   },
   "audit_summary": {

@@ -292,11 +292,11 @@ def _balance_submatrix(w_sub: np.ndarray) -> np.ndarray:
 
 def rescale_connectivity(
     w: np.ndarray,
-    latera: Optional[np.ndarray] = None
+    latera: Optional[np.ndarray] = None,
+    target_real: Optional[float] = 2.0
 ) -> Tuple[np.ndarray, float]:
     """
-    Rescales the connectivity matrix to normalize synaptic variance and spectral radius,
-    faithfully replicating RescaleConnectivity.m from BergLab.
+    Rescales the connectivity matrix to normalize synaptic variance and ensure dominant real eigenvalue exceeds Hopf threshold.
     """
     w_rescaled = w.copy()
 
@@ -312,6 +312,22 @@ def rescale_connectivity(
     else:
         w_rescaled, sparsity = _rescale_submatrix(w_rescaled)
 
+    if target_real is not None and target_real > 0:
+        try:
+            if w_rescaled.shape[0] > 1000:
+                from scipy.sparse.linalg import eigs
+                evals = eigs(w_rescaled, k=6, which='LR', return_eigenvectors=False)
+                max_re = np.max(evals.real)
+            else:
+                eigenvalues = np.linalg.eigvals(w_rescaled)
+                dom_idx = np.argmax(eigenvalues.real)
+                max_re = eigenvalues[dom_idx].real
+            if max_re > 1e-6:
+                w_rescaled = (w_rescaled / max_re) * target_real
+        except Exception:
+            pass
+
+    w_rescaled[np.abs(w_rescaled) < 1e-15] = 0.0
     return w_rescaled, sparsity
 
 

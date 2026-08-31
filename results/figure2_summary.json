@@ -50,8 +50,8 @@
   },
   "projectome_features": {
     "ipsilateral_profile": {
-      "peak_excitation_weight": 139.61896612327286,
-      "peak_inhibition_weight": -263.61593847430737,
+      "peak_excitation_weight": 371.94713392845733,
+      "peak_inhibition_weight": -702.2770293744152,
       "excitation_radius_um": 500.0,
       "inhibition_span_um": [
         1000.0,
@@ -60,8 +60,8 @@
       "profile_type": "Asymmetric Mexican Hat"
     },
     "contralateral_profile": {
-      "peak_excitation_weight": 210.13882697115085,
-      "peak_inhibition_weight": -79.16845807631034,
+      "peak_excitation_weight": 559.8131585503777,
+      "peak_inhibition_weight": -210.90602442235445,
       "profile_type": "Bilateral Commissural"
     }
   },

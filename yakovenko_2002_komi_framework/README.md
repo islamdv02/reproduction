@@ -2,7 +2,7 @@
 ## Cross-Paper Computational Method Transfer & Scientific Synthesis
 
 **Dataset Source**: Yakovenko et al. (2002), *Journal of Neurophysiology* 87(3): 1542–1553.  
-**Computational Framework**: Komi et al. (2026), *Nature Communications*, "Emergence of Traveling Waves and Decoupled Motor Control in Spinal Projectomes."  
+**Computational Framework**: Komi et al. (2026), *Nature Communications* 17:7525, "Spatial and network principles behind neural generation of locomotion."  
 **Project Directory**: `yakovenko_2002_komi_framework/`  
 
 ---

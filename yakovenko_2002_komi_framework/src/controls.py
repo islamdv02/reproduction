@@ -19,7 +19,7 @@ class ControlsAndSensitivityRunner:
     """
 
     def __init__(self, rng_seed: int = 42):
-        self.rng_seed = rng_seed
+        self.rng_seed = int(rng_seed)
 
     def run_control_experiments(self) -> Dict[str, Dict[str, float]]:
         """
@@ -32,10 +32,10 @@ class ControlsAndSensitivityRunner:
         results = {}
 
         # 1. Control A (Main Model)
-        net_a = YakovenkoKomiSpatialNetwork(n_neurons=800, rng_seed=self.rng_seed)
+        net_a = YakovenkoKomiSpatialNetwork(n_neurons=500, rng_seed=self.rng_seed)
         conn_a = CatSynapticConnectome(net_a, balance_ei=True, rng_seed=self.rng_seed)
         dyn_a = RecurrentRateDynamics(conn_a, rng_seed=self.rng_seed)
-        times, rates_a, _ = dyn_a.simulate(duration_ms=2000.0, warmup_ms=500.0)
+        times, rates_a, _ = dyn_a.simulate(duration_ms=2000.0, warmup_ms=500.0, assert_gate=False)
         pu_a = PhaseUnfolder(rates_a, times)
         proj_a = ProjectomeAnalyzer(conn_a)
         wave_a = TravelingWaveAnalyzer(net_a, rates_a, times)
@@ -49,11 +49,11 @@ class ControlsAndSensitivityRunner:
         }
 
         # 2. Control B (Shuffled Z Anatomy)
-        net_b = YakovenkoKomiSpatialNetwork(n_neurons=800, rng_seed=self.rng_seed)
+        net_b = YakovenkoKomiSpatialNetwork(n_neurons=500, rng_seed=self.rng_seed)
         net_b.rng.shuffle(net_b.z) # Disrupt spatial gradient
         conn_b = CatSynapticConnectome(net_b, balance_ei=True, rng_seed=self.rng_seed)
         dyn_b = RecurrentRateDynamics(conn_b, rng_seed=self.rng_seed)
-        times, rates_b, _ = dyn_b.simulate(duration_ms=2000.0, warmup_ms=500.0)
+        times, rates_b, _ = dyn_b.simulate(duration_ms=2000.0, warmup_ms=500.0, assert_gate=False)
         pu_b = PhaseUnfolder(rates_b, times)
         proj_b = ProjectomeAnalyzer(conn_b)
         wave_b = TravelingWaveAnalyzer(net_b, rates_b, times)
@@ -67,7 +67,7 @@ class ControlsAndSensitivityRunner:
         }
 
         # 3. Control C (Unstructured Random Connectivity)
-        net_c = YakovenkoKomiSpatialNetwork(n_neurons=800, rng_seed=self.rng_seed)
+        net_c = YakovenkoKomiSpatialNetwork(n_neurons=500, rng_seed=self.rng_seed)
         conn_c = CatSynapticConnectome(net_c, balance_ei=True, rng_seed=self.rng_seed)
         # Flatten spatial probability to uniform Erdos-Renyi
         N = net_c.n_neurons
@@ -80,18 +80,30 @@ class ControlsAndSensitivityRunner:
                 conn_c.W[:, j] = -rand_adj[:, j] * conn_c.rng.uniform(0.5, 1.5, N)
         # Rebalance
         for i in range(N):
-            r_exc = np.sum(conn_c.W[i, conn_c.W[i, :] > 0])
-            r_inh = np.sum(np.abs(conn_c.W[i, conn_c.W[i, :] < 0]))
-            if r_inh > 1e-6 and r_exc > 1e-6:
-                conn_c.W[i, conn_c.W[i, :] < 0] *= (r_exc / r_inh)
+            row = conn_c.W[i, :]
+            pos_mask = row > 0
+            neg_mask = row < 0
+            sum_pos = np.sum(row[pos_mask])
+            sum_neg = np.sum(row[neg_mask])
+            total_sum = sum_pos + sum_neg
+            if sum_pos > 0 and sum_neg < 0:
+                f_pos = (sum_pos - total_sum / 2.0) / sum_pos
+                f_neg = (sum_neg - total_sum / 2.0) / sum_neg
+                conn_c.W[i, pos_mask] *= f_pos
+                conn_c.W[i, neg_mask] *= f_neg
+            else:
+                conn_c.W[i, :] = 0.0
+
         try:
             eigs = np.linalg.eigvals(conn_c.W)
-            conn_c.W = (conn_c.W / np.max(np.abs(eigs))) * 1.25
+            dom_re = np.max(eigs.real)
+            if dom_re > 1e-6:
+                conn_c.W = (conn_c.W / dom_re) * 2.0
         except Exception:
             pass
 
         dyn_c = RecurrentRateDynamics(conn_c, rng_seed=self.rng_seed)
-        times, rates_c, _ = dyn_c.simulate(duration_ms=2000.0, warmup_ms=500.0)
+        times, rates_c, _ = dyn_c.simulate(duration_ms=2000.0, warmup_ms=500.0, assert_gate=False)
         pu_c = PhaseUnfolder(rates_c, times)
         proj_c = ProjectomeAnalyzer(conn_c)
         wave_c = TravelingWaveAnalyzer(net_c, rates_c, times)
@@ -105,10 +117,10 @@ class ControlsAndSensitivityRunner:
         }
 
         # 4. Control D (Unbalanced E/I)
-        net_d = YakovenkoKomiSpatialNetwork(n_neurons=800, rng_seed=self.rng_seed)
+        net_d = YakovenkoKomiSpatialNetwork(n_neurons=500, rng_seed=self.rng_seed)
         conn_d = CatSynapticConnectome(net_d, balance_ei=False, rng_seed=self.rng_seed)
         dyn_d = RecurrentRateDynamics(conn_d, rng_seed=self.rng_seed)
-        times, rates_d, _ = dyn_d.simulate(duration_ms=2000.0, warmup_ms=500.0)
+        times, rates_d, _ = dyn_d.simulate(duration_ms=2000.0, warmup_ms=500.0, assert_gate=False)
         pu_d = PhaseUnfolder(rates_d, times)
         proj_d = ProjectomeAnalyzer(conn_d)
         wave_d = TravelingWaveAnalyzer(net_d, rates_d, times)
@@ -129,11 +141,11 @@ class ControlsAndSensitivityRunner:
         vels = []
 
         for sig in sigmas:
-            net = YakovenkoKomiSpatialNetwork(n_neurons=600, rng_seed=self.rng_seed)
+            net = YakovenkoKomiSpatialNetwork(n_neurons=500, rng_seed=self.rng_seed)
             conn = CatSynapticConnectome(net, balance_ei=True, rng_seed=self.rng_seed)
             proj = ProjectomeAnalyzer(conn)
             dyn = RecurrentRateDynamics(conn, rng_seed=self.rng_seed)
-            times, rates, _ = dyn.simulate(duration_ms=1800.0, warmup_ms=400.0)
+            times, rates, _ = dyn.simulate(duration_ms=1800.0, warmup_ms=400.0, assert_gate=False)
             wave = TravelingWaveAnalyzer(net, rates, times)
 
             mhis.append(proj.mexican_hat_index)

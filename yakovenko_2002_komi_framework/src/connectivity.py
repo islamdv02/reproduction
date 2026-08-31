@@ -1,31 +1,37 @@
 """
 Connectivity Module: 3D Anisotropic Projectome Construction & Row-Wise E/I Balancing.
-Implements Komi et al. (2026) synaptic probability kernels and zero-sum balance on Yakovenko cat anatomy.
+Implements Komi et al. (2026) multi-subpopulation Mexican-hat spatial kernels,
+symmetric row-wise zero-sum balance, and real-part spectral rescaling on Yakovenko cat anatomy.
 """
 
-from typing import Tuple, Optional
+from typing import Tuple, Optional, List, Dict
 import numpy as np
-from scipy import sparse
 from spatial_mapping import YakovenkoKomiSpatialNetwork
+from oscillation_gate import print_eigenvalue_diagnostics
 
 
 class CatSynapticConnectome:
     """
-    Constructs the 3D anisotropic synaptic matrix W with exact row-wise E/I balancing.
+    Constructs the 3D anisotropic synaptic matrix W with Mexican-hat spatial kernels,
+    exact symmetric row-wise zero-sum E/I balancing, and real-part spectral rescaling.
     """
 
     def __init__(
         self,
         network: YakovenkoKomiSpatialNetwork,
-        baseline_prob: float = 0.12,
-        spectral_radius: float = 1.25,
+        baseline_prob: float = 0.25,
+        spectral_radius: float = 2.0,
         balance_ei: bool = True,
-        rng_seed: int = 42
+        rng_seed: int = 42,
+        periodic_z: bool = True
     ):
         self.network = network
         self.baseline_prob = float(baseline_prob)
+        # spectral_radius parameter acts as target max Re(lambda)
         self.spectral_radius = float(spectral_radius)
         self.balance_ei = bool(balance_ei)
+        self.periodic_z = bool(periodic_z)
+        self.rng_seed = int(rng_seed)
         self.rng = np.random.default_rng(rng_seed)
 
         self._build_connectome()
@@ -34,100 +40,101 @@ class CatSynapticConnectome:
         """Constructs 3D probability matrix, samples Bernoulli synapses, balances rows, and rescales."""
         N = self.network.n_neurons
         x, y, z = self.network.x, self.network.y, self.network.z
-        pop = self.network.population
-        is_exc = self.network.is_excitatory
-        is_comm = self.network.is_commissural
-        hemicord = self.network.hemicord
 
-        # 1. Compute Pairwise Distances
+        # 1. Pairwise Distances
         dx = x[:, None] - x[None, :] # Post (i) - Pre (j)
         dy = y[:, None] - y[None, :]
         dz = z[:, None] - z[None, :]
 
-        # 2. Kernel Parameters by Presynaptic Population (j)
-        # Transverse dispersions
-        sigma_x = 1.0
-        sigma_y = 1.0
+        # Cord length
+        L_z = float(np.max(z) - np.min(z)) if (np.max(z) - np.min(z)) > 1.0 else 28.8
+        if self.periodic_z:
+            dz_eff = (dz + L_z / 2.0) % L_z - L_z / 2.0
+        else:
+            dz_eff = dz
 
-        # Longitudinal parameters:
-        # Excitatory: Descending bias (mu_z > 0), long reach (sigma_z = 6.0 mm)
-        # Inhibitory: Local/rostral (mu_z <= 0, sigma_z = 2.5 mm)
-        # Commissural: Contralateral cross-cord (sigma_z = 4.5 mm)
-        mu_z = np.zeros(N)
-        sigma_z = np.zeros(N)
+        # 2. 5-Subpopulation Mexican-Hat Kernel Parameters (scaled from Komi Fig 1 to cat cord length)
+        scale = L_z / 5.0
+        pop_defs = [
+            {'name': 'sp1', 'is_exc': True,  'mu': 0.20 * scale * 1.8, 'sigma': 0.15 * scale},
+            {'name': 'sp2', 'is_exc': False, 'mu': 0.60 * scale * 1.8, 'sigma': 0.25 * scale},
+            {'name': 'sp3', 'is_exc': True,  'mu': 1.20 * scale * 1.8, 'sigma': 0.35 * scale},
+            {'name': 'sp4', 'is_exc': False, 'mu': 2.00 * scale * 1.8, 'sigma': 0.45 * scale},
+            {'name': 'sp5', 'is_exc': True,  'mu': 3.00 * scale * 1.8, 'sigma': 0.60 * scale},
+        ]
+        n_pops = len(pop_defs)
+        pop_idx = np.arange(N) % n_pops
+        self.neuron_pops = [pop_defs[idx] for idx in pop_idx]
+        self.is_excitatory = np.array([p['is_exc'] for p in self.neuron_pops])
+        self.transmitter = np.where(self.is_excitatory, 1.0, -1.0)
+        self.network.is_excitatory = self.is_excitatory
+        self.network.transmitter = self.transmitter
 
-        for j in range(N):
-            if is_comm[j]:
-                mu_z[j] = 0.0
-                sigma_z[j] = 4.5
-            elif is_exc[j]:
-                mu_z[j] = 3.5  # Descending projection bias (+3.5 mm)
-                sigma_z[j] = 6.0
-            else:
-                mu_z[j] = -1.2 # Local / rostral recurrent inhibition
-                sigma_z[j] = 2.5
+        # Transverse spatial dispersions
+        sigma_xy = 3.0
 
-        # 3. 3D Spatial Probability Matrix
-        arg_x = (dx ** 2) / (2.0 * sigma_x ** 2)
-        arg_y = (dy ** 2) / (2.0 * sigma_y ** 2)
-        arg_z = ((dz - mu_z[None, :]) ** 2) / (2.0 * sigma_z[None, :] ** 2)
-        P = self.baseline_prob * np.exp(-(arg_x + arg_y + arg_z))
+        # 3. Construct Synaptic Matrix W
+        mus = np.array([p['mu'] for p in pop_defs])
+        sigs = np.array([p['sigma'] for p in pop_defs])
+        mu_j = mus[pop_idx]
+        sig_j = sigs[pop_idx]
 
-        # Side targeting: Commissural targets contralateral; Ipsilateral targets ipsilateral
-        is_contra_pair = (hemicord[:, None] != hemicord[None, :]) # True if i, j on opposite sides
-        
-        for j in range(N):
-            if is_comm[j]:
-                # Commissural projects contralaterally
-                P[:, j] *= np.where(is_contra_pair[:, j], 1.2, 0.05)
-            else:
-                # Ipsilateral interneurons project on same side
-                P[:, j] *= np.where(~is_contra_pair[:, j], 1.0, 0.0)
-
-        # Remove self-connections
+        arg_z = ((dz_eff - mu_j[None, :]) ** 2) / (2.0 * sig_j[None, :] ** 2)
+        arg_xy = (dx ** 2 + dy ** 2) / (2.0 * sigma_xy ** 2)
+        P = self.baseline_prob * np.exp(-(arg_xy + arg_z))
         np.fill_diagonal(P, 0.0)
         P = np.clip(P, 0.0, 1.0)
 
-        # 4. Bernoulli Synapse Sampling & Dale's Law
-        rand_draw = self.rng.random((N, N))
-        adj = (rand_draw < P).astype(np.float64)
+        adj = (self.rng.random((N, N)) < P).astype(np.float64)
+        weights = self.rng.normal(1.0, 0.1, size=(N, N))
+        weights = np.clip(weights, 0.05, None)
 
-        # Initial weights: Exc > 0, Inh < 0
-        w_raw = np.zeros((N, N), dtype=np.float64)
+        W = np.zeros((N, N), dtype=np.float64)
         for j in range(N):
-            if is_exc[j]:
-                w_raw[:, j] = adj[:, j] * self.rng.uniform(0.5, 1.5, N)
-            else:
-                w_raw[:, j] = -adj[:, j] * self.rng.uniform(0.5, 1.5, N)
+            W[:, j] = adj[:, j] * weights[:, j] * self.transmitter[j]
 
-        # 5. Row-Wise Zero-Sum E/I Balancing (Komi Method)
+        np.fill_diagonal(W, 0.0)
+
+        # 4. Row-Wise Zero-Sum E/I Balancing (BergLab BalanceConnectivity.m)
         if self.balance_ei:
-            W_bal = np.copy(w_raw)
+            W_bal = np.copy(W)
             for i in range(N):
-                row_exc = np.sum(W_bal[i, W_bal[i, :] > 0])
-                row_inh = np.sum(np.abs(W_bal[i, W_bal[i, :] < 0]))
-                if row_inh > 1e-9 and row_exc > 1e-9:
-                    # Scale inhibitory inputs to exactly cancel excitatory inputs
-                    scale = row_exc / row_inh
-                    W_bal[i, W_bal[i, :] < 0] *= scale
-                elif row_exc > 0 and row_inh == 0:
-                    # If no inhibitory input, dampen row to avoid runaway
-                    W_bal[i, :] *= 0.1
+                row = W_bal[i, :]
+                pos_mask = row > 0
+                neg_mask = row < 0
+                sum_pos = np.sum(row[pos_mask])
+                sum_neg = np.sum(row[neg_mask])
+                total_sum = sum_pos + sum_neg
+                if sum_pos > 0 and sum_neg < 0:
+                    f_pos = (sum_pos - total_sum / 2.0) / sum_pos
+                    f_neg = (sum_neg - total_sum / 2.0) / sum_neg
+                    W_bal[i, pos_mask] *= f_pos
+                    W_bal[i, neg_mask] *= f_neg
+                else:
+                    W_bal[i, :] = 0.0
             self.W = W_bal
         else:
-            self.W = w_raw
+            self.W = W
 
-        # 6. Spectral Radius Rescaling
+        # 5. Spectral Rescaling by Dominant Real Part max Re(lambda)
         try:
             eigenvalues = np.linalg.eigvals(self.W)
-            max_eig = np.max(np.abs(eigenvalues))
-            if max_eig > 1e-6:
-                self.W = (self.W / max_eig) * self.spectral_radius
+            dom_idx = np.argmax(eigenvalues.real)
+            max_re = eigenvalues[dom_idx].real
+            if max_re > 1e-6:
+                self.W = (self.W / max_re) * self.spectral_radius
         except Exception:
             pass
 
-        # Diagnostic metrics
+        # Clean near-zero numerical noise and negative zeros
+        self.W[np.abs(self.W) < 1e-15] = 0.0
+
+        # Diagnostic metrics and logging
         self.row_sums = np.sum(self.W, axis=1)
         self.mean_row_sum = float(np.mean(self.row_sums))
         self.max_abs_row_sum = float(np.max(np.abs(self.row_sums)))
         self.density = float(np.count_nonzero(self.W) / (N * N))
+
+        self.max_re, self.im_dom, self.spectral_radius_actual = print_eigenvalue_diagnostics(
+            self.W, name=f"CatSynapticConnectome(N={N}, seed={self.rng_seed})"
+        )

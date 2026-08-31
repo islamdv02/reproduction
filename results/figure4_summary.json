@@ -6,30 +6,30 @@
       "detected_gait": "Transition",
       "I_e_pA": 20.0,
       "serotonin_multiplier": 1.0,
-      "frequency_hz": 0.9765625,
-      "rms_amplitude_hz": 0.04664822737453901,
-      "lr_phase_deg": 115.29411764705881,
-      "fe_phase_deg": 303.5294117647059
+      "frequency_hz": 0.5,
+      "rms_amplitude_hz": 15.15283083474651,
+      "lr_phase_deg": 344.74658085277554,
+      "fe_phase_deg": 327.1761866452132
     },
     "trot": {
       "requested_gait": "trot",
       "detected_gait": "Transition",
       "I_e_pA": 30.0,
       "serotonin_multiplier": 1.0,
-      "frequency_hz": 0.9765625,
-      "rms_amplitude_hz": 0.03933948800539046,
-      "lr_phase_deg": 112.94117647058823,
-      "fe_phase_deg": 232.94117647058823
+      "frequency_hz": 0.5,
+      "rms_amplitude_hz": 14.687935073747969,
+      "lr_phase_deg": 345.88235294117646,
+      "fe_phase_deg": 327.50865051903116
     },
     "bound": {
       "requested_gait": "bound",
       "detected_gait": "Walk",
       "I_e_pA": 45.0,
       "serotonin_multiplier": 1.75,
-      "frequency_hz": 1.46484375,
-      "rms_amplitude_hz": 0.016799389916125573,
-      "lr_phase_deg": 216.47058823529412,
-      "fe_phase_deg": 183.52941176470588
+      "frequency_hz": 0.5,
+      "rms_amplitude_hz": 0.013623891937584932,
+      "lr_phase_deg": 125.21739130434783,
+      "fe_phase_deg": 0.0
     }
   },
   "generated_figures": {

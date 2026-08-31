@@ -2,7 +2,7 @@
 ## Applying the Komi et al. (2026) Spinal-Projectome Framework to the Anatomical and Locomotor Organization of Yakovenko et al. (2002)
 
 **Primary Data Source**: Yakovenko, S., Mushahwar, V. K., VanderHorst, V. G. J. M., Holstege, G., & Prochazka, A. (2002). *Journal of Neurophysiology*, 87(3), 1542–1553.  
-**Computational Framework**: Komi, S. et al. (2026). *Nature Communications*, "Emergence of Traveling Waves and Decoupled Motor Control in Spinal Projectomes."  
+**Computational Framework**: Komi, S. et al. (2026). *Nature Communications* 17:7525, "Spatial and network principles behind neural generation of locomotion."  
 **Project Directory**: `yakovenko_2002_komi_framework/`  
 **Test Suite Status**: **15/15 tests passing (100% pass rate)**  
 **Date**: August 2026  

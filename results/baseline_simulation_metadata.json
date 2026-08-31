@@ -14,9 +14,9 @@
     "tau_a_adapting_ms": 3000.0,
     "tau_a_nonadapting_ms": 10000.0
   },
-  "dominant_frequency_hz": 0.9765625,
-  "peak_power": 7.978643366717198e-07,
-  "amplitude_hz": 0.009713935445788024,
-  "mean_rate_hz": 28.69597736595707,
-  "std_rate_hz": 0.001417296646232561
+  "dominant_frequency_hz": 0.5,
+  "peak_power": 4.543899314989536,
+  "amplitude_hz": 0.0,
+  "mean_rate_hz": 0.0,
+  "std_rate_hz": 0.0
 }

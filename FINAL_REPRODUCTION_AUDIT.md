@@ -1,7 +1,8 @@
 # Final Scientific Audit of Figures 1–6 Reproduction
 
 **Paper**: Komi et al., *Nature Communications* (2026)  
-**Title**: Emergence of Traveling Waves and Decoupled Motor Control in Spinal Projectomes  
+**Title**: Spatial and network principles behind neural generation of locomotion  
+**Citation**: Nature Communications 17:7525 (2026)
 **Original Reference Repository**: BergLab MATLAB Codebase (`SpinalProjectome`)  
 **Audit Date**: August 2026  
 **Repository Test Status**: **64/64 tests passing (100% pass rate)**  

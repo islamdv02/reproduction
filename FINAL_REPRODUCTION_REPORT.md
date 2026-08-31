@@ -1,5 +1,5 @@
 # Final Scientific Reproduction Report
-## Komi et al. (2026) — Emergence of Traveling Waves and Decoupled Motor Control in Spinal Projectomes
+## Komi et al. (2026) — Spatial and network principles behind neural generation of locomotion
 
 **Reference Implementation**: BergLab MATLAB Codebase (`SpinalProjectome`)  
 **Reproduction Framework**: Python 3.10+ / NumPy / SciPy / Matplotlib / Pandas  
@@ -10,7 +10,7 @@
 
 ### 1. Executive Summary
 
-This report provides the final scientific documentation for the computational reproduction of **Komi et al., Nature Communications (2026)**, titled *"Emergence of Traveling Waves and Decoupled Motor Control in Spinal Projectomes"*. The reproduction encompasses all six main figures (Figures 1–6), spanning mathematical models of sequence generation, empirical spatial transcriptomics, large-scale 3D anatomical connectome synthesis, non-linear rate dynamics, descending neuromodulatory gating, cell-type-specific genetic perturbations, spinal cord injury, targeted axonal regeneration, and multi-channel linear probe electrophysiology.
+This report provides the final scientific documentation for the computational reproduction of **Komi et al., Nature Communications (2026)**, titled *"Spatial and network principles behind neural generation of locomotion"*. The reproduction encompasses all six main figures (Figures 1–6), spanning mathematical models of sequence generation, empirical spatial transcriptomics, large-scale 3D anatomical connectome synthesis, non-linear rate dynamics, descending neuromodulatory gating, cell-type-specific genetic perturbations, spinal cord injury, targeted axonal regeneration, and multi-channel linear probe electrophysiology.
 
 Komi et al. (2026) addresses a foundational question in motor neuroscience: how the intricate micro-architecture of spinal interneurons self-organizes to drive multi-muscle locomotion while allowing the nervous system to independently adjust locomotor speed, step amplitude, and left-right coordination. By integrating single-nucleus RNA sequencing, spatial transcriptomics, retrograde motoneuron tracing, and recurrent rate dynamics, the authors demonstrate that an **asymmetric Mexican-hat projectome** naturally emerges from balanced recurrent wiring, providing a unified substrate for traveling waves and decoupled motor control.
 

@@ -87,10 +87,13 @@ def compute_spectral_analysis(
     Matches MATLAB @Network/Simulate.m Welch PSD estimation.
     """
     start_idx = min(t_start_ms, rates.shape[0] // 2)
-    steady_state_rates = rates[start_idx:, :]
+    if rates.ndim == 1:
+        steady_state_rates = rates[start_idx:]
+        pop_mean = steady_state_rates
+    else:
+        steady_state_rates = rates[start_idx:, :]
+        pop_mean = np.mean(steady_state_rates, axis=1)
 
-    # Population mean firing rate
-    pop_mean = np.mean(steady_state_rates, axis=1)
     pop_mean_centered = pop_mean - np.mean(pop_mean)
 
     fs = 1.0 / dt

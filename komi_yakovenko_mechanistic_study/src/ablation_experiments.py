@@ -18,24 +18,32 @@ from phase_analysis import PhaseUnfolder
 from projectome_analysis import ProjectomeAnalyzer
 from traveling_wave import TravelingWaveAnalyzer
 
-def _balance_matrix(W: np.ndarray, spectral_radius: float = 1.25) -> np.ndarray:
+def _balance_matrix(W: np.ndarray, target_real: float = 2.0) -> np.ndarray:
     W_bal = np.copy(W)
     N = W.shape[0]
     for i in range(N):
-        row_exc = np.sum(W_bal[i, W_bal[i, :] > 0])
-        row_inh = np.sum(np.abs(W_bal[i, W_bal[i, :] < 0]))
-        if row_inh > 1e-9 and row_exc > 1e-9:
-            scale = row_exc / row_inh
-            W_bal[i, W_bal[i, :] < 0] *= scale
-        elif row_exc > 0 and row_inh == 0:
-            W_bal[i, :] *= 0.1
+        row = W_bal[i, :]
+        pos_mask = row > 0
+        neg_mask = row < 0
+        sum_pos = np.sum(row[pos_mask])
+        sum_neg = np.sum(row[neg_mask])
+        total_sum = sum_pos + sum_neg
+        if sum_pos > 0 and sum_neg < 0:
+            f_pos = (sum_pos - total_sum / 2.0) / sum_pos
+            f_neg = (sum_neg - total_sum / 2.0) / sum_neg
+            W_bal[i, pos_mask] *= f_pos
+            W_bal[i, neg_mask] *= f_neg
+        else:
+            W_bal[i, :] = 0.0
     try:
         eigenvalues = np.linalg.eigvals(W_bal)
-        max_eig = np.max(np.abs(eigenvalues))
-        if max_eig > 1e-6:
-            W_bal = (W_bal / max_eig) * spectral_radius
+        dom_idx = np.argmax(eigenvalues.real)
+        max_re = eigenvalues[dom_idx].real
+        if max_re > 1e-6:
+            W_bal = (W_bal / max_re) * target_real
     except Exception:
         pass
+    W_bal[np.abs(W_bal) < 1e-15] = 0.0
     return W_bal
 
 

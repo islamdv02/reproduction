@@ -2,7 +2,7 @@
 
 A faithful, verified Python computational reproduction of the multi-scale spinal cord network models and analyses from:
 
-> **Komi et al. (2026)**, *"Emergence of Traveling Waves and Decoupled Motor Control in Spinal Projectomes"*, *Nature Communications*.  
+> **Komi et al. (2026)**, *"Spatial and network principles behind neural generation of locomotion"*, *Nature Communications* 17:7525.  
 > Reference Implementation: BergLab MATLAB Codebase (`SpinalProjectome`).
 
 ---
@@ -23,7 +23,7 @@ This repository provides a complete, clean-room Python reproduction of the compu
 
 ## 2. Reference Sources
 
-- **Primary Paper**: Komi et al. (2026), *"Emergence of Traveling Waves and Decoupled Motor Control in Spinal Projectomes"*, *Nature Communications*.
+- **Primary Paper**: Komi et al. (2026), *"Spatial and network principles behind neural generation of locomotion"*, *Nature Communications* 17:7525.
 - **Original Reference Codebase**: BergLab/SpinalProjectome MATLAB repository (`InstantiateModel.m`, `@Network`, `@SpinalCordGeometry`, `02_HelperFunctions`).
 - **Supplied Datasets**:
   - `01_SpinalGeometryFiles/matGeometry.mat`: 20,755 spatial transcriptomics sequencing voxels, calibrated 2D coordinates ($X, Y$), segment lengths, and cell-type weights.
@@ -275,8 +275,10 @@ If referencing this computational reproduction, please cite the original study:
 ```bibtex
 @article{komi2026emergence,
   author    = {Komi, S. and Berg, R. W. and colleagues},
-  title     = {Emergence of Traveling Waves and Decoupled Motor Control in Spinal Projectomes},
+  title     = {Spatial and network principles behind neural generation of locomotion},
   journal   = {Nature Communications},
+  volume    = {17},
+  pages     = {7525},
   year      = {2026}
 }
 ```
