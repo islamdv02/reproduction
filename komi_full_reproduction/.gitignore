@@ -14,6 +14,7 @@ results/*.mat
 experiments/ta_placement/data/*.mat
 experiments/all_pool_analysis/data/*.mat
 !experiments/all_pool_analysis/data/mn_metadata.json
+!experiments/all_pool_analysis/data/ta_relocated_all_pools.mat
 
 # Large author genetics count matrices (>100 MB; documented in CONTINUE_AT_HOME.md)
 source/03_SpinalCordGeneticsFiles/matCountSingleCell.mat

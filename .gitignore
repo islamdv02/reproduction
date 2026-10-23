@@ -19,6 +19,7 @@ komi_full_reproduction/results/*.mat
 komi_full_reproduction/experiments/ta_placement/data/*.mat
 komi_full_reproduction/experiments/all_pool_analysis/data/*.mat
 !komi_full_reproduction/experiments/all_pool_analysis/data/mn_metadata.json
+!komi_full_reproduction/experiments/all_pool_analysis/data/ta_relocated_all_pools.mat
 
 # Large author genetics count matrices (>100 MB; documented in CONTINUE_AT_HOME.md)
 komi_full_reproduction/source/03_SpinalCordGeneticsFiles/matCountSingleCell.mat

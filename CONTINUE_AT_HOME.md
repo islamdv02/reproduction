@@ -55,7 +55,10 @@ To comply with GitHub's 100 MB file limit and avoid gigabyte-scale Git bloat, la
 | `results/figure4_simulation.mat` | ~1.3 GB | `scripts/run_figure4_reproduction.m` | ~6–8 min | Descending tract recruitment simulation. |
 | `results/figure5_simulations.mat` | ~900 MB | `scripts/run_figure5_reproduction.m` | ~5–7 min | Speed modulation / ablation simulations. |
 | `experiments/ta_placement/data/experiment_data.mat` | ~611 MB | `experiments/ta_placement/scripts/run_ta_placement_experiment.m` | ~15–20 min | Condition C vs D comparison (seeds 42 & 5). |
-| `experiments/all_pool_analysis/data/ta_relocated_all_pools.mat` | ~245 MB | `experiments/all_pool_analysis/scripts/simulate_ta_relocated_all_pools.m` | ~8–10 min | Condition D all-motoneuron rate matrix $R_{\text{MN}}$ ($1{,}795 \times 22{,}000$). |
+| `experiments/all_pool_analysis/data/ta_relocated_all_pools.mat` | ~245 MB | Tracked via **Git LFS** (`git lfs pull`) | Instant (LFS) / ~8–10 min if re-simulating | Condition D all-motoneuron rate matrix $R_{\text{MN}}$ ($1{,}795 \times 22{,}000$). Included via Git LFS! |
+
+> [!NOTE]
+> `ta_relocated_all_pools.mat` is tracked via **Git LFS** on this branch (`komi-home-continuation`). When cloning on your home laptop, ensure Git LFS is installed (`git lfs install`) and run `git lfs pull` to download the file directly.
 
 ### B. Large Author Genetics Input Files (>100 MB)
 Two original sequencing count matrices exceed GitHub's upload limits:
