@@ -1,0 +1,70 @@
+{
+  "panel": "Figure 3B",
+  "status": "MATCHED AUTHOR DECOMPOSITION",
+  "decomposition_matrix": "N.ConnMat (presynaptic -> postsynaptic, no transpose)",
+  "author_function": "00_SpinalNetworkModel/@Network/ComputeEigenModesandNullSpace.m",
+  "unstable_modes_count": 4,
+  "mode1": {
+    "label": "Walking",
+    "eigenvector_index": 371,
+    "eigenvalue_real": 2.0193917466819857,
+    "eigenvalue_imag": 0.75896119607859625,
+    "eigenvalue_magnitude": 2.1573050604215376,
+    "bilateral_phase_difference_deg": 112.26449567864272,
+    "bilateral_phase_relationship": "anti-phase alternating across midline",
+    "left_right_spatial_correlation": -0.81280900010914792,
+    "left_right_amplitude_ratio": 0.74677922530056617,
+    "segment_means_left": [
+      53.816235221329173,
+      52.325863670603887,
+      40.336130114810842,
+      37.172218638499928,
+      54.638948828429363,
+      63.898783601468679,
+      55.293104052454531,
+      35.111113506574149,
+      30.015118215474253,
+      45.146811887040123,
+      65.889660599820118
+    ],
+    "segment_means_right": [
+      41.290898001038165,
+      40.807176575975433,
+      53.831767762219165,
+      63.085969139311523,
+      53.092341973770957,
+      32.397734242783649,
+      28.798102885949294,
+      56.70506005079833,
+      76.577910874536457,
+      66.1330986089571,
+      44.281626131584822
+    ],
+    "segment_alternation_match_published": true
+  },
+  "mode2": {
+    "label": "Bounding",
+    "eigenvector_index": 373,
+    "eigenvalue_real": 1.6929551846698412,
+    "eigenvalue_imag": 1.1323171682095048,
+    "eigenvalue_magnitude": 2.0367227171911466,
+    "bilateral_phase_difference_deg": -12.149627121100925,
+    "bilateral_phase_relationship": "in-phase synchronous across midline",
+    "left_right_spatial_correlation": 0.98935046186027509,
+    "left_right_amplitude_ratio": 1.0588483521147753,
+    "segment_means": [
+      39.33262381471819,
+      36.559674871824356,
+      48.368252619556927,
+      63.021088320699796,
+      48.28188081190445,
+      25.618828533451996,
+      22.332442620790715,
+      45.335979467208219,
+      73.6324306766988,
+      67.211258429197031,
+      44.06043301088571
+    ],
+    "spatial_pattern_match_published": true
+  }
+}

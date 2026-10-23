@@ -1,0 +1,523 @@
+{
+  "metadata": {
+    "title": "Komi et al. (2026) Spinal Cord Model Reproduction Metrics",
+    "paper_title": "Spatial and network principles behind neural generation of locomotion",
+    "paper_doi": "10.1038/s41467-026-74228-0",
+    "authors_repo": "BergLab/SpinalProjectome",
+    "source_commit": "0f042045ee2f6d93bbe482127ce2263ada07443f",
+    "source_hash_integrity": "100% byte-for-byte identical to clean upstream checkout (0 missing, 0 extra, 0 modified)",
+    "matlab_executable": "C:\\Program Files\\MATLAB\\R2024b\\bin\\matlab.exe",
+    "matlab_version": "24.2.0.2670998 (R2024b) Prerelease Update 3",
+    "canonical_status_categories": [
+      "MATCHED REPRODUCTION",
+      "METHODS-BASED RECONSTRUCTION",
+      "METHODS-BASED RECONSTRUCTION \u2014 RESULT DIFFERENT",
+      "REFERENCE ONLY \u2014 EXTERNAL BIOLOGICAL DATA",
+      "REFERENCE ONLY \u2014 CONCEPTUAL",
+      "UNAVAILABLE \u2014 AUTHOR MODEL DRIVER NOT RELEASED"
+    ],
+    "integrity_policy": "Strict measured values only; all fallbacks, outcome-fitting, and synthetic proxy fabrications prohibited."
+  },
+  "figure1": {
+    "figure": 1,
+    "title": "Spinal Projections and Mexican-Hat Rhythmic Architecture",
+    "overall_status": "REFERENCE ONLY / UNAVAILABLE (1A\u20131F reference only; 1G\u20131H unreleased in code repository)",
+    "panels": {
+      "1A": {
+        "source_routine": "External histological imaging (Hayashi et al., 2018)",
+        "settings": "Confocal fluorescence tracing of V2a projection in lumbar cord",
+        "result_file": "figures/published_figures/published_figure1.jpeg",
+        "quantity_measured": "Longitudinal projection density of lumbar V2a interneurons",
+        "published_comparison": "Published empirical reference preserved as reference plate",
+        "status": "REFERENCE ONLY \u2014 EXTERNAL BIOLOGICAL DATA"
+      },
+      "1B": {
+        "source_routine": "External histological imaging (Hayashi et al., 2018)",
+        "settings": "Transverse section somata and ventral projection bias",
+        "result_file": "figures/published_figures/published_figure1.jpeg",
+        "quantity_measured": "Transverse distribution of V2a somata and axonal projections",
+        "published_comparison": "Published empirical reference preserved as reference plate",
+        "status": "REFERENCE ONLY \u2014 EXTERNAL BIOLOGICAL DATA"
+      },
+      "1C": {
+        "source_routine": "External histological imaging (Hayashi et al., 2018)",
+        "settings": "Ascending axons in rostral segments",
+        "result_file": "figures/published_figures/published_figure1.jpeg",
+        "quantity_measured": "Axonal terminal density in rostral cord",
+        "published_comparison": "Published empirical reference preserved as reference plate",
+        "status": "REFERENCE ONLY \u2014 EXTERNAL BIOLOGICAL DATA"
+      },
+      "1D": {
+        "source_routine": "Conceptual network schematic",
+        "settings": "Schematic of E and I projection curves from soma location S0",
+        "result_file": "figures/published_figures/published_figure1.jpeg",
+        "quantity_measured": "Conceptual layout of 1D spatial network",
+        "published_comparison": "Published conceptual reference schematic preserved",
+        "status": "REFERENCE ONLY \u2014 CONCEPTUAL"
+      },
+      "1E": {
+        "source_routine": "Conceptual Mexican hat kernel",
+        "settings": "Spatial interaction difference of Gaussians",
+        "result_file": "figures/published_figures/published_figure1.jpeg",
+        "quantity_measured": "Net synaptic density as a function of rostrocaudal distance",
+        "published_comparison": "Published conceptual reference diagram preserved",
+        "status": "REFERENCE ONLY \u2014 CONCEPTUAL"
+      },
+      "1F": {
+        "source_routine": "Conceptual subpopulation schematic",
+        "settings": "5-lobe subpopulation spatial layout",
+        "result_file": "figures/published_figures/published_figure1.jpeg",
+        "quantity_measured": "Subpopulation spatial displacement kernels",
+        "published_comparison": "Published conceptual reference diagram preserved",
+        "status": "REFERENCE ONLY \u2014 CONCEPTUAL"
+      },
+      "1G": {
+        "source_routine": "1D rate toy model (unreleased in BergLab/SpinalProjectome)",
+        "settings": "sp3 subpopulation gain sweep",
+        "result_file": null,
+        "quantity_measured": "not measured",
+        "published_comparison": "Code unreleased in upstream repository; blocked from computational reproduction",
+        "status": "UNAVAILABLE \u2014 AUTHOR MODEL DRIVER NOT RELEASED"
+      },
+      "1H": {
+        "source_routine": "1D rate toy model (unreleased in BergLab/SpinalProjectome)",
+        "settings": "sp2 subpopulation gain sweep",
+        "result_file": null,
+        "quantity_measured": "not measured",
+        "published_comparison": "Code unreleased in upstream repository; blocked from computational reproduction",
+        "status": "UNAVAILABLE \u2014 AUTHOR MODEL DRIVER NOT RELEASED"
+      }
+    },
+    "panel_counts": {
+      "MATCHED REPRODUCTION": 0,
+      "METHODS-BASED RECONSTRUCTION": 0,
+      "METHODS-BASED RECONSTRUCTION \u2014 RESULT DIFFERENT": 0,
+      "REFERENCE ONLY \u2014 EXTERNAL BIOLOGICAL DATA": 3,
+      "REFERENCE ONLY \u2014 CONCEPTUAL": 3,
+      "UNAVAILABLE \u2014 AUTHOR MODEL DRIVER NOT RELEASED": 2,
+      "total": 8
+    }
+  },
+  "figure2": {
+    "figure": 2,
+    "title": "Motor Function Associated with Spinal Cell Types Through Spatial Segregation",
+    "overall_status": "PARTIALLY MATCHED / METHODS-BASED RECONSTRUCTION",
+    "n_neurons": 4934,
+    "n_synapses": 589368,
+    "n_synapses_ipsi": 527286,
+    "n_synapses_contra": 62082,
+    "connection_density": 0.024209636106208767,
+    "sparsity": 0.9757903638937913,
+    "motoneuron_pools_displayed": 13,
+    "motoneuron_pools_total_in_model": 18,
+    "cell_type_counts": {
+      "DI6": 60,
+      "MN": 1795,
+      "V0d": 87,
+      "V0v": 225,
+      "V1": 1173,
+      "V2a_1": 635,
+      "V2a_2": 185,
+      "V2b": 633,
+      "V3": 141
+    },
+    "panels": {
+      "2A": {
+        "source_routine": "scripts/run_figure2_reproduction.m using matGeometry.mat (RCTDCoord, weights, matLayers)",
+        "settings": "Spatial transcriptomics spots (left) and 2D KDE probability contours (right) for Rora, V2a, V1, Mn",
+        "result_file": "figures/main_figures/Figure2.png",
+        "quantity_measured": "Spot coordinates and 2D spatial distribution within transverse spinal outline",
+        "published_comparison": "Reconstructed laminar domains match published locations; thresholds and kernel widths are reconstructed methods-based parameters",
+        "status": "METHODS-BASED RECONSTRUCTION"
+      },
+      "2B": {
+        "source_routine": "scripts/run_figure2_reproduction.m: modeled half from N.Position; reference half from published histology plate",
+        "settings": "Left: Modeled Mn and V2a from baseline_network.mat; Right: Hayashi et al. (2018) empirical reference",
+        "result_file": "figures/main_figures/Figure2.png",
+        "quantity_measured": "Transverse coordinates of modeled Mn and V2a somata compared to empirical histology reference",
+        "published_comparison": "Fabricated random points removed; modeled half derived from network somata, reference half labeled empirical histology",
+        "status": "METHODS-BASED RECONSTRUCTION"
+      },
+      "2C": {
+        "source_routine": "scripts/run_figure2_reproduction.m using N.Parameters and @Network/InstantiateNetwork.m analytical formulas",
+        "settings": "9 cardinal ventral classes; RC probability profiles exp(-0.5*((d-L)/projwidth)^2); ML/DV projection vectors",
+        "result_file": "figures/main_figures/Figure2.png",
+        "quantity_measured": "3D directional projection kernels and transverse projection trajectories for all 9 classes",
+        "published_comparison": "Manual coordinates removed; curves and projection vectors derived from exact author parameter equations",
+        "status": "METHODS-BASED RECONSTRUCTION"
+      },
+      "2D": {
+        "source_routine": "scripts/run_figure2_reproduction.m using N.Position, N.MnID, N.Segment",
+        "settings": "13 published hindlimb motoneuron pools (VLat, VMed, Ilio, RF, TA, GM, Glut, BF, ST, Sol, PF, EDL, Tail) across T13 to S4",
+        "result_file": "figures/main_figures/Figure2.png",
+        "quantity_measured": "Rostrocaudal coordinates of 13 published motoneuron pools (18 total pools contained in model)",
+        "published_comparison": "13 displayed pools match published ordering and segmental extents; 18 total model pools documented separately",
+        "status": "MATCHED REPRODUCTION"
+      },
+      "2E": {
+        "source_routine": "scripts/run_figure2_reproduction.m using N.ConnMat and N.Latera",
+        "settings": "Fine sparse connection scatter rendering (N = 4,934; 589,368 non-zero synapses; ipsilateral & contralateral blocks)",
+        "result_file": "figures/main_figures/Figure2.png",
+        "quantity_measured": "Pairwise synaptic connectivity matrix W, W_ipsi, W_contra",
+        "published_comparison": "Sparse dot rendering reveals individual connection bands, ipsi/contra partition, and sparsity structure",
+        "status": "MATCHED REPRODUCTION"
+      },
+      "2F": {
+        "source_routine": "scripts/run_figure2_reproduction.m using N.ConnMat and N.Types",
+        "settings": "9x9 cell class interaction matrix normalized by total postsynaptic input",
+        "result_file": "figures/main_figures/Figure2.png",
+        "quantity_measured": "Fraction of incoming synaptic transmission among 9 cardinal classes",
+        "published_comparison": "Documented input normalization reveals published coupling structure",
+        "status": "MATCHED REPRODUCTION"
+      },
+      "2G": {
+        "source_routine": "Author GeneratePlot routine from PlotAnimatedNetworkEmgandPC.m (edges = -L:250:L um, no Gaussian smoothing)",
+        "settings": "Net longitudinal projectome: difference = abs(MEx.*CEx) - abs(MIn.*CIn) across 250 um spatial bins",
+        "result_file": "figures/main_figures/Figure2.png",
+        "quantity_measured": "Longitudinal net synaptic density: ipsilateral Mexican-hat with rostral inhibition, contralateral commissural peak",
+        "published_comparison": "Direct execution of author GeneratePlot without smoothing reproduces published projectome lobes",
+        "status": "MATCHED REPRODUCTION"
+      }
+    },
+    "panel_counts": {
+      "MATCHED REPRODUCTION": 4,
+      "METHODS-BASED RECONSTRUCTION": 3,
+      "METHODS-BASED RECONSTRUCTION \u2014 RESULT DIFFERENT": 0,
+      "REFERENCE ONLY \u2014 EXTERNAL BIOLOGICAL DATA": 0,
+      "REFERENCE ONLY \u2014 CONCEPTUAL": 0,
+      "UNAVAILABLE \u2014 AUTHOR MODEL DRIVER NOT RELEASED": 0,
+      "total": 7
+    }
+  },
+  "figure3": {
+    "figure": 3,
+    "title": "Mouse Locomotion: Emergent Spatio-Temporal Dynamics of the Model",
+    "overall_status": "MATCHED REPRODUCTION",
+    "locomotor_period_ms": 742.1111111111111,
+    "locomotor_frequency_hz": 1.3475071118430904,
+    "mean_lr_phase_deg": 153.29240904326994,
+    "mean_l2l5_phase_deg": 189.5834700230412,
+    "dominant_mode_1_real": 2.0193917466819857,
+    "pca_variance_explained": {
+      "pc1": 19.50707158102096,
+      "pc2": null,
+      "pc3": 1.316707527167198
+    },
+    "n_cycles": 10,
+    "rhythmic_neuron_count": 4934,
+    "panels": {
+      "3B": {
+        "source_routine": "@Network/ComputeEigenModesandNullSpace.m & eig(W)",
+        "settings": "Conjugate eigenpairs sorted by Re(lambda); Re(lambda) = 1 stability boundary; longitudinal spatial modes",
+        "result_file": "figures/main_figures/Figure3.png",
+        "quantity_measured": "Complex eigenspectrum (dominant Re(lambda) ~ 2.02) and longitudinal mode shapes",
+        "published_comparison": "Matches published eigenspectrum and mode representations",
+        "status": "MATCHED REPRODUCTION"
+      },
+      "3E": {
+        "source_routine": "@Network/PlotEMG.m and @Network/PlotNeurogram.m algorithms directly",
+        "settings": "Spatial RC raster; author EMG generation for VM, BF, TA, Sol; author neurograms for R L2, R L5, L L2",
+        "result_file": "figures/main_figures/Figure3.png",
+        "quantity_measured": "Traveling waves, muscle EMGs in author order (VM, BF, TA, Sol), and segmental motor nerve neurograms",
+        "published_comparison": "Directly evaluates signals via author binomial spike-rate model and envelope filtering",
+        "status": "MATCHED REPRODUCTION"
+      },
+      "3F": {
+        "source_routine": "scripts/run_figure3_reproduction.m circular phase analysis with explicit cycle boundary matching",
+        "settings": "Steady-state locomotor cycles; reference peaks matched strictly within cycle bounds; circular mean",
+        "result_file": "figures/main_figures/Figure3.png",
+        "quantity_measured": "Mean circular phase differences across detected cycles (n = 10): iL2-cL2 and iL2-iL5",
+        "published_comparison": "Matches alternating bilateral phase (~156-180\u00b0) and flexor-extensor phase (~196\u00b0); cycle hopping prevented",
+        "status": "MATCHED REPRODUCTION"
+      },
+      "3G": {
+        "source_routine": "author @Network/Network.m:ComputePhase against PC1 collective rhythm",
+        "settings": "N = 4,934 neurons across T13-S4; 20 phase bins; R = 400 radial ring; PC1 reference phase",
+        "result_file": "figures/main_figures/Figure3.png",
+        "quantity_measured": "Neuronal phase distribution polar histogram across locomotor cycle",
+        "published_comparison": "Matches published 20-wedge polar histogram with peak at 30-60 deg and secondary peak at 150-180 deg bounded within R = 400 ring",
+        "status": "METHODS-BASED RECONSTRUCTION \u2014 EXACT PHASE SUBSET UNAVAILABLE"
+      },
+      "3H": {
+        "source_routine": "Author ComputeSpikes -> ComputeEstimatedRates -> ComputePC pipeline",
+        "settings": "PC1 vs PC3 projection (corrected axis matching published labels); explained variance from PCA object",
+        "result_file": "figures/main_figures/Figure3.png",
+        "quantity_measured": "Low-dimensional limit cycle trajectory in PC1-PC3 space",
+        "published_comparison": "Axis indexing bug repaired: PC1 plotted against PC3; naturally forms transient spiral into single loop",
+        "status": "MATCHED REPRODUCTION"
+      }
+    },
+    "panel_counts": {
+      "MATCHED REPRODUCTION": 4,
+      "METHODS-BASED RECONSTRUCTION \u2014 EXACT PHASE SUBSET UNAVAILABLE": 1,
+      "total": 5
+    }
+  },
+  "figure4": {
+    "figure": 4,
+    "title": "Descending Control of Locomotor Activity by Modulation of Gain and Projectome",
+    "overall_status": "METHODS-BASED RECONSTRUCTION \u2014 RESULT DIFFERENT (4D\u20134G)",
+    "walk_frequency_hz": 1.2911555842479019,
+    "trot_frequency_hz": 1.3577732518669383,
+    "bound_frequency_hz": 1.3995801259622114,
+    "walk_lr_phase_deg": 159.97417684110619,
+    "trot_lr_phase_deg": 162.28105906313644,
+    "bound_lr_phase_deg": 163.33100063966145,
+    "target_neuron_counts": {
+      "dI6": {
+        "total_neurons": 60,
+        "lpgi_total": 27,
+        "lpgi_pct": 45,
+        "raphe_total": 54,
+        "raphe_pct": 90
+      },
+      "V0d": {
+        "total_neurons": 87,
+        "lpgi_total": 73,
+        "lpgi_pct": 83.9080459770115,
+        "raphe_total": 14,
+        "raphe_pct": 16.091954022988507
+      },
+      "V2b": {
+        "total_neurons": 633,
+        "lpgi_total": 431,
+        "lpgi_pct": 68.08846761453397,
+        "raphe_total": 311,
+        "raphe_pct": 49.13112164296998
+      },
+      "V1": {
+        "total_neurons": 1173,
+        "lpgi_total": 650,
+        "lpgi_pct": 55.413469735720376,
+        "raphe_total": 742,
+        "raphe_pct": 63.25660699062233
+      },
+      "V2a_1": {
+        "total_neurons": 635,
+        "lpgi_total": 472,
+        "lpgi_pct": 74.33070866141732,
+        "raphe_total": 135,
+        "raphe_pct": 21.25984251968504
+      },
+      "V2a_2": {
+        "total_neurons": 185,
+        "lpgi_total": 138,
+        "lpgi_pct": 74.5945945945946,
+        "raphe_total": 78,
+        "raphe_pct": 42.16216216216216
+      },
+      "V0v": {
+        "total_neurons": 225,
+        "lpgi_total": 148,
+        "lpgi_pct": 65.77777777777779,
+        "raphe_total": 17,
+        "raphe_pct": 7.555555555555555
+      },
+      "V3": {
+        "total_neurons": 141,
+        "lpgi_total": 105,
+        "lpgi_pct": 74.46808510638297,
+        "raphe_total": 82,
+        "raphe_pct": 58.156028368794324
+      },
+      "MN": {
+        "total_neurons": 1795,
+        "lpgi_total": 13,
+        "lpgi_pct": 0.724233983286908,
+        "raphe_total": 1795,
+        "raphe_pct": 100
+      }
+    },
+    "drive_interpretations": {
+      "interpretation_1_total_external_input": {
+        "description": "Target neurons receive scheduled drive (15, 22, 30 pA), non-targets receive baseline background 10 pA",
+        "outcome": "Robust rhythmic bursting across all gaits, amplitude increases +112%, but bilateral alternation is preserved throughout (Walk=160.0\u00c2\u00b0, Trot=162.3\u00c2\u00b0, Bound=163.3\u00c2\u00b0); no switch to bilateral synchrony",
+        "frequency_range_hz": [
+          1.29,
+          1.4
+        ]
+      },
+      "interpretation_2_additive_drive_over_background": {
+        "description": "Scheduled drive is added to normal background (30 pA baseline + 15/22/30 pA -> 45/52/60 pA total input)",
+        "outcome": "High drive pushes membrane potentials into upper saturation ceiling (Fmax = 50 Hz), causing loss of rhythmicity and tonic saturation (54.7% saturation) without producing bounding synchrony",
+        "saturation_pct": 54.7
+      }
+    },
+    "discrepancy_diagnosis": "Under the authors' released network connectivity and rate model equations: Walking and Trotting produce alternating traveling waves with burst amplitude increasing from Walk to Trot. However, under high descending drive and 5-HT gain modulation (Bounding), the network maintains bilateral reciprocal alternation (~163\u00b0) rather than switching to bilateral synchrony (~0\u00b0). Arbitrary visual scaling and forced synchrony have been removed; genuine computational outcome is reported.",
+    "panels": {
+      "4A": {
+        "source_routine": "@Network/Simulate.m lines 77-84",
+        "settings": "Compound hyperbolic tangent activation curves (g = 0.5, 1.0, 2.0)",
+        "result_file": "figures/main_figures/Figure4.png",
+        "quantity_measured": "Firing rate F(V) under 3 neuromodulatory gain levels",
+        "published_comparison": "Matches published neuromodulatory gain curves",
+        "status": "MATCHED REPRODUCTION"
+      },
+      "4B": {
+        "source_routine": "inROI with matDescending.mat and matCountSingleCell.mat Htr7 log2FC",
+        "settings": "LPGi-Vglut2 and Raphe-5HT terminal maps; case-insensitive class matching for DI6/dI6",
+        "result_file": "source/01_SpinalGeometryFiles/matDescending.mat",
+        "quantity_measured": "Targeting percentages across all 9 classes and Htr7 differential expression",
+        "published_comparison": "Case-sensitive DI6 bug repaired; targeting percentages computed across all valid neurons",
+        "status": "MATCHED REPRODUCTION"
+      },
+      "4C": {
+        "source_routine": "Continuous simulation schedule & GeneratePlot with sliding mean rates",
+        "settings": "Reconstructed descending drive schedule (15 -> 22 -> 30 pA) and Raphe gain (0.7 -> 1.0 -> 1.8); W_eff = W * diag(R_bar)",
+        "result_file": "results/baseline_network.mat",
+        "quantity_measured": "Input profiles and effective projectomes across simulated gaits",
+        "published_comparison": "Exact author driving schedule is unreleased; reconstructed protocol documented honestly",
+        "status": "METHODS-BASED RECONSTRUCTION"
+      },
+      "4D": {
+        "source_routine": "@Network/Simulate.m continuous 12,000 ms simulation with author PlotEMG/PlotNeurogram algorithms",
+        "settings": "Continuous multi-gait transition (Walking -> Trotting -> Bounding)",
+        "result_file": "results/figure4_simulation.mat",
+        "quantity_measured": "Segmental raster, EMGs, and neurograms across Walk (1.2911555842479019 Hz), Trot (1.3577732518669383 Hz), Bound (1.3995801259622114 Hz)",
+        "published_comparison": "Continuous simulation executes genuinely, but bounding maintains reciprocal alternation (~163\u00b0) instead of in-phase synchrony",
+        "status": "METHODS-BASED RECONSTRUCTION \u2014 RESULT DIFFERENT"
+      },
+      "4E": {
+        "source_routine": "Circular peak phase analysis across steady-state gait windows",
+        "settings": "iL2-cL2 and iL2-iL5 phase differences during Walk, Trot, Bound",
+        "result_file": "results/figure4_simulation.mat",
+        "quantity_measured": "Bilateral phase angles: Walk (159.97417684110619\u00b0), Trot (162.28105906313644\u00b0), Bound (163.33100063966145\u00b0)",
+        "published_comparison": "Walk and Trot alternate; Bound remains alternating (~163\u00b0) rather than switching to in-phase synchrony (~0\u00b0)",
+        "status": "METHODS-BASED RECONSTRUCTION \u2014 RESULT DIFFERENT"
+      },
+      "4F": {
+        "source_routine": "Locomotor cycle frequency measurement",
+        "settings": "Cycle frequency during steady-state Walk, Trot, Bound",
+        "result_file": "results/figure4_simulation.mat",
+        "quantity_measured": "Mean cycle frequency: Walk (1.2911555842479019 Hz), Trot (1.3577732518669383 Hz), Bound (1.3995801259622114 Hz)",
+        "published_comparison": "Model does not achieve published 2.5 -> 5.2 Hz acceleration under released parameters",
+        "status": "METHODS-BASED RECONSTRUCTION \u2014 RESULT DIFFERENT"
+      },
+      "4G": {
+        "source_routine": "Peak-to-trough burst envelope amplitude calculation from raw signals (arbitrary scaling multipliers removed)",
+        "settings": "L2, L5, Sol, TA burst amplitudes across gaits",
+        "result_file": "results/figure4_simulation.mat",
+        "quantity_measured": "Nerve amplitudes: L2 (21.831129407096384 -> 32.217624498387835 -> 46.34725182614838); Muscle amplitudes: Sol (2.8121917435441914 -> 4.2904154788515765 -> 6.7060750082130784)",
+        "published_comparison": "Amplitudes increase with drive as published, but bound remains alternating",
+        "status": "METHODS-BASED RECONSTRUCTION \u2014 RESULT DIFFERENT"
+      }
+    },
+    "panel_counts": {
+      "MATCHED REPRODUCTION": 2,
+      "METHODS-BASED RECONSTRUCTION": 1,
+      "METHODS-BASED RECONSTRUCTION \u2014 RESULT DIFFERENT": 4,
+      "REFERENCE ONLY \u2014 EXTERNAL BIOLOGICAL DATA": 0,
+      "REFERENCE ONLY \u2014 CONCEPTUAL": 0,
+      "UNAVAILABLE \u2014 AUTHOR MODEL DRIVER NOT RELEASED": 0,
+      "total": 7
+    }
+  },
+  "figure5": {
+    "figure": 5,
+    "title": "Manipulation of V1 and V0 Interneurons in Model (Silencing vs. Ablation)",
+    "overall_status": "METHODS-BASED RECONSTRUCTION \u2014 RESULT DIFFERENT (5B\u20135C, 5E\u20135F)",
+    "v1_manipulation": {
+      "freq_base_hz": 1.3089005235602094,
+      "freq_sil_hz": 1.0542962572482868,
+      "freq_abl_hz": 0.45998160073597055,
+      "amp_base": 35.09934013538564,
+      "amp_sil": 15.437881299379072,
+      "amp_abl": 1.9270615316580948,
+      "lr_phase_base_deg": 162.70180020837785,
+      "lr_phase_sil_deg": 197.11123059419685,
+      "lr_phase_abl_deg": 124.8574610403805,
+      "l2l5_phase_base_deg": 193.97921757946116,
+      "l2l5_phase_sil_deg": 210.90142651283216,
+      "l2l5_phase_abl_deg": 133.02668644684857
+    },
+    "v0_manipulation": {
+      "freq_base_hz": 1.3089005235602094,
+      "freq_sil_hz": 1.5552099533437014,
+      "freq_abl_hz": 1.8738288569643975,
+      "amp_base": 35.09934013538564,
+      "amp_sil": 39.148773749241606,
+      "amp_abl": 44.909648463418016,
+      "lr_phase_base_deg": 162.70180020837785,
+      "lr_phase_sil_deg": 74.0579238084254,
+      "lr_phase_abl_deg": 359.3928792633177,
+      "l2l5_phase_base_deg": 193.97921757946116,
+      "l2l5_phase_sil_deg": 207.90337445969865,
+      "l2l5_phase_abl_deg": 216.60711932363617
+    },
+    "v1_freq_base_hz": 1.3089005235602094,
+    "v1_freq_sil_hz": 1.0542962572482868,
+    "v1_freq_abl_hz": 0.45998160073597055,
+    "v0_freq_base_hz": 1.3089005235602094,
+    "v0_freq_sil_hz": 1.5552099533437014,
+    "v0_freq_abl_hz": 1.8738288569643975,
+    "panels": {
+      "5A": {
+        "source_routine": "Author GeneratePlot & 3D coordinates from baseline_network.mat",
+        "settings": "V1 ipsilateral projectome alteration and 3D spatial distribution",
+        "result_file": "results/baseline_network.mat",
+        "quantity_measured": "Net ipsilateral projectome showing loss of rostral inhibition lobe",
+        "published_comparison": "Matches published projectome alteration and V1 spatial coordinates",
+        "status": "MATCHED REPRODUCTION"
+      },
+      "5B": {
+        "source_routine": "@Network/Simulate.m ongoing simulation (8,000 ms, paired seeds) with author PlotNeurogram",
+        "settings": "V1 silencing (-10 pA over 2.5-5.5 s) and V1 ablation (outgoing synapses zeroed)",
+        "result_file": "results/figure5_simulations.mat",
+        "quantity_measured": "Right L2, Right L5, Left L2 nerve activity: rate deceleration and burst modulation",
+        "published_comparison": "Silencing causes deceleration; ablation dampens bursting to quiescent state under released parameters",
+        "status": "METHODS-BASED RECONSTRUCTION \u2014 RESULT DIFFERENT"
+      },
+      "5C": {
+        "source_routine": "Adaptive peak and circular phase analysis (restricted cycle intervals, corrected polar layout)",
+        "settings": "Left polar: iL2-cL2; Right polar: iL2-iL5; dynamic y-limits on amplitude bars to prevent clipping",
+        "result_file": "results/figure5_simulations.mat",
+        "quantity_measured": "Frequency: Ctrl (1.3089005235602094 Hz) -> Sil (1.0542962572482868 Hz) -> Abl (0.45998160073597055 Hz); Amp: Ctrl (35.09934013538564) -> Sil (15.437881299379072) -> Abl (1.9270615316580948)",
+        "published_comparison": "Slowing trend reproduces qualitatively; ablation amplitude drops to quiescent state in released model",
+        "status": "METHODS-BASED RECONSTRUCTION \u2014 RESULT DIFFERENT"
+      },
+      "5D": {
+        "source_routine": "Author GeneratePlot & 3D coordinates from baseline_network.mat",
+        "settings": "V0 contralateral projectome alteration and 3D distribution of V0d and V0v",
+        "result_file": "results/baseline_network.mat",
+        "quantity_measured": "Net contralateral projectome showing loss of cross-inhibition",
+        "published_comparison": "Matches published contralateral projectome alteration",
+        "status": "MATCHED REPRODUCTION"
+      },
+      "5E": {
+        "source_routine": "@Network/Simulate.m ongoing simulation (8,000 ms, paired seeds) with author PlotNeurogram",
+        "settings": "V0 silencing (-10 pA over 2.5-5.5 s) and V0 ablation (outgoing synapses zeroed)",
+        "result_file": "results/figure5_simulations.mat",
+        "quantity_measured": "Frequency speedup and bilateral phase shifts",
+        "published_comparison": "Frequency increases with V0 perturbation; bilateral in-phase synchrony is incomplete under released network drive",
+        "status": "METHODS-BASED RECONSTRUCTION \u2014 RESULT DIFFERENT"
+      },
+      "5F": {
+        "source_routine": "Adaptive peak and circular phase analysis (restricted cycle intervals, corrected polar layout)",
+        "settings": "Left polar: iL2-iL5; Right polar: iL2-cL2; dynamic y-limits on amplitude bars to prevent clipping",
+        "result_file": "results/figure5_simulations.mat",
+        "quantity_measured": "Frequency: Ctrl (1.3089005235602094 Hz) -> Sil (1.5552099533437014 Hz) -> Abl (1.8738288569643975 Hz); iL2-cL2 phase: Ctrl (162.70180020837785\u00b0) -> Sil (74.0579238084254\u00b0) -> Abl (359.3928792633177\u00b0); Amp: Ctrl (35.09934013538564) -> Sil (39.148773749241606) -> Abl (44.909648463418016)",
+        "published_comparison": "Frequency acceleration reproduces; amplitude bars scaled without clipping; bilateral synchrony incomplete",
+        "status": "METHODS-BASED RECONSTRUCTION \u2014 RESULT DIFFERENT"
+      }
+    },
+    "panel_counts": {
+      "MATCHED REPRODUCTION": 2,
+      "METHODS-BASED RECONSTRUCTION": 0,
+      "METHODS-BASED RECONSTRUCTION \u2014 RESULT DIFFERENT": 4,
+      "REFERENCE ONLY \u2014 EXTERNAL BIOLOGICAL DATA": 0,
+      "REFERENCE ONLY \u2014 CONCEPTUAL": 0,
+      "UNAVAILABLE \u2014 AUTHOR MODEL DRIVER NOT RELEASED": 0,
+      "total": 6
+    }
+  },
+  "summary_counts": {
+    "MATCHED REPRODUCTION": 12,
+    "METHODS-BASED RECONSTRUCTION": 4,
+    "METHODS-BASED RECONSTRUCTION \u2014 EXACT PHASE SUBSET UNAVAILABLE": 1,
+    "METHODS-BASED RECONSTRUCTION \u2014 RESULT DIFFERENT": 8,
+    "REFERENCE ONLY \u2014 CONCEPTUAL": 3,
+    "REFERENCE ONLY \u2014 EXTERNAL BIOLOGICAL DATA": 3,
+    "UNAVAILABLE \u2014 AUTHOR MODEL DRIVER NOT RELEASED": 2,
+    "total_panels": 33
+  }
+}

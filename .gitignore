@@ -1,15 +1,41 @@
+# Python
 __pycache__/
-*.pyc
+*.py[cod]
+*$py.class
 .venv/
 venv/
 .env
 
-# Large simulation files
-*.npz
-
-# Temporary files
+# MATLAB
+*.asv
+*.m~
 *.tmp
 *.log
+*.fig
+
+# Large generated MATLAB simulation outputs (>25 MB / Gigabytes)
+komi_full_reproduction/results/*.mat
+!komi_full_reproduction/results/motoneuron_pools.csv
+komi_full_reproduction/experiments/ta_placement/data/*.mat
+komi_full_reproduction/experiments/all_pool_analysis/data/*.mat
+!komi_full_reproduction/experiments/all_pool_analysis/data/mn_metadata.json
+
+# Large author genetics count matrices (>100 MB; documented in CONTINUE_AT_HOME.md)
+komi_full_reproduction/source/03_SpinalCordGeneticsFiles/matCountSingleCell.mat
+komi_full_reproduction/source/03_SpinalCordGeneticsFiles/matCountSpatialScaled.mat
+
+# Large movies & media (>150 MB)
+komi_full_reproduction/movies/
+*.mp4
+*.avi
+
+# Scratch, obsolete candidates, and backups
+komi_full_reproduction/archive_obsolete/
+komi_full_reproduction/scratch/
+komi_full_reproduction/backup_pre_repair/
+komi_full_reproduction/.git/
+staging_checkout/
 
 # IDE files
 .vscode/
+.idea/

@@ -1,0 +1,33 @@
+{
+  "figure": 5,
+  "status": "METHODS-BASED RECONSTRUCTION — RESULT DIFFERENT",
+  "status_description": "V1 and V0 ablation/silencing simulations executed with author geometry, connectivity masks, and integration routines. Under released network parameters, V1 ablation abolishes active rhythmic bursting (amplitude drops to ~2.0 a.u. quiescent state rather than published ~22 a.u. slow bursting). V0 ablation preserves robust bursting (~45 a.u.) but does not complete the full transition to bilateral in-phase synchrony (~0 rad) without compensatory drive adjustments.",
+  "v1_manipulation": {
+    "freq_base_hz": 1.3089005235602094,
+    "freq_sil_hz": 1.0542962572482868,
+    "freq_abl_hz": 0.45998160073597055,
+    "amp_base": 35.099340135385638,
+    "amp_sil": 15.437881299379072,
+    "amp_abl": 1.9270615316580948,
+    "lr_phase_base_deg": 162.70180020837785,
+    "lr_phase_sil_deg": 197.11123059419685,
+    "lr_phase_abl_deg": 124.8574610403805,
+    "l2l5_phase_base_deg": 193.97921757946116,
+    "l2l5_phase_sil_deg": 210.90142651283216,
+    "l2l5_phase_abl_deg": 133.02668644684857
+  },
+  "v0_manipulation": {
+    "freq_base_hz": 1.3089005235602094,
+    "freq_sil_hz": 1.5552099533437014,
+    "freq_abl_hz": 1.8738288569643975,
+    "amp_base": 35.099340135385638,
+    "amp_sil": 39.148773749241606,
+    "amp_abl": 44.909648463418016,
+    "lr_phase_base_deg": 162.70180020837785,
+    "lr_phase_sil_deg": 74.0579238084254,
+    "lr_phase_abl_deg": 359.3928792633177,
+    "l2l5_phase_base_deg": 193.97921757946116,
+    "l2l5_phase_sil_deg": 207.90337445969865,
+    "l2l5_phase_abl_deg": 216.60711932363617
+  }
+}

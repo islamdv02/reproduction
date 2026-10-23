@@ -1,0 +1,31 @@
+# MATLAB
+*.asv
+*.m~
+*.tmp
+*.log
+*.fig
+
+# Python
+__pycache__/
+*.py[cod]
+
+# Large generated MATLAB simulation outputs (>25 MB / Gigabytes)
+results/*.mat
+experiments/ta_placement/data/*.mat
+experiments/all_pool_analysis/data/*.mat
+!experiments/all_pool_analysis/data/mn_metadata.json
+
+# Large author genetics count matrices (>100 MB; documented in CONTINUE_AT_HOME.md)
+source/03_SpinalCordGeneticsFiles/matCountSingleCell.mat
+source/03_SpinalCordGeneticsFiles/matCountSpatialScaled.mat
+
+# Large movies & media (>150 MB)
+movies/
+*.mp4
+*.avi
+
+# Scratch, obsolete candidates, and backups
+archive_obsolete/
+scratch/
+backup_pre_repair/
+.git/

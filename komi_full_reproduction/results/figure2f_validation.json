@@ -1,0 +1,29 @@
+{
+  "panel": "Figure 2F",
+  "description": "Cell type connectivity matrix (rectified and normalized)",
+  "formula": "C_norm(i, j) = (sum_{k in i, l in j} |W_kl| / (N_i * N_j)) / max_k(sum_{m in k, l in j} |W_ml| / (N_k * N_j))",
+  "normalization": "Presynaptic column-wise maximum normalization (max = 1.0 per column)",
+  "source_file": "results/baseline_network.mat",
+  "source_variables": [
+    "N.ConnMat",
+    "N.Types"
+  ],
+  "class_order": [
+    "DI6",
+    "MN",
+    "V0d",
+    "V0v",
+    "V1",
+    "V2a-1",
+    "V2a-2",
+    "V2b",
+    "V3"
+  ],
+  "rows": "Postsynaptic target cell classes (top to bottom: DI6 to V3)",
+  "columns": "Presynaptic source cell classes (left to right: DI6 to V3)",
+  "min_value": 0.004338273603861705,
+  "max_value": 1.0,
+  "correlation_with_published_luminance": 0.8483,
+  "status": "METHODS-BASED RECONSTRUCTION \u2014 EXACT AUTHOR NORMALIZATION UNAVAILABLE",
+  "unresolved_limitations": "Upstream MATLAB repository contains network instantiation and simulation routines, but does not include the figure generation script for Panel 2F. Presynaptic column-normalization of mean synaptic weights accurately reproduces published 1.0 column peaks and relative inter-class interaction gradients."
+}

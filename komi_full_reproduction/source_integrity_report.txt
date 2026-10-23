@@ -1,0 +1,168 @@
+================================================================================
+SOURCE INTEGRITY VERIFICATION REPORT
+Paper: Komi et al. (2026), Nature Communications
+Author Upstream Repository: https://github.com/BergLab/SpinalProjectome
+Verified Upstream Commit:   0f042045ee2f6d93bbe482127ce2263ada07443f
+Verification Timestamp:     2026-10-21 12:50:17
+Audit Environment Root:     c:\Users\LAB\Documents\GitHub\ibrain\komi_full_reproduction
+Source Directory Audited:   c:\Users\LAB\Documents\GitHub\ibrain\komi_full_reproduction\source
+================================================================================
+
+1. ENVIRONMENT & RUNTIME PARAMETERS
+--------------------------------------------------------------------------------
+Operating System:               Windows (PCWIN64)
+MATLAB Version:                 24.2.0.2670998 (R2024b) Prerelease Update 3
+MATLAB Path:                    C:\Program Files\MATLAB\R2024b\bin\matlab.exe
+Key Toolboxes Installed:        Statistics and Machine Learning Toolbox,
+                                Signal Processing Toolbox, Optimization Toolbox,
+                                Curve Fitting Toolbox, Parallel Computing Toolbox
+Python Environment:             3.12.10 (C:\Users\LAB\AppData\Local\Programs\Python\Python312\python.exe)
+Network Construction RNG Seed:  42 (twister)
+Dynamics Simulation RNG Seed:   5 (Gaussian white noise)
+Global Synaptic Scaling (gc):   0.5
+Network Density:                0.8
+Network Bilateral Symmetry:     1 (symmetric across midline)
+Synaptic E/I Balance:           1 (row-sum zero-sum balance)
+Spatial Projection Width:       500 um (Gaussian std)
+Spinal Cord Segments:           T13, L1, L2, L3, L4, L5, L6, S1, S2, S3, S4 (11 segments)
+Neuron Population Classes:      9 ventral cardinal classes (V2a_2, V2a_1, V1, V2b,
+                                V0d, V0v, DI6, V3, MN)
+Motor Neuron Feedback Bias:     0.1 (MN -> All interneurons attenuated to 10%)
+Simulated Neuron Count:         4,934 neurons (4,688 interneurons + 246 motoneurons)
+Simulated Synapse Count:        589,368 directed synapses (527,286 ipsi, 62,082 contra)
+Baseline Firing Response:       Piecewise linear-tanh, T = 5, Fmax = 50 Hz, tau = 10 ms
+Baseline External Drive:        Tonic constant I_e = 30 pA across all 4,934 neurons
+
+2. SOURCE INTEGRITY AUDIT SUMMARY
+--------------------------------------------------------------------------------
+Total Upstream Author Files:    103
+Total Local Source Files:       103
+Identical Files:                103 / 103 (100.0%)
+Missing Files:                  0
+Extra Files:                    0
+Modified Files:                 0
+
+Missing Files: NONE (0 files missing from upstream release)
+
+Extra Files in Source: NONE (0 unreleased or rogue files in author tree)
+
+Modified Files: NONE (0 files modified; author source is 100% pristine)
+
+3. GIT DIFF STATUS OF UPSTREAM AUTHOR SOURCE
+--------------------------------------------------------------------------------
+Upstream commit 0f042045ee2f6d93bbe482127ce2263ada07443f clean working tree: YES
+Local source/ vs Upstream diff: EMPTY (No code modifications)
+All custom wrappers, pipeline scripts, figures, and exports are located strictly
+in scripts/, validation/, results/, figures/, or logs/.
+
+4. COMPLETE SHA-256 VERIFICATION TABLE (ALL 103 AUTHOR SOURCE FILES)
+--------------------------------------------------------------------------------
+Relative File Path                                                | Size (B)   | Status     | SHA-256 (Full)                                                  
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+.gitattributes                                                    | 175        | IDENTICAL  | 525dd8dd49093f1ac0c2a18e29bb15dc05471d1d7d66bc39041ca2453efedac7
+00_SpinalNetworkModel\@Celltype\Celltype.m                        | 6051       | IDENTICAL  | 27c22ad281b3b09dd5d2014f47bccf131b5acfd6481b070b1af247b0ddbeb77f
+00_SpinalNetworkModel\@NetworkParameters\NetworkParameters.m      | 4773       | IDENTICAL  | 201cb6ab7241f90593d6fecd0312afa052a6f2ea736f8716c7fb7f6fe310a87f
+00_SpinalNetworkModel\@Network\AnimatedPlotRates.m                | 3393       | IDENTICAL  | 91d2d18818bed776475eac5f187b36942f251fd4e3e429f3f2d2073d2d65e4bf
+00_SpinalNetworkModel\@Network\ComputeEigenModesandNullSpace.m    | 3395       | IDENTICAL  | 6d0b718a5add3da85ef538aab6ab22afb941bdbecf6319cdf5ef7843ca93d780
+00_SpinalNetworkModel\@Network\GetGenesDiffExpSingleCell.m        | 2218       | IDENTICAL  | 619cdfb2cc6cf2425825345b5cae29a6d433f82e921d2672ae2313a6e41f3849
+00_SpinalNetworkModel\@Network\GetNeuronsInDiffGeneExpSingleCell.m | 2227       | IDENTICAL  | 8767fa141027473269cff7f84733240509ef909da0c67c5a3eec042a98378f9b
+00_SpinalNetworkModel\@Network\GetNeuronsInDiffGeneExpSpatial.m   | 3185       | IDENTICAL  | 0d32855ada6235b338ad30aec630bd80dc86a02c7a11300c157814ae4f06406c
+00_SpinalNetworkModel\@Network\InstantiateNetwork.m               | 11765      | IDENTICAL  | 91e1cf9ea9a866e11d895435e2748a325795f0cfbd1ea48a99bcb5e2d4a61224
+00_SpinalNetworkModel\@Network\MakeLesion.m                       | 881        | IDENTICAL  | 2ad1704bae61cb6a8aa90b6f12661704678e9cf3409a1c660cd0593ece4fdf23
+00_SpinalNetworkModel\@Network\Network.m                          | 4312       | IDENTICAL  | 520c786b7e8eb92e7a365dd696ab77424d7af1679d757375cf1c6e9da3a8bd78
+00_SpinalNetworkModel\@Network\PlotEMG.m                          | 2838       | IDENTICAL  | 9be2b777c535cd1245374430d339551986a26158399a8196ee9894334d95ead9
+00_SpinalNetworkModel\@Network\PlotGeneLocation.m                 | 1948       | IDENTICAL  | f328212e3c6c22067d18bb666a60a3b8b9672d789ff384ae948a68f1ab4834c0
+00_SpinalNetworkModel\@Network\PlotNeurogram.m                    | 3450       | IDENTICAL  | b694dd8d1cd68527aa2fa3501600fd77f3d85b4c3387decd3ff8c362362c801b
+00_SpinalNetworkModel\@Network\PlotRaster.m                       | 1075       | IDENTICAL  | e804576c354d6e3d695a5fbb67ca05d42402f87f05bc95d24154dd499b057cf6
+00_SpinalNetworkModel\@Network\PlotRates.m                        | 1556       | IDENTICAL  | b4568078691454c2f36857bf3b293729db19017ef0af78e831022b17c3334945
+00_SpinalNetworkModel\@Network\PolarPlotLogFC.m                   | 1121       | IDENTICAL  | 244b21979d92a4dad03a9056e770dd292becd26c35d68d0034ce726cd99c88e2
+00_SpinalNetworkModel\@Network\PolarPlotTargets.m                 | 638        | IDENTICAL  | 721ff955bc8102cd2d81a1ce2b2ed612669f7d4210ccd9b0a1f11b6465ecda73
+00_SpinalNetworkModel\@Network\RegrowPop.m                        | 461        | IDENTICAL  | 4412c32e5cefc45a913ef40cc41eaac6ae9d1f321e39e03d4550108997abc6a7
+00_SpinalNetworkModel\@Network\Simulate.m                         | 2701       | IDENTICAL  | c9a05b80f24e1d9c45151c9f528fe9a842b19f3a3fc995407254dfb50ce7db7d
+00_SpinalNetworkModel\@SpinalCordGenetics\SpinalCordGenetics.m    | 878        | IDENTICAL  | d3567c28939c3d51034d860659e4103d5ef615cbdd640be570bcaea807f64544
+00_SpinalNetworkModel\@SpinalCordGeometry\SpinalCordGeometry.m    | 16590      | IDENTICAL  | d840470eb2d22178f340f589c9e71cc537039255a75af2aa2395e8ea789fb24a
+01_SpinalGeometryFiles\ZeroMap.mat                                | 14244      | IDENTICAL  | 5b8d1396d00a99e61ae430d388e4fa73ff3f1adfc4a8bb25454e8a2534b7e3f6
+01_SpinalGeometryFiles\matCellInfo_2.mat                          | 4526       | IDENTICAL  | a3e998c68b69810c2dc39ab7f6058895839208134042912d811f3bd971142061
+01_SpinalGeometryFiles\matCoord.mat                               | 119688     | IDENTICAL  | 0091dcc94bc488dd9a2fc76ca60ad84be14ff286ddbd4840ecc4ee5ccf762090
+01_SpinalGeometryFiles\matDescending.mat                          | 65686      | IDENTICAL  | 1e7be9764c9d8092858996c8a19a3d28512e6123e2d5cff677c162cfff6421bd
+01_SpinalGeometryFiles\matGeneCellTypes.mat                       | 1514       | IDENTICAL  | 98c95bc29ed8d89ce3b3f17ff7373a0f316a0cf8d17131f17c3bd0b10ebd80df
+01_SpinalGeometryFiles\matGeometry.mat                            | 3200518    | IDENTICAL  | b8e7dffb797b60e097cf3551a4164112e98cab17f4fd40dcabbb2c0ca9823abc
+01_SpinalGeometryFiles\matLayers.mat                              | 77381      | IDENTICAL  | b38a3e5ed0db3062fa14d94fe29454e1921357605444cd4a45bb74a7da50dbc3
+01_SpinalGeometryFiles\matMuscleSeg.mat                           | 2177       | IDENTICAL  | 8545875f120d921d487cc30cc62c7d296fde13c9a86f943e5a67d54b880b29ae
+01_SpinalGeometryFiles\matResults.mat                             | 2933908    | IDENTICAL  | 438e296e41506954dfaf1bde118f182aec0c12fee4d9968b859189a6fd0d3fc5
+01_SpinalGeometryFiles\matResults_2_ExtendedData.mat              | 2845084    | IDENTICAL  | 9e4c49d9020a273795eac00bd8325c755ebd22c73a53cd55024daba1f251cfb2
+01_SpinalGeometryFiles\matSegmentDimensions.mat                   | 669        | IDENTICAL  | 3bfde1cb59ddc5e13c8c6a556432618fda9beb66ebe749cd906682ebdbc3cbdb
+02_HelperFunctions\BalanceConnectivity.m                          | 603        | IDENTICAL  | 08b3d6af8cf5434989892067a54ad6fdcf94fbac84c9f06bb818df589ef75593
+02_HelperFunctions\ComputeFiringPhaseSorting.m                    | 1229       | IDENTICAL  | 4b6ecfad69be8d222ed2a5d8d3e585d320b2ba95d42cc67331b7e545d17b974c
+02_HelperFunctions\ComputeInstantFiring.m                         | 504        | IDENTICAL  | ef053f6bd253d1ed0375b4efcb62de2f56588ec97ea538d4ee4ce594177d573a
+02_HelperFunctions\ComputePairWiseDistance.m                      | 327        | IDENTICAL  | 2b682ca054bbfdbd3c378bb409415f1698461f4262257b9d102575ab29ee4783
+02_HelperFunctions\ComputePopulationDelays.m                      | 378        | IDENTICAL  | 9dff0979bed601fb30bc3ff78996f5f5b0e3916a1db6e8c8ed7baaf499d35472
+02_HelperFunctions\ComputePopulationProjectionBias.m              | 477        | IDENTICAL  | 1f89a7ebebc8c673ff6ec564a32e5082338437cd120f5f496929de15f1642f6e
+02_HelperFunctions\GenerateSynapticDistrib.m                      | 2168       | IDENTICAL  | bca18e33e14825db665ed2402c7c5407aab41ebf19aa6cb6c354b6441703ce2b
+02_HelperFunctions\GetGaussianFiring.m                            | 415        | IDENTICAL  | 312cb4f1615b892731905f6be61cd6934a210b813fdc41dab4ecdff5a111c42d
+02_HelperFunctions\GetNetworkColors.m                             | 1201       | IDENTICAL  | f73535df81086bf7ffdf4650f4d9555840800a1b97cb2777321b765f7fafbe66
+02_HelperFunctions\MakeSummaryFigure.m                            | 41         | IDENTICAL  | 469af729fa11bc994f47aefefa01a8f4fe8c2fa237475caf6aa1081b50a614e7
+02_HelperFunctions\PlotAnimatedNetworkEmgandPC.m                  | 9664       | IDENTICAL  | 2c9c49ef20c07b27a6fe61072a6e2fe50cb58dc36374398449a6363858658d50
+02_HelperFunctions\PlotDynamicsConnection3D.m                     | 1909       | IDENTICAL  | 7f05403e5078920a9a519d0e35ebb4719e2572e8ee33fc89e9332e395e4124eb
+02_HelperFunctions\PlotTransitionRandomStructured.m               | 7271       | IDENTICAL  | 4e3942de2a7f6442d0084a5c0affcf1477c68747282d45dd061559dc05a1595a
+02_HelperFunctions\PositionElectrodeAndSample3D.m                 | 2147       | IDENTICAL  | 022cde2fa22cf61728d7aea3ae31a85910cae337fbee5b10ae244bfe765bb932
+02_HelperFunctions\RescaleConnectivity.m                          | 434        | IDENTICAL  | ab5b83c16c1d650e37ae650a5b3867511d9ad84d5cf72fdf76f5568e06c20448
+02_HelperFunctions\SimulateAxonProp.m                             | 6995       | IDENTICAL  | 158bcd48ac9d7d9880b95759ca356cea6921eea735a52f3710a952400d04aece
+03_SpinalCordGeneticsFiles\matCellInfo.mat                        | 4526       | IDENTICAL  | 142abb5a3e30b306d6f11cf163f7c72ac0a542c8109c5b4cb5fffd32c9e98e53
+03_SpinalCordGeneticsFiles\matCountSingleCell.mat                 | 314113102  | IDENTICAL  | 9e069be3d8f58e0e3094f507e163f00a8e588e33216390507c694f8bf1167bad
+03_SpinalCordGeneticsFiles\matCountSpatialScaled.mat              | 121676556  | IDENTICAL  | 892f78d97c509daeb780e59c1d7840167e5bc45e4d69bf52b96ea27328cb4d3e
+03_SpinalCordGeneticsFiles\matGeneCellTypes.mat                   | 1514       | IDENTICAL  | 98c95bc29ed8d89ce3b3f17ff7373a0f316a0cf8d17131f17c3bd0b10ebd80df
+03_SpinalCordGeneticsFiles\matGuidance.mat                        | 2021990    | IDENTICAL  | 532bb98fc3d434f7bdf1d71261b8cfa38504378f8da48f8a07c545deacbd6ca8
+03_SpinalCordGeneticsFiles\matRCTD.mat                            | 2862678    | IDENTICAL  | 2e8ae2dae51829cdcc776bf8b7bfac441265ff764c9b6840fcd4384a6c34dee4
+04_Utilities\@Colors\Blue_ice.mat                                 | 2355       | IDENTICAL  | 2eb580034be15996800b361b9bbbc326bd511898474a58144d40e69509094a8d
+04_Utilities\@Colors\Colormap_blackCenter.mat                     | 4947       | IDENTICAL  | 6bb11c99efa79b0edb1c400e7de77866993a166fb5ab72720fa6f6074bd3739d
+04_Utilities\@Colors\Colors.m                                     | 828        | IDENTICAL  | 4c96d751961da26c9688b1ec7eb569920d17861a164c59170cdb600f2e2f9696
+04_Utilities\@Colors\CyclicTurbo.mat                              | 1920       | IDENTICAL  | bbc5ea4f0a285482cd824fa933036765a5120297e9aed18de2a7054442e4d0c9
+04_Utilities\@Colors\black2cyan.mat                               | 2246       | IDENTICAL  | dd75734bfb5b66ece22e991362d2c5a3ffe1c81d229448c0c34a1edf9d9508fa
+04_Utilities\@Colors\black2magenta.mat                            | 1996       | IDENTICAL  | fd6671605c736a91bcd1428b236babd06bfca1a48634337b781cb7783f19047e
+04_Utilities\@Colors\black2yellow.mat                             | 909        | IDENTICAL  | 62fed3585e7086d70803fca1f2d563209fdbbc8c0542fd1142d0a89f59d9569b
+04_Utilities\@Colors\black2yellow2cyan.mat                        | 1487       | IDENTICAL  | 812e96eac4c9f0e9c023356b7389219cd308676141bcc8d2e39887414a9edf82
+04_Utilities\@Colors\black2yellow2cyan2.mat                       | 1454       | IDENTICAL  | 0a42a0d69f1b717fbd28a31ba46287fa53508219848d4efcc81a884d6c724f97
+04_Utilities\@Colors\black2yellow2magenta.mat                     | 1454       | IDENTICAL  | f1103b786ff4754eaced2ec7f8e9b52c84351dd423a234d3b2a93be07525bcaf
+04_Utilities\@Colors\black2yellow2purple.mat                      | 1386       | IDENTICAL  | 986070f30b7b101ea86962d729e7a748b9edccadc30c4a183bcc4b97325385b4
+04_Utilities\CellTypesCensus.xlsx                                 | 13089      | IDENTICAL  | 5a1e6b8e625e5912611c8d3e66a95aa1aea3ff3bb27fcd0aa44e7a79d3c2d1eb
+04_Utilities\ChannelMaps\Linear16x1_kilosortChanMap.mat           | 555        | IDENTICAL  | bdffc1c504a5ede82afa4106d6ff0f6fa9387cdd5e916dcc867c58ea5f3bbde5
+04_Utilities\ChannelMaps\Linear32kilosortChanMap.mat              | 637        | IDENTICAL  | 4712856f70f9f702545d314deb5fe2f3b7e85f74e9441d2d637088b7d2270d63
+04_Utilities\ChannelMaps\NP2_kilosortChanMap.mat                  | 2045       | IDENTICAL  | 2f3e1de057f5ab41ea38c8f7d621b563177ed1857da1f5a1afbff10bc1962ce1
+04_Utilities\ChannelMaps\Neuronexus.mat                           | 935        | IDENTICAL  | 6bd9178a021b622d9975d161f27c0ea62e0bd3deadab0466df1d23eee32eaa18
+04_Utilities\ChannelMaps\NeuronexusBerg16x8.mat                   | 1239       | IDENTICAL  | c046b2ea0079cb35f3972db9b0b86a589947a542d544381bdf7fb0b431094e9a
+04_Utilities\ChannelMaps\NeuropixelsPhase3A301_kilosortChanMap.mat | 1789       | IDENTICAL  | c171097c99ee8ee384a14c2a4a99ccb9457eebe84cb9cd93eacab62d36d95390
+04_Utilities\ChannelMaps\neuropixPhase3A_kilosortChanMap.mat      | 2069       | IDENTICAL  | 07b246aa00868ae807e8cd8f8d9d93fc0843c58142c711da68037809023835ee
+04_Utilities\ChannelMaps\neuropixPhase3B1_kilosortChanMap.mat     | 2075       | IDENTICAL  | 715c14057bde72c5eba42067facf5f6969444c346ee8a9495d9005a902d67c75
+04_Utilities\ChannelMaps\neuropixPhase3B2_kilosortChanMap.mat     | 2073       | IDENTICAL  | 7a40f805ece3f60fe677a2ab14e5db8aebcc5543bb2844b13329239ff23ea4b4
+04_Utilities\MotorneuronsDistribution.xlsx                        | 15632      | IDENTICAL  | 5dea75459ebb589b4fd282aea92b91196a3f5c749850a881496ed75838991c86
+04_Utilities\SplitVec.m                                           | 9086       | IDENTICAL  | 074d44752c7cb1b6cb00ac005655102f2af588036d4af401100fcf81cece5dd1
+04_Utilities\adj2inc.m                                            | 3097       | IDENTICAL  | 652b9929674cfc9059aa11ea712d8b6f8912e569379dd90e66ea61a94d1deecd
+04_Utilities\genetic-algorithm-matlab-master\Cross.m              | 982        | IDENTICAL  | 876998bf8dcf80f448f07b967ee4deea1087a279a5c7b94a543367cd7f03130e
+04_Utilities\genetic-algorithm-matlab-master\DecodeChromosome.m   | 932        | IDENTICAL  | a978569250ca788a72ccbb24c8e6230770ab2465bd901fe9a844db633c869f81
+04_Utilities\genetic-algorithm-matlab-master\DecodePopulation.m   | 999        | IDENTICAL  | 91d621165f6e6bfb1351943dc41ae31d4e73df03ad17786972464b805d60be6b
+04_Utilities\genetic-algorithm-matlab-master\EvaluateIndividual.m | 649        | IDENTICAL  | a20cf36f973505c2a84d7c15fe876ec1d348fe4c96094e3447ef654431e619d2
+04_Utilities\genetic-algorithm-matlab-master\EvaluatePopulation.m | 648        | IDENTICAL  | 8191586ec90f675c260095d9eaac35b56cd9fea7bcdfee51928df58fa5d30251
+04_Utilities\genetic-algorithm-matlab-master\Experiments.m        | 509        | IDENTICAL  | cc2d4dd2275ac81eeb14a4c945739403ea3a602fe9e496e0d52cc5eb59bb95e4
+04_Utilities\genetic-algorithm-matlab-master\FunctionOptimization.m | 4738       | IDENTICAL  | f1bdc0107edb3c6d3f892731e2aa79451dd5b77ed8e0b00129f387267961a8b3
+04_Utilities\genetic-algorithm-matlab-master\InitializePopulation.m | 716        | IDENTICAL  | 5b656dfaeb672e31df9a20b6bc19535238b2eae3f66e576d3343ee28c0860f74
+04_Utilities\genetic-algorithm-matlab-master\InsertBestIndividual.m | 951        | IDENTICAL  | 01d076d78157b3446c2513d9f250d463a007747739c102700352eab00fb9d4fd
+04_Utilities\genetic-algorithm-matlab-master\LICENSE.md           | 1107       | IDENTICAL  | 1c127ac8e5cba21c8450dd242c3000dab1928442560efcb564f8a67f71eea806
+04_Utilities\genetic-algorithm-matlab-master\Mutate.m             | 791        | IDENTICAL  | ce4888aa84645545601870eeb9464141612c1b0a80ac7dd6f6e58917f15f0ee2
+04_Utilities\genetic-algorithm-matlab-master\README.md            | 2178       | IDENTICAL  | b05e80f4705dc1e5caedeaacbdd70793ec00e29524afe5db1dac85c61e9ad636
+04_Utilities\genetic-algorithm-matlab-master\TournamentSelect.m   | 937        | IDENTICAL  | 16e0a27c3c537f8c68967f8f2cbdfa1a43666abab99c38c2f6fda2a1ceee4940
+04_Utilities\genetic-algorithm-matlab-master\UnitTestCross.m      | 741        | IDENTICAL  | 723bbd2ee4304865cc3fd4120c6ba8bb9e3937dafeb6bf424e87c46e53899d27
+04_Utilities\genetic-algorithm-matlab-master\UnitTestDecodeChromosome.m | 433        | IDENTICAL  | 44e55cc96282b96c13502643a8d0652c5244a6fb7e5817f6d352d698b1e49eb3
+04_Utilities\genetic-algorithm-matlab-master\UnitTestDecodePopulation.m | 491        | IDENTICAL  | c2a04393a2f3e88e250a24e3a0b5120111d9caeecd2c6ad4634234a425698ca9
+04_Utilities\genetic-algorithm-matlab-master\UnitTestInitializePopulation.m | 532        | IDENTICAL  | b389366af5ac0d9493bd8d67aab9ce7e3f532fac3f577926cb23b4c11281fca7
+04_Utilities\genetic-algorithm-matlab-master\UnitTestInsertBestIndividual.m | 679        | IDENTICAL  | 06d49ddb9e933ce8d4e7b6c1d1bdeaced484c05febf1a545de0df873790e8d18
+04_Utilities\hline.m                                              | 2999       | IDENTICAL  | 9eb5dd92fe400e8303ba1d75700c7a4314dc7d85307670c19537b805a0429a2e
+04_Utilities\save2pdf.m                                           | 712        | IDENTICAL  | d606c716e6f5e9f9f73b75a9e84b3f6f6245435a18da033ee7ffa2ef2d3a2c3b
+04_Utilities\vline.m                                              | 2937       | IDENTICAL  | 70e626e86afc3ea96ffb385e8dc369c18a312daa95d2dc580cc4520fb82ed225
+InstantiateModel.m                                                | 2360       | IDENTICAL  | d0734588d2ee10fe32de753886f1bf4b8af8b6b643ab1a04e80425d7217a6858
+LICENSE                                                           | 7048       | IDENTICAL  | a2010f343487d3f7618affe54f789f5487602331c0a8d03f49e9a7c547cf0499
+README.md                                                         | 9764       | IDENTICAL  | f6435c7dbba4845e435b97e889693e7cf2feca58d5ae8fd52a1b74c9024e6a1b
+
+================================================================================
+END OF SOURCE INTEGRITY REPORT
+================================================================================

@@ -1,0 +1,19 @@
+{
+  "status": {
+    "S4": "REPRODUCED_PARTIAL",
+    "S6": "REPRODUCED",
+    "S7": "REPRODUCED",
+    "S8": "REPRODUCED",
+    "S11": "REPRODUCED",
+    "S12": "BLOCKED"
+  },
+  "S12_blocker_reason": "Authors did not release parameter sweep routine or raw stability arrays for S12 density and projection width sweeps.",
+  "S4_status": "Transverse mapping reproduced; marker gene differential expression unindexed in release data.",
+  "S6_features": {
+    "total_neurons": 4934,
+    "total_synapses": 589368,
+    "sparsity": 0.97579036389379126,
+    "excitatory_count": 2981,
+    "inhibitory_count": 1953
+  }
+}

@@ -1,0 +1,126 @@
+{
+  "figure": 4,
+  "status": "METHODS-BASED RECONSTRUCTION — RESULT DIFFERENT",
+  "gaits": {
+    "Walking": {
+      "name": "Walking",
+      "measured_frequency_hz": 1.2911555842479019,
+      "measured_lr_phase_rad": 2.7920761040449644,
+      "measured_lr_phase_deg": 159.97417684110619,
+      "measured_l2l5_phase_rad": 3.5492492858503146,
+      "measured_l2l5_phase_deg": 203.35700451904452,
+      "nerve_amplitude_l2": 21.831129407096384,
+      "nerve_amplitude_l5": 32.422257460739196,
+      "muscle_amplitude_ta": 2.4540700691719262,
+      "muscle_amplitude_sol": 2.8121917435441914,
+      "rhythmicity_status": "Frequency = 1.29 Hz, L-R Phase = 160.0°"
+    },
+    "Trotting": {
+      "name": "Trotting",
+      "measured_frequency_hz": 1.3577732518669383,
+      "measured_lr_phase_rad": 2.8323387942751155,
+      "measured_lr_phase_deg": 162.28105906313644,
+      "measured_l2l5_phase_rad": 3.6868747534262027,
+      "measured_l2l5_phase_deg": 211.24236296465747,
+      "nerve_amplitude_l2": 32.217624498387835,
+      "nerve_amplitude_l5": 44.251094300585983,
+      "muscle_amplitude_ta": 4.1838840791813983,
+      "muscle_amplitude_sol": 4.2904154788515765,
+      "rhythmicity_status": "Frequency = 1.36 Hz, L-R Phase = 162.3°"
+    },
+    "Bounding": {
+      "name": "Bounding",
+      "measured_frequency_hz": 1.3995801259622114,
+      "measured_lr_phase_rad": 2.8506637317390568,
+      "measured_lr_phase_deg": 163.33100063966145,
+      "measured_l2l5_phase_rad": 3.820915347753016,
+      "measured_l2l5_phase_deg": 218.92232330300908,
+      "nerve_amplitude_l2": 46.34725182614838,
+      "nerve_amplitude_l5": 53.168787486042582,
+      "muscle_amplitude_ta": 5.9897873766372971,
+      "muscle_amplitude_sol": 6.7060750082130784,
+      "rhythmicity_status": "Frequency = 1.40 Hz, L-R Phase = 163.3°"
+    }
+  },
+  "target_neuron_counts": {
+    "dI6": {
+      "total_neurons": 60,
+      "lpgi_total": 27,
+      "lpgi_pct": 45,
+      "raphe_total": 54,
+      "raphe_pct": 90
+    },
+    "V0d": {
+      "total_neurons": 87,
+      "lpgi_total": 73,
+      "lpgi_pct": 83.9080459770115,
+      "raphe_total": 14,
+      "raphe_pct": 16.091954022988507
+    },
+    "V2b": {
+      "total_neurons": 633,
+      "lpgi_total": 431,
+      "lpgi_pct": 68.088467614533968,
+      "raphe_total": 311,
+      "raphe_pct": 49.13112164296998
+    },
+    "V1": {
+      "total_neurons": 1173,
+      "lpgi_total": 650,
+      "lpgi_pct": 55.413469735720376,
+      "raphe_total": 742,
+      "raphe_pct": 63.25660699062233
+    },
+    "V2a_1": {
+      "total_neurons": 635,
+      "lpgi_total": 472,
+      "lpgi_pct": 74.330708661417319,
+      "raphe_total": 135,
+      "raphe_pct": 21.259842519685041
+    },
+    "V2a_2": {
+      "total_neurons": 185,
+      "lpgi_total": 138,
+      "lpgi_pct": 74.5945945945946,
+      "raphe_total": 78,
+      "raphe_pct": 42.162162162162161
+    },
+    "V0v": {
+      "total_neurons": 225,
+      "lpgi_total": 148,
+      "lpgi_pct": 65.777777777777786,
+      "raphe_total": 17,
+      "raphe_pct": 7.5555555555555554
+    },
+    "V3": {
+      "total_neurons": 141,
+      "lpgi_total": 105,
+      "lpgi_pct": 74.468085106382972,
+      "raphe_total": 82,
+      "raphe_pct": 58.156028368794324
+    },
+    "MN": {
+      "total_neurons": 1795,
+      "lpgi_total": 13,
+      "lpgi_pct": 0.724233983286908,
+      "raphe_total": 1795,
+      "raphe_pct": 100
+    }
+  },
+  "drive_interpretations": {
+    "interpretation_1_total_external_input": {
+      "description": "Target neurons receive scheduled drive (15, 22, 30 pA), non-targets receive baseline background 10 pA",
+      "outcome": "Robust rhythmic bursting across all gaits, amplitude increases +112%, but bilateral alternation is preserved throughout (Walk=160.0°, Trot=162.3°, Bound=163.3°); no switch to bilateral synchrony",
+      "frequency_range_hz": [
+        1.29,
+        1.4
+      ]
+    },
+    "interpretation_2_additive_drive_over_background": {
+      "description": "Scheduled drive is added to normal background (30 pA baseline + 15/22/30 pA -> 45/52/60 pA total input)",
+      "outcome": "High drive pushes membrane potentials into upper saturation ceiling (Fmax = 50 Hz), causing loss of rhythmicity and tonic saturation (54.7% saturation) without producing bounding synchrony",
+      "saturation_pct": 54.7
+    }
+  },
+  "failure_diagnosis": "Under the authors released code and connectivity matrix W, neither interpretation reproduces the published transition to bilateral synchrony (~0°) or 2.5-5.2 Hz acceleration. Exact dedicated Figure 4 driver and published network realization are unreleased in BergLab/SpinalProjectome."
+}

@@ -1,0 +1,263 @@
+
+
+==================================================Fig. S1.| Mapping of projections from a specific location using virus injection in the mouse spinal cord. A, On the left, a
+top view of the raw data from an entire spinal cord stained for red fluorescent protein (RFP) is shown, with the injection site
+highlighted in red (red arrows point to RFP+ cells). Due to the large data size ( 400GB), the segmentation pipeline was run on
+segments of the data ( 25GB per segment). Each model in the pipeline is sensitive to different aspects of the data: Model 1 is
+more sensitive to well-delineated structures, Model 2 to marginal objects, and Model 3 to indistinct and diffuse signals. B,
+software (DeepTRACE) predictions from the models are then combined, as previously described¹. A stepwise skeletonization
+is applied to the combined predictions. The binary skeleton outputs are weighted based on the initial probability thresholds
+used in their generation and subsequently summed. This approach preserves prediction confidence while avoiding the
+fragmentation of connected structures due to threshold-based segmentation. Truncated and disconnected objects are then
+removed to produce the final segmentation mask. The resulting segmentation mask aligns well with the raw data, although
+some projections remain undetected (indicated by red arrows). C, The "skeletonization" panel demonstrates the segmentation
+quality along the entire spinal cord for an example sample (entire spinal cord stained for GFP is shown). The projection density
+graphs show the segmented voxel count along the rostro-caudal, dorso-ventral, and medial-lateral axis (proxi of the projection
+density). While most projections are localized near the injection site, many are detected at the extreme ends of the spinal cord.
+Additionally, a noticeable ipsilateral/contralateral bias in projection distribution relative to the injection site is observed, though
+further analysis is required to fully characterize these differences.
+11/24
+--- PAGE 12 ---
+
+Fig. S2.| Spatial embedding of balanced sequence generator networks reveals a Mexican Hat projectome. A, Example
+of a balanced sequence generator (BSG), consisting of N randomly coupled neurons with balanced excitatory and inhibitory
+recurrent inputs receiving a global external input. The network N× N connectivity matrix W has a circular spectrum of
+eigenvalues, and a dominant complex mode (red) beyond the stability line (red dashed), predicting sequence-generating
+properties. B, The synaptic input to each neuron is converted to a momentary firing rate by a hyperbolic tangent activation
+function. C, When subjected to a global drive and simulated according to dynamical equations in the firing rate formalism,
+BSG networks oscillate in time with a frequency proportional to the imaginary part of the dominant eigenvalue. D, BSG
+networks oscillate with a quasi-continuous distribution of phases, a phenomenon termed "rotational dynamics". E, Of random,
+balanced networks, only approx. half exhibit oscillatory properties across sizes N = [200, 500, 1000, 2000, 5000] (100
+networks/size) (left). Predicted frequency tends to decline as BSG networks grow (right). F,G, BSG networks (n=50) were
+embedded on a linear space according to a phase-space coherence rule, such that the phase-position of a neuron in an arbitrarily
+chosen reference period reflected its position on the line. From the connectivity and spatial positions, the net synaptic strength
+over the relative distances revealed an asymmetric Mexican Hat projectome with local excitation and broader inhibition. H,I,
+The unfolded projectome was recapitulated in spatial 1D networks through five subpopulations, each with a projection bias
+matching one of the five lobes of the Mexican Hat. This yielded a spatially ordered connectivity matrix where excitatory (red)
+and inhibitory (black) synapses were visible as diagonal bands. J, Across sizes, all networks (100 networks/size) were
+predicted to oscillate with stable frequency.
+12/24
+--- PAGE 13 ---
+
+Fig. S3.| Different projectome asymmetries efficiently controls direction and velocity of wave propagation in 1D
+networks A, 1D networks (n=34, size=2000) constructed according to Fig. S2H with non-overlapping projection distributions
+for the five subpopulations. As the mean projection distance of the local excitatory subpopulation, µ sp3 , was moved away from
+zero point, the velocity of wave propagation (oscillatory frequency) linearly increased with a propagation direction reflecting
+the bias direction (left). When µ sp3 approached zero, yielding a near symmetric projectome, wave propagation terminated and
+a static bump pattern characterized the dynamics (right). B, Networks (n=21, size=2000) constructed as in A. As µ sp2 and µ sp4
+(left and right projecting inhibition, respectively) were shifted together away from symmetry, propagation velocity increased
+with a direction that reflected the direction of least inhibition (left). Again, at symmetry, only the static bump emerged (right).
+C, Networks (n=21, size=1000) with overlapping projection distributions for subpopulation 2, 3 and 4. Bump velocity as a
+function of µ sp3 and the spatiotemporal pattern matched that in A . D, Networks (n=100, size=1000) constructed with
+overlapping projection distributions, as in C. Instead of varying projection biases, asymmetry was induced by modulating the
+weight of sp2 synapses (and sp4 synapses, inversely). Bump velocity was controlled near linearly by gain modulation with
+propagation direction reflecting the direction of least inhibition.
+13/24
+--- PAGE 14 ---
+
+Fig. S4.| Spatial transcriptomics delineates the transverse location of cardinal cell types A, Tree representation of all
+ventral cell types from an harmonized cell atlas.20 . The coarse cell types considered in this study are highlighted in colors and
+correspond to group of subtypes from similar developmental lineage. B, Lamniar organisation of cell types in the mouse lumbar
+(L4) segments. For each spinal cord representation, the left side corresponds to the transverse location of the specified cell type,
+derived from deconvolution of spatial transcriptomics with single cell RNA sequencing (see Methods). The right side shows the
+location of the primary marker gene of the cell type derived from in-situ hybridization (Allen Mouse Spinal Cord Atlas). C,
+Differential expression of marker genes for long range and locally projecting neurons22. Each panels shows spatial regions
+where genes are differentially expressed, on the left, and a polar plot of relative gene expression level for each cell type, on the
+right. Radius size is indicated for each plot. Central dashed line is half-radius. The spatial regions are in close agreement with
+those reported previously22. This analysis suggests specific projection patterns for most of the cell types considered. DI6, V2b,
+V1, V2a , V0v and V3 express long ranges marker. V2a-Vsx2+, MN and V0d express short ranges markers. This is in good
+agreement with exsiting morphological data (see Table S1) and corroborates most projections used in our model, except for V3.
+14/24
+--- PAGE 15 ---
+
+Fig. S5.| Construction of ventral spinal cord motor network connectivity and projectome from empirically inferred
+cell type location and projection biases. A, The cell type spatial probability distributions in transverse plane are derived from
+combined single cell RNA sequencing and spatial transcriptomics in mouse lumbar spinal cord (L5). Somas of cell types are
+generated from these probability distributions and extended in the longitudinal axis. B, neurons of a given cell type (presynaptic
+neuron, red) are targeting other cells of various identity (postsynaptic neurons, black) based on their rostrocaudal (RC),
+mediolateral (ML) and dorsoventral projection probability, which means (dRC, dML, and dDV) are inferred and estimated from
+literature. C, The effective connectivity matrix is formed first by binomial sampling of the spatial probability matrices which is
+then multiplied by the population gain matrix, where different cell types can be modulated by descending input (colors). Next,
+the weights are adjusted to maintain a row-wise balanced of excitation and inhibition. The matrix row and columns are sorted
+to match the longitudinal location (right). D, Different cell types are located at their preferred transversal locations, and they
+have their preferred projection directions. The longitudinal projections can be collapsed and divided into ipsi- and contralateral
+projections from a given spot (vertical broken lines, right), depending on their cell type (colored distributions). The sum of
+excitation and inhibition for a given set of gains constitutes the effective ipsi- and contralateral projectomes (right).
+15/24
+--- PAGE 16 ---
+
+Fig. S6.| Spatial features of the spinal model A, Left: Table of projection biases on the 3 axis of space (Rostro-Caudal RC,
+Dorso-Ventral DV , medio-lateral ML and Contr-Ispi lateral CI) for each population. Right: Spatial representation of projection
+biases and terminal likelihood distributions. B, Laminar and longitudinal neuron distributions in the model. C, Fractions of
+neurons transmitter types (Excitatory/Inhibitory), celltypes, and spatial locations (left/right, segments and laminae). A star
+indicates where values are intentionally overestimated for technical reasons requiring inclusion of a larger number of
+motoneurons in the model. D, Connectivity matrix and network sparsity. E, Normalized densities of synapses per celltype
+along the rostro-caudal axis. Synaptic densities are non-uniform as a consequence of the projection biases. F, Left: Simulated
+axonal projections emanating from a single segment (L6) in the model. Right: Cleared spinal cord showing viral axonal tracing
+of all neurons infected at the injection site (AA V9 HSyn promoter).
+16/24
+--- PAGE 17 ---
+
+Fig. S7.| Motoneurons and premotor neurons in the model. A, Two sample motoneuron pools, Tibialis Anterior (left,
+blue) and Gastrocnemius Medialis (right, pink), in transverse plane (top) and longitudinal plane (bottom). Premotor
+interneurons are indicated as black dots. Their spatial distributions are shown above and to the right side of each panel. The
+blue lines in the right panel are copies of the premotor distributions of Tibialis Anterior, for direct comparisons. B, Fractions of
+celltypes, laminar and segmental distributions composing the premotor populations of each motor pool.
+17/24
+--- PAGE 18 ---
+
+Fig. S8.| Impact of neurons positions on emergent dynamics A, Procedure to estimate the emergent dynamics and spatial
+activity: From the connectivity matrix (left) the eigenspectrum is computed (2nd panel) to identify the dominant eigenvalues
+(i.e with the largest real value). The associated eigenvector with values of every neuron (eigenvector 1 and 2 sketched in third
+panel). These eigenvectors are mapped onto the spinal network to show spatial activity (Mode 1 and 2). Mode 2, i.e. the second
+most likely to be expressed by the network, has right-left (right panel). B, For networks with projection biases and length as
+established in Fig. 3 and Fig. S6, the linear analysis for normal (i.e. from spatial transcriptomics) interneurons (i.e.
+non-motoneurons) somas distributions predicts a dominant left-right and flexion extension alternation. A second instantiation,
+where somas position are randomized in the whole grey matter is shown in C. Cell type specific spatial projection biases are
+preserved but the resulting cell type to cell type connectivity is altered. Nevertheless, the predicted dominant mode preserve
+their structure along the rostrocaudal axis. D, The linear analysis for normal motoneuron pools distributions (left side) predicts
+left-right and flexion-extension alternation E, For a randomized position of the motoneurons, the predicted dominant mode
+remains unaltered but the muscular output show poor rhythmicity and alternation.
+18/24
+--- PAGE 19 ---
+
+Fig. S9.| Impact of projectome structure on emergent dynamics. A, Unbiased procedure to identify projectome features
+underlying similar emergent dynamics. We randomly generate 500 networks in which we arbitrarily assign rostro-caudal and
+medio-lateral biases (directions) and lengths (means of synaptic distributions, in a [0, 5000um] range) to celltypes . We
+preserved the ipsi-contra biases established from literature. For each network, we predict the spatial structure of the dominant
+mode following the procedure in Fig S8A. We separate the left/right components and collapse the hemimodes along the
+rostro-caudal axis (L and R). We concatenate all rights hemimodes in a matrix. We reduce the dimensionality of this matrix to 2
+dimensions using UMAP. In the 2D space, we identify clusters of network with similar right hemimodes and proceed to a
+subclustering employing the left hemimodes. This leads to subclusters with highly similar dynamical modes in space. B,
+Diversity in spatial structure of collapsed dynamical modes after clustering on the right hemimodes. Two highly different
+clusters are highlighted (blue and pink). C, Left: UMAP representation of the 2 selected clusters of panel B (C1 and C13).
+Middle: Spatial structure and UMAP of the subclusters of C1 and C13. Selected subclusters are highlighted. Right: Mean
+projectomes (ipsilatareral and contraleteral components) and effective dynamical mode in space. D, Sample of 2 networks from
+subcluster C1-1 with similar projectome shape and dynamical mode, but dissimilar celltype projections. E, Example of a
+network without a projectome (i.e. null network, all celltypes project locally). Linear analysis predicts no emergent structured
+dynamics and all cells are synchronized.
+19/24
+--- PAGE 20 ---
+
+Fig. S10.| Impact of cell type position in the transversal plane on descending control. A, Columns illustrate the
+transversal cell distribution and its corresponding population-based connectivity matrix for the nine populations modelled in the
+case of normal (left) and randomized (right) cell positions. Rows illustrate the areal distribution of descending lateral
+paragigantocellularis (LPGI) terminals (top) and global input terminals (bottom). When the transversal cell distribution is
+normal, LPGI fibers synapse onto a large fraction of excitatory and inhibitory classes and external drive from these fibers is
+sufficient to initiate spatiotemporal sequences down the rostrocaudal spinal axis as well as flexor-extensor alternation in soleus
+(Sol) and tibialis anterior (TA) muscles. When neuron positions are randomized, only a small fraction of cell populations
+receive input from LPGI fibers, and descending drive is insufficient to generate sequences or locomotor-like muscle activity.
+When the descending input is global however, all neurons receive external drive and sequences emerge for both normal and
+randomized transversal positions (bottom row).
+20/24
+--- PAGE 21 ---
+
+Fig. S11.| Impact of input and gain modulation on the projectome and emergent dynamics. A, Procedure to
+continuously estimate an effective projectome when varying input parameters. In simulations, we modulate the gain and/or the
+input to the network. This effectively results in changes in firing rates. We apply a centered sliding mean of 500 ms to each
+neurons to estimate the mean firing rate at all times. For one window, this results in a vector of length N (i.e. the number of
+neurons in the network). We multiply the columns of the connectivity matrix with the mean rate vector, elementwise. The
+result is an effective connectivity matrix at a time t. We compute the spectrum and the projectome of this matrix. B, Top: the
+activation function (hyperbolic tangent, see Methods) of the neurons in the model. Middle: Location of the terminals of the
+LPGi fibers and targeted cell types. Bottom: Location of the terminals of the Raphe Obscurus fibers and targeted cell types.
+Radius is 100 percents. Stars indicate a significant differential expression of 5-HT7 receptor. C,
+21/24
+--- PAGE 22 ---
+
+Fig. S12.| Impact of parameters on model stability and emergent dynamics. A, Procedure to assess model stability. We
+enforce our choices of projection length and biases as established in Fig. 3 and Fig. S6. We modulate independently two open
+parameters of the model (synaptic distribution width or network density) and generate several model instantiations for the same
+set of parameters. For each set of parameters, we compute two metrics on the eigenspectrum of network, reflecting the stability
+of the dominant mode. (M, distance of the dominant mode to the stability line and ∆R/R, the variability of the dominant mode
+position. B, Quantification of stability metrics for increasing densities (left). Linearly predicted modes for 3 densities (right).
+While the variability of the dominant mode decreases, its margin to stability increases and the linearly predicted mode is
+preserved. C, Quantifications for increasing projection width (left) and associated modes. There is a optimal width,
+maximizing the margin to stability and minimizing mode variability (highlighted in red). Instantiations of three projection
+widths shown right (100, 900, and 1700 µm, right).
+22/24
+--- PAGE 23 ---
+References
+1. Kathe, C. et al. The neurons that restore walking after paralysis. Nature 611, 540–547, DOI: 10.1038/s41586-022-05385-7
+(2022).
+2. Habart, M., Lio, G., Soumier, A., Demily, C. & Sirigu, A. An optimized iDISCO+ protocol for tissue clearing and
+3D analysis of oxytocin and vasopressin cell network in the developing mouse brain. STAR Protoc. 4, 101968, DOI:
+10.1016/j.xpro.2022.101968 (2023).
+3. Friedmann, D. et al. Mapping mesoscale axonal projections in the mouse brain using a 3D convolutional network. Proc.
+Natl. Acad. Sci. 117, 11068–11075, DOI: 10.1073/pnas.1918465117 (2020).
+4. Allen Mouse Spinal Cord Atlas. https://mousespinal.brain-map.org/.
+5. Hennequin, G., Agnes, E. J. & V ogels, T. P. Inhibitory Plasticity: Balance, Control, and Codependence. Annu. Rev.
+Neurosci. 40, 557–79, DOI: 10.1146/annurev-neuro-072116-031005 (2017).
+6. Berg, R. W., Alaburda, A. & Hounsgaard, J. Balanced inhibition and excitation drive spike activity in spinal half-centers.
+Science 315, DOI: 10.1126/science.1134960 (2007).
+7. Petersen, P. C., Vestergaard, M., Jensen, K. H. R. & Berg, R. W. Premotor Spinal Network with Balanced Excitation
+and Inhibition during Motor Patterns Has High Resilience to Structural Division. J Neurosci 34, 2774–2784, DOI:
+10.1523/JNEUROSCI.3349-13.2014 (2014).
+8. Lindén, H., Petersen, P. C., Vestergaard, M. & Berg, R. W. Movement is governed by rotational neural dynamics in spinal
+motor networks. Nature 610, 526–531, DOI: 10.1038/s41586-022-05293-w (2022).
+9. Rajan, K. & Abbott, L. F. Eigenvalue spectra of random matrices for neural networks. Phys. Rev. Lett. 97, DOI:
+10.1103/PhysRevLett.97.188104 (2006).
+10. Sompolinsky, H., Crisanti, A. & Sommers, H. J. Chaos in Random Neural Networks. Phys. Rev. Lett. 61, 259–262, DOI:
+10.1103/PhysRevLett.61.259 (1988).
+11. Kadmon, J. & Sompolinsky, H. Transition to Chaos in Random Neuronal Networks. Phys. Rev. X 5, 041030, DOI:
+10.1103/PhysRevX.5.041030 (2015).
+12. Wilson, H. R. & Cowan, J. D. A mathematical theory of the functional dynamics of cortical and thalamic nervous tissue.
+Kybernetik 13, 55–80, DOI: 10.1007/BF00288786 (1973).
+13. Amari, S.-i. Dynamics of pattern formation in lateral-inhibition type neural fields. Biol. Cybern. 27, 77–87, DOI:
+10.1007/BF00337259 (1977).
+14. Coombes, S. & Bressloff, P. C. Bursting: The genesis of rhythm in the nervous system (2005).
+15. Ermentrout, G. & Terman, D. Mathematical F oundations of Neuroscience(Springer, 2010).
+16. Bressloff, P. C. Spatiotemporal dynamics of continuum neural fields. J. Phys. A: Math. Theor. 45, 033001, DOI:
+10.1088/1751-8113/45/3/033001 (2012).
+17. Gerstner, W., Kistler, W. M., Naud, R. & Paninski, L. Neuronal Dynamics: From Single Neurons to Networks and Models
+of Cognition (Cambridge University Press, New York, NY , USA, 2014).
+18. Zhang, K. Representation of spatial orientation by the intrinsic dynamics of the head-direction cell ensemble: a theory.
+The J. Neurosci. 16, 2112–2126, DOI: 10.1523/JNEUROSCI.16-06-02112.1996 (1996).
+19. Spreizer, S., Aertsen, A. & Kumar, A. From space to time: Spatial inhomogeneities lead to the emergence of spatiotemporal
+sequences in spiking neuronal networks. PLOS Comput. Biol. 15, e1007432, DOI: 10.1371/journal.pcbi.1007432 (2019).
+20. Russ, D. E. et al. A harmonized atlas of mouse spinal cord cell types and their spatial organization. Nat. Commun. 12,
+DOI: 10.1038/s41467-021-25125-1 (2021).
+21. Cable, D. M. et al. Cell type-specific inference of differential expression in spatial transcriptomics. Nat. Methods 19,
+1076–1087, DOI: 10.1038/s41592-022-01575-3 (2022).
+22. Osseward, P. J. et al. Conserved genetic signatures parcellate cardinal spinal neuron classes into local and projection
+subsets. Science 372, 385–393, DOI: 10.1126/science.abe0690 (2021).
+23. Radosevic, M. et al. Decoupling of timescales reveals sparse convergent CPG network in the adult spinal cord. Nat.
+Commun. 10, 2937, DOI: 10.1038/s41467-019-10822-9 (2019).
+24. Ronzano, R. et al. Spinal premotor interneurons controlling antagonistic muscles are spatially intermingled. eLife 11, DOI:
+10.7554/eLife.81976 (2022).
+23/24
+--- PAGE 24 ---
+25. Tripodi, M., Stepien, A. E. & Arber, S. Motor antagonism exposed by spatial segregation and timing of neurogenesis.
+Nature 479, 61–66, DOI: 10.1038/nature10538 (2011).
+26. Bácskai, T., Rusznák, Z., Paxinos, G. & Watson, C. Musculotopic organization of the motor neurons supplying the mouse
+hindlimb muscles: a quantitative study using Fluoro-Gold retrograde tracing. Brain Struct. Funct. 219, 303–321, DOI:
+10.1007/s00429-012-0501-7 (2014).
+27. McInnes, L., Healy, J., Saul, N. & Großberger, L. UMAP: Uniform Manifold Approximation and Projection. J. Open
+Source Softw. 3, 861, DOI: 10.21105/joss.00861 (2018).
+28. Blondel, V . D., Guillaume, J.-L., Lambiotte, R. & Lefebvre, E. Fast unfolding of communities in large networks.J. Stat.
+Mech. Theory Exp. 2008, P10008, DOI: 10.1088/1742-5468/2008/10/P10008 (2008).
+29. Capelli, P., Pivetta, C., Esposito, M. S. & Arber, S. Locomotor speed control circuits in the caudal brainstem. Nature 551,
+373–377, DOI: 10.1038/nature24064 (2017).
+30. Hayashi, M. et al. Graded Arrays of Spinal and Supraspinal V2a Interneuron Subtypes Underlie Forelimb and Hindlimb
+Motor Control. Neuron 97, 869–884, DOI: 10.1016/j.neuron.2018.01.023 (2018).
+31. Dougherty, K. J. & Kiehn, O. Firing and Cellular Properties of V2a Interneurons in the Rodent Spinal Cord. J. Neurosci.
+30, 24–37, DOI: 10.1523/JNEUROSCI.4821-09.2010 (2010).
+32. Lundfald, L. et al. Phenotype of V2-derived interneurons and their relationship to the axon guidance molecule EphA4 in
+the developing mouse spinal cord. Eur. J. Neurosci. 26, 2989–3002, DOI: 10.1111/j.1460-9568.2007.05906.x (2007).
+33. Saueressig, H., Burrill, J. & Goulding, M. Engrailed-1 and netrin-1 regulate axon pathfinding by association interneurons
+that project to motor neurons. Dev. (Cambridge, England) 126, 4201–4212, DOI: 10477289 (1999).
+34. Worthy, A. E.et al. Spinal V1 inhibitory interneuron clades differ in birthdate, projections to motoneurons, and hetero-
+geneity, DOI: 10.1101/2023.11.29.569270 (2024).
+35. Blacklaws, J. et al. <i> <scp>S</scp> im1 </i> is required for the migration and axonal projections of V3 interneurons in
+the developing mouse spinal cord. Dev. Neurobiol. 75, 1003–1017, DOI: 10.1002/dneu.22266 (2015).
+36. Deska-Gauthier, D. et al. Embryonic temporal-spatial delineation of excitatory spinal V3 interneuron diversity. Cell
+Reports 43, 113635, DOI: 10.1016/j.celrep.2023.113635 (2024).
+37. Griener, A., Zhang, W., Kao, H., Haque, F. & Gosgnach, S. Anatomical and electrophysiological characterization of a
+population of dI6 interneurons in the neonatal mouse spinal cord. Neuroscience 362, 47–59, DOI: 10.1016/j.neuroscience.
+2017.08.031 (2017).
+38. Perry, S. et al. Characterization of Dmrt3-Derived Neurons Suggest a Role within Locomotor Circuits. The J. Neurosci. 39,
+1771–1782, DOI: 10.1523/JNEUROSCI.0326-18.2018 (2019).
+39. Haque, F. et al. <i>WT1</i> -Expressing Interneurons Regulate Left–Right Alternation during Mammalian Locomotor
+Activity. The J. Neurosci. 38, 5666–5676, DOI: 10.1523/JNEUROSCI.0328-18.2018 (2018).
+40. Moran-Rivard, L. et al. Evx1 Is a Postmitotic Determinant of V0 Interneuron Identity in the Spinal Cord. Neuron 29,
+385–399, DOI: 10.1016/S0896-6273(01)00213-6 (2001).
+24/24

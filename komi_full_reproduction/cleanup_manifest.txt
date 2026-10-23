@@ -1,0 +1,7 @@
+﻿Cleanup Manifest
+Date: October 7, 2026
+Removed temporary scratch scripts created during PCA and projectome verification:
+- scripts/scratch_check_pca.m: Diagnostic script testing N.ComputePC dimension compatibility
+- scripts/scratch_pca_comparison.m: Diagnostic script comparing MATLAB pca vs N.ComputePC
+- scripts/test_author_pca.m: Diagnostic script testing Author PCA pipeline parameters
+- scripts/test_projectome.m: Diagnostic script testing projectome accumulator binning

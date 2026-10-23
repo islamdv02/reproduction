@@ -1,0 +1,29 @@
+================================================================================
+AUTHORITATIVE CHECKSUMS (SHA-256)
+Komi et al. (2026) Strict Original-Code Baseline Reproduction
+Timestamp: 2026-10-02 13:31:20
+Environment: MATLAB R2024b (PCWIN64), Python 3.12
+================================================================================
+
+Relative Path                                           | Size (B)     | SHA-256 Checksum                                                
+-----------------------------------------------------------------------------------------------------------------------------------------
+results\baseline_network.mat                            | 423445830    | f7dd555626a35aa1378c00e3c9a9622fafca01c6a0ae74bbceb4014f2340a319
+results\simulated_network.mat                           | 1524789049   | acfe1a4c42e6a410c5edf90305cfe34cdf6dc8bc41f90fb74c49f66bce7855b8
+results\validation_bundle.mat                           | 9019414      | 4e8b0e574c294ddaf1d120acac3e71472f0c0f93abef5c649c481dafeaa42ec9
+results\reproduction_metrics.json                       | 25164        | 7385c2baf4188f1a42dfac06bbcfb007b9f6e13da54dd30adb20f7759d98aa32
+results\panel_validation.json                           | 35905        | 78a316c5414b5c143f0d9dea3fef29d73bb6491fc1f457cc956449c322c66c7a
+results\figure2_metrics.json                            | 427          | e24d7dd4c050deaed798eddacda2f6acca022646aeca60c31f7c63f1f1c6cbb6
+results\figure3_metrics.json                            | 782          | 5bbab4b75a4de088e89f7ed82533033e797a504c8e9b93287fa7f868feccd1c9
+results\figure4_metrics.json                            | 5442         | e2864961fc7419781ab844e4269bae5928ff6a786be918328dc020fb983ebd3c
+results\figure5_metrics.json                            | 1087         | bd62f99364f96c216e90c6dba08d0e9c71b63b6a49ce69617acd120b5c06987e
+results\motoneuron_pools.json                           | 6903         | 0dfe23ea21962f8bad7abe93fbe40867b3d9bf3943ec03715c12fd91bd5c3d91
+results\motoneuron_pools.csv                            | 1585         | c29fcab534f6703a28a8e76ca3a8d2d83b919074837fd04e9be5829c9a6c008a
+figures\main_figures\Figure1.png                        | 1519272      | f0e799115a763ecbaed0b8dbd34aedf7ce6be2e7a2bed19d4ae79161405deff7
+figures\main_figures\Figure2.png                        | 1700356      | a5776175b1a3cfdf529c46187f728997704477febae10933daedaa0627c48ca5
+figures\main_figures\Figure3.png                        | 1047512      | 9e4fa2946f62b254814179426d73a0ac263d26b7e5cbe07db4fe0c8ab43fc611
+figures\main_figures\Figure4.png                        | 1074767      | dab550f294ebbf2852b8cfaa78bc6ba6c9e4db0984e73cac184a5bbbc0bd78c2
+figures\main_figures\Figure5.png                        | 1201475      | 31ad5ddc518fb1dcbbc9605570cf664f02082b9718bbc294d3547762fbb7f49c
+Komi_reproduction_comparison.pdf                        | 14862050     | 1b76811f9b5ac185b175400d67a4cc5fe402df7f1e14794e80e4f1f886474e60
+REPRODUCTION_STATUS.md                                  | 13141        | 3763bd524c15231b47aa4c3598f06bffa5656ab912d03b16014694cafd0ccad7
+PANEL_VALIDATION.md                                     | 50529        | 0a40ff278a036b03d99baf7876ddd4e49161b384851cf16998e2c38f7502922b
+source_integrity_report.txt                             | 20485        | fa47c79a94c5af81056acc59359b5bdd084f3636b29beb4cc434dfeb32386998

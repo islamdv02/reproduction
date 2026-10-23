@@ -1,0 +1,335 @@
+{
+  "timestamp": "14-Oct-2026 13:26:04",
+  "matlab_version": "24.2.0.2670998 (R2024b) Prerelease Update 3",
+  "toolbox_verification": {
+    "pca": "C:\\Program Files\\MATLAB\\R2024b\\toolbox\\stats\\stats\\pca.m",
+    "binornd": "C:\\Program Files\\MATLAB\\R2024b\\toolbox\\stats\\stats\\binornd.m",
+    "normrnd": "C:\\Program Files\\MATLAB\\R2024b\\toolbox\\stats\\stats\\normrnd.m",
+    "normcdf": "C:\\Program Files\\MATLAB\\R2024b\\toolbox\\stats\\stats\\normcdf.m",
+    "findpeaks": "C:\\Program Files\\MATLAB\\R2024b\\toolbox\\signal\\signal\\findpeaks.m"
+  },
+  "network_equality": {
+    "isequal_connmat": true,
+    "isequal_position": true,
+    "isequal_types": true,
+    "isequal_latera": true,
+    "isequal_segment": true,
+    "isequal_mnid": true,
+    "isequal_transmit": true,
+    "all_identical": true
+  },
+  "total_neurons": 4934,
+  "total_motoneurons": 1795,
+  "total_pools": 18,
+  "timeline_statement": {
+    "display_interval_ms": [
+      2000,
+      9000
+    ],
+    "display_duration_ms": 7001,
+    "expected_cycles_in_display": 9.486355,
+    "exact_detected_steady_state_cycles": 26,
+    "full_analysis_interval_ms": [
+      2000,
+      22000
+    ]
+  },
+  "activity_threshold_definition": "15% of maximum total binned MN activity",
+  "classification_rules": {
+    "continuous_dominant": "neighboring >= 0.70 AND circular_linear_R2 >= 0.50 AND median_jump <= 1.5*bin_width",
+    "jump_dominant": "skipped >= 0.60 OR median_jump > 2.0*bin_width",
+    "mixed": "intermediate neighboring/skipped proportions or multi-pool activation",
+    "inconclusive": "n_cycles < 5 OR transition_count == 0 (insufficient data)"
+  },
+  "right": {
+    "neuron_count": 903,
+    "n_cycles": 26,
+    "locomotor_freq_hz": 1.3552254365389629,
+    "cycle_period_ms": 737.88461538461536,
+    "bin_width_um": 276.65095882722045,
+    "actual_transition_event_count": 356,
+    "stationary_dwell_fraction": 0.98008861089392751,
+    "neighboring_transition_fraction": 0.43820224719101125,
+    "skipped_transition_fraction": 0.5617977528089888,
+    "forward_transition_fraction": 0.8539325842696629,
+    "backward_transition_fraction": 0.14606741573033707,
+    "within_cycle_jump_median_um": 553.3019176544409,
+    "within_cycle_jump_iqr_um": 276.65095882722045,
+    "within_cycle_jump_p95_um": 7746.2268471621728,
+    "within_cycle_jump_max_um": 7746.2268471621728,
+    "intercycle_reset_distance_um": 3319.8115059266438,
+    "pool_transition_count": 130,
+    "pool_adjacent_fraction": 0.2,
+    "pool_skipped_fraction": 0.8,
+    "pool_jump_median_um": 1074.5068429664225,
+    "pool_jump_iqr_um": 634.59970086811882,
+    "circular_linear_R2": 0.049886570900298743,
+    "circular_linear_permutation_p": 0.338,
+    "adjacent_bin_phase_consistency": 0,
+    "local_phase_slope": -0.00093191999717491731,
+    "wave_classification": "MIXED"
+  },
+  "left": {
+    "neuron_count": 892,
+    "n_cycles": 26,
+    "locomotor_freq_hz": 1.3552254365389629,
+    "cycle_period_ms": 737.88461538461536,
+    "bin_width_um": 277.09667719802235,
+    "actual_transition_event_count": 312,
+    "stationary_dwell_fraction": 0.9823820693249935,
+    "neighboring_transition_fraction": 0.083333333333333329,
+    "skipped_transition_fraction": 0.91666666666666663,
+    "forward_transition_fraction": 0.83333333333333337,
+    "backward_transition_fraction": 0.16666666666666666,
+    "within_cycle_jump_median_um": 554.1933543960447,
+    "within_cycle_jump_iqr_um": 2770.9667719802237,
+    "within_cycle_jump_p95_um": 7481.6102843466033,
+    "within_cycle_jump_max_um": 7481.6102843466033,
+    "intercycle_reset_distance_um": 3325.1601263762677,
+    "pool_transition_count": 156,
+    "pool_adjacent_fraction": 0.16666666666666666,
+    "pool_skipped_fraction": 0.83333333333333337,
+    "pool_jump_median_um": 1074.9787500691941,
+    "pool_jump_iqr_um": 1134.6736588854255,
+    "circular_linear_R2": 0.034429962700184766,
+    "circular_linear_permutation_p": 0.425,
+    "adjacent_bin_phase_consistency": 0,
+    "local_phase_slope": -0.00092018219058255058,
+    "wave_classification": "MIXED"
+  },
+  "synthetic_controls": {
+    "control_1": {
+      "name": "Smooth Wave",
+      "transition_count": 1323,
+      "dwell_fraction": 0.931636801686493,
+      "neighboring_fraction": 1,
+      "skipped_fraction": 0,
+      "median_jump_um": 285.71428571428572,
+      "median_jump_bins": 1,
+      "circular_linear_R2": 0.70893427226668371,
+      "circular_linear_p": 0,
+      "classification": "CONTINUOUS-DOMINANT"
+    },
+    "control_2": {
+      "name": "Two-Region Switching",
+      "transition_count": 27,
+      "dwell_fraction": 0.99668724589670232,
+      "neighboring_fraction": 0,
+      "skipped_fraction": 1,
+      "median_jump_um": 8571.4285714285725,
+      "median_jump_bins": 30.000000000000004,
+      "circular_linear_R2": 0,
+      "circular_linear_p": 0.088,
+      "classification": "JUMP-DOMINANT"
+    },
+    "control_3": {
+      "name": "Stationary with Noise",
+      "transition_count": 6164,
+      "dwell_fraction": 0.68925362646187827,
+      "neighboring_fraction": 0.83095392602206364,
+      "skipped_fraction": 0.16904607397793642,
+      "median_jump_um": 285.71428571428572,
+      "median_jump_bins": 1,
+      "circular_linear_R2": 0.035351527085710405,
+      "circular_linear_p": 0.432,
+      "classification": "INCONCLUSIVE"
+    },
+    "control_4": {
+      "name": "Multi-Pool Shifting Peak",
+      "transition_count": 81,
+      "dwell_fraction": 0.99457912964914919,
+      "neighboring_fraction": 0,
+      "skipped_fraction": 1,
+      "median_jump_um": 2857.1428571428573,
+      "median_jump_bins": 10,
+      "circular_linear_R2": 0.91182321171267255,
+      "circular_linear_p": 0,
+      "classification": "JUMP-DOMINANT"
+    }
+  },
+  "threshold_sensitivity": {
+    "thresh_10_pct": {
+      "right": {
+        "threshold_pct": 10,
+        "actual_transition_event_count": 356,
+        "neighboring_transition_fraction": 0.43820224719101125,
+        "skipped_transition_fraction": 0.5617977528089888,
+        "within_cycle_jump_median_um": 553.3019176544409,
+        "pool_adjacent_fraction": 0.2,
+        "pool_skipped_fraction": 0.8,
+        "pool_jump_median_um": 1074.5068429664225,
+        "circular_linear_R2": 0.049886570900298743,
+        "wave_classification": "MIXED"
+      },
+      "left": {
+        "threshold_pct": 10,
+        "actual_transition_event_count": 312,
+        "neighboring_transition_fraction": 0.083333333333333329,
+        "skipped_transition_fraction": 0.91666666666666663,
+        "within_cycle_jump_median_um": 554.1933543960447,
+        "pool_adjacent_fraction": 0.16666666666666666,
+        "pool_skipped_fraction": 0.83333333333333337,
+        "pool_jump_median_um": 1074.9787500691941,
+        "circular_linear_R2": 0.034429962700184766,
+        "wave_classification": "MIXED"
+      }
+    },
+    "thresh_15_pct": {
+      "right": {
+        "threshold_pct": 15,
+        "actual_transition_event_count": 356,
+        "neighboring_transition_fraction": 0.43820224719101125,
+        "skipped_transition_fraction": 0.5617977528089888,
+        "within_cycle_jump_median_um": 553.3019176544409,
+        "pool_adjacent_fraction": 0.2,
+        "pool_skipped_fraction": 0.8,
+        "pool_jump_median_um": 1074.5068429664225,
+        "circular_linear_R2": 0.049886570900298743,
+        "wave_classification": "MIXED"
+      },
+      "left": {
+        "threshold_pct": 15,
+        "actual_transition_event_count": 312,
+        "neighboring_transition_fraction": 0.083333333333333329,
+        "skipped_transition_fraction": 0.91666666666666663,
+        "within_cycle_jump_median_um": 554.1933543960447,
+        "pool_adjacent_fraction": 0.16666666666666666,
+        "pool_skipped_fraction": 0.83333333333333337,
+        "pool_jump_median_um": 1074.9787500691941,
+        "circular_linear_R2": 0.034429962700184766,
+        "wave_classification": "MIXED"
+      }
+    },
+    "thresh_20_pct": {
+      "right": {
+        "threshold_pct": 20,
+        "actual_transition_event_count": 356,
+        "neighboring_transition_fraction": 0.43820224719101125,
+        "skipped_transition_fraction": 0.5617977528089888,
+        "within_cycle_jump_median_um": 553.3019176544409,
+        "pool_adjacent_fraction": 0.2,
+        "pool_skipped_fraction": 0.8,
+        "pool_jump_median_um": 1074.5068429664225,
+        "circular_linear_R2": 0.049886570900298743,
+        "wave_classification": "MIXED"
+      },
+      "left": {
+        "threshold_pct": 20,
+        "actual_transition_event_count": 312,
+        "neighboring_transition_fraction": 0.083333333333333329,
+        "skipped_transition_fraction": 0.91666666666666663,
+        "within_cycle_jump_median_um": 554.1933543960447,
+        "pool_adjacent_fraction": 0.16666666666666666,
+        "pool_skipped_fraction": 0.83333333333333337,
+        "pool_jump_median_um": 1074.9787500691941,
+        "circular_linear_R2": 0.034429962700184766,
+        "wave_classification": "MIXED"
+      }
+    }
+  },
+  "bin_resolution_sensitivity": {
+    "bins_40": {
+      "right": {
+        "n_bins": 40,
+        "bin_width_um": 345.81369853402555,
+        "actual_transition_event_count": 364,
+        "stationary_dwell_fraction": 0.97967161845191553,
+        "neighboring_transition_fraction": 0.6428571428571429,
+        "skipped_transition_fraction": 0.35714285714285715,
+        "within_cycle_jump_median_um": 345.81369853402555,
+        "within_cycle_jump_iqr_um": 345.81369853402555,
+        "intercycle_reset_distance_um": 2766.5095882722035,
+        "circular_linear_R2": 0.060933519978900987,
+        "circular_linear_permutation_p": 0.324,
+        "adjacent_bin_phase_consistency": 0,
+        "local_phase_slope": -0.00093292289020540048,
+        "wave_classification": "MIXED"
+      },
+      "left": {
+        "n_bins": 40,
+        "bin_width_um": 346.37084649752796,
+        "actual_transition_event_count": 364,
+        "stationary_dwell_fraction": 0.97967161845191553,
+        "neighboring_transition_fraction": 0.5714285714285714,
+        "skipped_transition_fraction": 0.42857142857142855,
+        "within_cycle_jump_median_um": 346.37084649752796,
+        "within_cycle_jump_iqr_um": 692.74169299505593,
+        "intercycle_reset_distance_um": 3463.7084649752796,
+        "circular_linear_R2": 0.045455719785950088,
+        "circular_linear_permutation_p": 0.401,
+        "adjacent_bin_phase_consistency": 0,
+        "local_phase_slope": -0.000922764994002921,
+        "wave_classification": "MIXED"
+      }
+    },
+    "bins_50": {
+      "right": {
+        "n_bins": 50,
+        "bin_width_um": 276.65095882722045,
+        "actual_transition_event_count": 356,
+        "stationary_dwell_fraction": 0.98008861089392751,
+        "neighboring_transition_fraction": 0.43820224719101125,
+        "skipped_transition_fraction": 0.5617977528089888,
+        "within_cycle_jump_median_um": 553.3019176544409,
+        "within_cycle_jump_iqr_um": 276.65095882722045,
+        "intercycle_reset_distance_um": 3319.8115059266438,
+        "circular_linear_R2": 0.049886570900298743,
+        "circular_linear_permutation_p": 0.351,
+        "adjacent_bin_phase_consistency": 0,
+        "local_phase_slope": -0.00093191999717491731,
+        "wave_classification": "MIXED"
+      },
+      "left": {
+        "n_bins": 50,
+        "bin_width_um": 277.09667719802235,
+        "actual_transition_event_count": 312,
+        "stationary_dwell_fraction": 0.9823820693249935,
+        "neighboring_transition_fraction": 0.083333333333333329,
+        "skipped_transition_fraction": 0.91666666666666663,
+        "within_cycle_jump_median_um": 554.1933543960447,
+        "within_cycle_jump_iqr_um": 2770.9667719802237,
+        "intercycle_reset_distance_um": 3325.1601263762677,
+        "circular_linear_R2": 0.034429962700184766,
+        "circular_linear_permutation_p": 0.46,
+        "adjacent_bin_phase_consistency": 0,
+        "local_phase_slope": -0.00092018219058255058,
+        "wave_classification": "MIXED"
+      }
+    },
+    "bins_60": {
+      "right": {
+        "n_bins": 60,
+        "bin_width_um": 230.54246568935034,
+        "actual_transition_event_count": 364,
+        "stationary_dwell_fraction": 0.97967161845191553,
+        "neighboring_transition_fraction": 0.35714285714285715,
+        "skipped_transition_fraction": 0.6428571428571429,
+        "within_cycle_jump_median_um": 461.08493137870067,
+        "within_cycle_jump_iqr_um": 691.627397068051,
+        "intercycle_reset_distance_um": 2766.5095882722035,
+        "circular_linear_R2": 0.048677709401457395,
+        "circular_linear_permutation_p": 0.279,
+        "adjacent_bin_phase_consistency": 0.035714285714285712,
+        "local_phase_slope": -0.00093137873310469659,
+        "wave_classification": "MIXED"
+      },
+      "left": {
+        "n_bins": 60,
+        "bin_width_um": 230.91389766501865,
+        "actual_transition_event_count": 390,
+        "stationary_dwell_fraction": 0.97831639301537665,
+        "neighboring_transition_fraction": 0.33333333333333331,
+        "skipped_transition_fraction": 0.66666666666666663,
+        "within_cycle_jump_median_um": 461.8277953300373,
+        "within_cycle_jump_iqr_um": 461.82779533003725,
+        "intercycle_reset_distance_um": 3001.880669645243,
+        "circular_linear_R2": 0.034499208299863804,
+        "circular_linear_permutation_p": 0.347,
+        "adjacent_bin_phase_consistency": 0.017241379310344827,
+        "local_phase_slope": -0.00092425342644174248,
+        "wave_classification": "MIXED"
+      }
+    }
+  },
+  "left_right_discrepancy_explanation": "Physical median jump distances are virtually identical (Right: 553.3 um, Left: 554.2 um for bin-level; Right: 1074.5 um, Left: 1075.0 um for pool-level). The apparent difference in 50-bin transition percentages (56% vs 91%) is an artifact of 277 um spatial grid binning relative to 550 um motor pool soma cluster intervals."
+}

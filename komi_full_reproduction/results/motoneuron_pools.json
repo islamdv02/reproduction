@@ -1,0 +1,331 @@
+[
+  {
+    "pool_name": "Thoracic Abdominal",
+    "neuron_count_total": 24,
+    "neuron_count_left": 10,
+    "neuron_count_right": 14,
+    "segments": [
+      "T13"
+    ],
+    "segment_string": "T13",
+    "rc_min_um": 68.5,
+    "rc_max_um": 1303,
+    "rc_mean_um": 541.2,
+    "rc_span_um": 1234.5,
+    "ml_mean_um": 128.6,
+    "dv_mean_um": -1159.2
+  },
+  {
+    "pool_name": "Quadratus Lumburum",
+    "neuron_count_total": 17,
+    "neuron_count_left": 6,
+    "neuron_count_right": 11,
+    "segments": [
+      "L1"
+    ],
+    "segment_string": "L1",
+    "rc_min_um": 1319.9,
+    "rc_max_um": 2455.3,
+    "rc_mean_um": 1784.9,
+    "rc_span_um": 1135.4,
+    "ml_mean_um": 250,
+    "dv_mean_um": -1168.7
+  },
+  {
+    "pool_name": "Vastus Lateralis",
+    "neuron_count_total": 97,
+    "neuron_count_left": 50,
+    "neuron_count_right": 47,
+    "segments": [
+      "L1",
+      "L2",
+      "T13"
+    ],
+    "segment_string": "L1, L2, T13",
+    "rc_min_um": 91.3,
+    "rc_max_um": 3974.2,
+    "rc_mean_um": 2151.6,
+    "rc_span_um": 3882.9,
+    "ml_mean_um": -14,
+    "dv_mean_um": -1150.3
+  },
+  {
+    "pool_name": "Vastus Medialis",
+    "neuron_count_total": 103,
+    "neuron_count_left": 55,
+    "neuron_count_right": 48,
+    "segments": [
+      "L1",
+      "L2",
+      "L3"
+    ],
+    "segment_string": "L1, L2, L3",
+    "rc_min_um": 1337.6,
+    "rc_max_um": 5498.5,
+    "rc_mean_um": 3125.5,
+    "rc_span_um": 4160.9,
+    "ml_mean_um": -52.8,
+    "dv_mean_um": -1152.6
+  },
+  {
+    "pool_name": "Iliopsoas",
+    "neuron_count_total": 94,
+    "neuron_count_left": 40,
+    "neuron_count_right": 54,
+    "segments": [
+      "L2",
+      "L3",
+      "L4"
+    ],
+    "segment_string": "L2, L3, L4",
+    "rc_min_um": 2572.2,
+    "rc_max_um": 6714,
+    "rc_mean_um": 4330.7,
+    "rc_span_um": 4141.8,
+    "ml_mean_um": 113.7,
+    "dv_mean_um": -1146.1
+  },
+  {
+    "pool_name": "Tibialis Anterior",
+    "neuron_count_total": 78,
+    "neuron_count_left": 36,
+    "neuron_count_right": 42,
+    "segments": [
+      "L2",
+      "L3",
+      "L4"
+    ],
+    "segment_string": "L2, L3, L4",
+    "rc_min_um": 2771.8,
+    "rc_max_um": 6733.3,
+    "rc_mean_um": 4548.7,
+    "rc_span_um": 3961.6,
+    "ml_mean_um": 52.9,
+    "dv_mean_um": -1138.9
+  },
+  {
+    "pool_name": "Gracilis",
+    "neuron_count_total": 120,
+    "neuron_count_left": 56,
+    "neuron_count_right": 64,
+    "segments": [
+      "L1",
+      "L2",
+      "L3",
+      "L4",
+      "L5"
+    ],
+    "segment_string": "L1, L2, L3, L4, L5",
+    "rc_min_um": 1390.1,
+    "rc_max_um": 7943.6,
+    "rc_mean_um": 4593.7,
+    "rc_span_um": 6553.4,
+    "ml_mean_um": 47.5,
+    "dv_mean_um": -1137.4
+  },
+  {
+    "pool_name": "Rectus Femoris",
+    "neuron_count_total": 93,
+    "neuron_count_left": 46,
+    "neuron_count_right": 47,
+    "segments": [
+      "L2",
+      "L3",
+      "L4"
+    ],
+    "segment_string": "L2, L3, L4",
+    "rc_min_um": 2540.8,
+    "rc_max_um": 6753.3,
+    "rc_mean_um": 4713.3,
+    "rc_span_um": 4212.5,
+    "ml_mean_um": 20.8,
+    "dv_mean_um": -1134.9
+  },
+  {
+    "pool_name": "Axial",
+    "neuron_count_total": 330,
+    "neuron_count_left": 192,
+    "neuron_count_right": 138,
+    "segments": [
+      "L1",
+      "L2",
+      "L3",
+      "L4",
+      "L5",
+      "T13"
+    ],
+    "segment_string": "L1, L2, L3, L4, L5, T13",
+    "rc_min_um": 83,
+    "rc_max_um": 8001.1,
+    "rc_mean_um": 4905,
+    "rc_span_um": 7918.1,
+    "ml_mean_um": -56.2,
+    "dv_mean_um": -1150.5
+  },
+  {
+    "pool_name": "Adductors",
+    "neuron_count_total": 127,
+    "neuron_count_left": 65,
+    "neuron_count_right": 62,
+    "segments": [
+      "L2",
+      "L3",
+      "L4",
+      "L5"
+    ],
+    "segment_string": "L2, L3, L4, L5",
+    "rc_min_um": 2782.2,
+    "rc_max_um": 7979.3,
+    "rc_mean_um": 5385.7,
+    "rc_span_um": 5197.1,
+    "ml_mean_um": -24.7,
+    "dv_mean_um": -1162.9
+  },
+  {
+    "pool_name": "Gastrocnemius",
+    "neuron_count_total": 76,
+    "neuron_count_left": 34,
+    "neuron_count_right": 42,
+    "segments": [
+      "L3",
+      "L4",
+      "L5"
+    ],
+    "segment_string": "L3, L4, L5",
+    "rc_min_um": 4467.8,
+    "rc_max_um": 7874,
+    "rc_mean_um": 6074.9,
+    "rc_span_um": 3406.2,
+    "ml_mean_um": 88.2,
+    "dv_mean_um": -1169.1
+  },
+  {
+    "pool_name": "Gluteus",
+    "neuron_count_total": 123,
+    "neuron_count_left": 63,
+    "neuron_count_right": 60,
+    "segments": [
+      "L3",
+      "L4",
+      "L5",
+      "L6"
+    ],
+    "segment_string": "L3, L4, L5, L6",
+    "rc_min_um": 4030,
+    "rc_max_um": 9348,
+    "rc_mean_um": 6816,
+    "rc_span_um": 5318,
+    "ml_mean_um": -5.2,
+    "dv_mean_um": -1145.8
+  },
+  {
+    "pool_name": "Biceps Femoris",
+    "neuron_count_total": 107,
+    "neuron_count_left": 43,
+    "neuron_count_right": 64,
+    "segments": [
+      "L3",
+      "L4",
+      "L5",
+      "L6"
+    ],
+    "segment_string": "L3, L4, L5, L6",
+    "rc_min_um": 4060.5,
+    "rc_max_um": 9393.9,
+    "rc_mean_um": 6966.4,
+    "rc_span_um": 5333.4,
+    "ml_mean_um": 146.5,
+    "dv_mean_um": -1147.7
+  },
+  {
+    "pool_name": "Plantar Flexor",
+    "neuron_count_total": 53,
+    "neuron_count_left": 20,
+    "neuron_count_right": 33,
+    "segments": [
+      "L4",
+      "L5",
+      "L6"
+    ],
+    "segment_string": "L4, L5, L6",
+    "rc_min_um": 5910.4,
+    "rc_max_um": 9312.1,
+    "rc_mean_um": 7592.1,
+    "rc_span_um": 3401.8,
+    "ml_mean_um": 199.2,
+    "dv_mean_um": -1156.5
+  },
+  {
+    "pool_name": "Soleus",
+    "neuron_count_total": 127,
+    "neuron_count_left": 67,
+    "neuron_count_right": 60,
+    "segments": [
+      "L4",
+      "L5",
+      "L6"
+    ],
+    "segment_string": "L4, L5, L6",
+    "rc_min_um": 5514,
+    "rc_max_um": 9385.2,
+    "rc_mean_um": 7878.3,
+    "rc_span_um": 3871.2,
+    "ml_mean_um": -36.9,
+    "dv_mean_um": -1152.7
+  },
+  {
+    "pool_name": "Semitendinosus",
+    "neuron_count_total": 103,
+    "neuron_count_left": 47,
+    "neuron_count_right": 56,
+    "segments": [
+      "L4",
+      "L5",
+      "L6",
+      "S1"
+    ],
+    "segment_string": "L4, L5, L6, S1",
+    "rc_min_um": 5600.6,
+    "rc_max_um": 10672,
+    "rc_mean_um": 8145.5,
+    "rc_span_um": 5071.4,
+    "ml_mean_um": 81.2,
+    "dv_mean_um": -1148.4
+  },
+  {
+    "pool_name": "Extensor Digitorum",
+    "neuron_count_total": 65,
+    "neuron_count_left": 34,
+    "neuron_count_right": 31,
+    "segments": [
+      "L5",
+      "L6"
+    ],
+    "segment_string": "L5, L6",
+    "rc_min_um": 6902.5,
+    "rc_max_um": 9379.1,
+    "rc_mean_um": 8666.6,
+    "rc_span_um": 2476.6,
+    "ml_mean_um": -28.6,
+    "dv_mean_um": -1134.3
+  },
+  {
+    "pool_name": "Tail",
+    "neuron_count_total": 58,
+    "neuron_count_left": 28,
+    "neuron_count_right": 30,
+    "segments": [
+      "S1",
+      "S2",
+      "S3",
+      "S4"
+    ],
+    "segment_string": "S1, S2, S3, S4",
+    "rc_min_um": 9426.6,
+    "rc_max_um": 13927.4,
+    "rc_mean_um": 11851.7,
+    "rc_span_um": 4500.8,
+    "ml_mean_um": 24.4,
+    "dv_mean_um": -1125.8
+  }
+]

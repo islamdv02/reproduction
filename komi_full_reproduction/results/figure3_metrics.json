@@ -1,0 +1,21 @@
+{
+  "figure": 3,
+  "status": "MATCHED REPRODUCTION",
+  "fig3e_provenance": "METHODS-BASED ANATOMICAL-BIN RECONSTRUCTION",
+  "dominant_eigenvalues": [
+    2.0193917466819857,
+    2.0193917466819857,
+    1.6929551846698412,
+    1.6929551846698412
+  ],
+  "locomotor_frequency_hz": 1.3475071118430904,
+  "cycle_period_ms": 742.11111111111109,
+  "n_cycles": 10,
+  "mean_phase_iL2_cL2_rad": 2.6754572561189911,
+  "mean_phase_iL2_iL5_rad": 3.308855759258039,
+  "mean_phase_iL2_cL2_deg": 153.29240904326994,
+  "mean_phase_iL2_iL5_deg": 189.5834700230412,
+  "rhythmic_neuron_count": 4934,
+  "pca_variance_explained_pc1": 19.507071581020959,
+  "pca_variance_explained_pc3": 1.316707527167198
+}
